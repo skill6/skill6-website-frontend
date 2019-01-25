@@ -1,0 +1,39 @@
+<template>
+  <section class="info-flow-center">
+    <template v-for="index in 10">
+      <single-info></single-info>
+    </template>
+  </section>
+</template>
+
+<script>
+  import SingleInfo from './center/SingleInfo'
+
+  export default {
+    name: "InfoCenter",
+    components: {
+      SingleInfo
+    }
+  }
+</script>
+
+<style scoped>
+  .info-flow-center {
+    margin-left: 30px;
+    margin-right: 30px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 524px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -webkit-flex-grow: 1;
+    background-color: blue;
+    z-index: 1;
+  }
+</style>
