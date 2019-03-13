@@ -3,11 +3,10 @@
 </template>
 
 <script>
-    export default {
-        name: "InfoRight"
-    }
+export default {
+  name: 'InfoRight'
+}
 </script>
 
 <style scoped>
-
 </style>
