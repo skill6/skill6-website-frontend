@@ -1,22 +1,23 @@
 <template>
-  <div class="info-main">
-    <info-left></info-left>
-    <info-center></info-center>
-    <info-right></info-right>
-  </div>
+  <skill6-carousel></skill6-carousel>
 </template>
 
 <script>
-import InfoLeft from './home/InfoLeft'
-import InfoCenter from './home/InfoCenter'
-import InfoRight from './home/InfoRight'
+import $ from 'jquery'
+import Carousel from './home/Carousel'
 
 export default {
-  name: 'InfoPreview',
+  name: 'HomePreview',
   components: {
-    InfoLeft,
-    InfoCenter,
-    InfoRight
+    'skill6-carousel': Carousel
+  },
+  mounted: function () {
+    // 轮播立体效果
+    $('#carousel').carousel({
+      curDisplay: 1,
+      autoPlay: false,
+      interval: 1500
+    })
   }
 }
 </script>
@@ -43,8 +44,7 @@ export default {
 .info-flow-side {
   position: relative;
   display: block;
-  width: 25%;
+  width: 15%;
   background-color: crimson;
-  z-index: 0;
 }
 </style>

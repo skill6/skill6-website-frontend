@@ -1,5 +1,5 @@
 <template>
-  <section class="info-flow-side">左边</section>
+  <div class="info-flow-side">左边</div>
 </template>
 
 <script>

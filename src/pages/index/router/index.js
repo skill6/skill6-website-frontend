@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import InfoPreview from '@/components/InfoPreview'
+import HomePreview from '@/components/HomePreview'
 import ArticlePreview from '@/components/article/ArticlePreview'
 import CodePreview from '@/components/code/CodePreview'
 import CoursePreview from '@/components/course/CoursePreview'
@@ -13,7 +13,7 @@ Vue.use(Router)
 
 const routes = [{
   path: '/',
-  component: InfoPreview
+  component: HomePreview
 },
 {
   path: '/article',

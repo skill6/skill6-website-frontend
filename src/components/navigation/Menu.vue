@@ -31,7 +31,7 @@
 
       <ul class="navbar-nav ml-auto">
         <li>
-          <a class="nav-link">登录</a>
+          <a href="/login.html" class="nav-link">登录</a>
         </li>
         <li>
           <a href="/signup" class="nav-link">注册</a>
