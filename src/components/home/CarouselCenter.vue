@@ -2,13 +2,13 @@
   <div id="banner">
     <div id="carousel">
       <section class="carousel-section">
-        <info-left></info-left>
+        <latest-reply></latest-reply>
       </section>
       <section class="carousel-section">
         <info-center></info-center>
       </section>
       <section class="carousel-section">
-        <info-right></info-right>
+        <most-browse></most-browse>
       </section>
     </div>
   </div>
@@ -17,9 +17,9 @@
 <script>
 import $ from 'jquery'
 
-import InfoLeft from './section/InfoLeft'
-import InfoCenter from './section/InfoCenter'
-import InfoRight from './section/InfoRight'
+import InfoCenter from './center/LatestUpdate'
+import LatestReply from './center/LatestReply'
+import MostBrowse from './center/MostBrowse'
 
 (function ($, window, document) {
   var Carousel = function (elem, options) {
@@ -54,13 +54,6 @@ import InfoRight from './section/InfoRight'
     this.$carousel.parent().append('<div id=bannerNav>' + htmlNav + '</div>')
     this.$aNav = this.$carousel.siblings('#bannerNav').find('ul li')
   }
-
-  var outerWidth = parseInt(document.body.offsetWidth)
-  var middleWidth = 1920
-  // 中间的高度
-  var _height = outerWidth >= middleWidth ? 380 : 300
-  // 两边的高度和宽度
-  var _slideHeight = outerWidth >= middleWidth ? 330 : 260
 
   Carousel.prototype = {
     play: function () {
@@ -98,11 +91,11 @@ import InfoRight from './section/InfoRight'
         if (k === 0) {
           this.$aImg.eq(leftNum).css({
             transform: 'translateX(' + (-330 * (i + 1)) + 'px) translateZ(-120px)',
-            width: '15%'
+            width: '15%' // 左边宽度
           }).animate({
             height: 'auto',
-            marginTop: -_slideHeight / 2 + 'px',
-            opacity: '0.7'
+            marginTop: '-220px',
+            opacity: '0.0' // 左边透明度
           }, 500)
           this.$aImg.eq(leftNum).attr('onclick', null)
 
@@ -110,11 +103,11 @@ import InfoRight from './section/InfoRight'
           if (rightNum > this.imgLen - 1) rightNum -= this.imgLen
           this.$aImg.eq(rightNum).css({
             transform: 'translateX(' + (980 * (i + 1)) + 'px) translateZ(-120px) ',
-            width: '15%'
+            width: '15%' // 右边宽度
           }).animate({
             height: 'auto',
-            marginTop: -_slideHeight / 2 + 'px',
-            opacity: '0.7'
+            marginTop: '-220px',
+            opacity: '0.0' // 右边透明度
           }, 500)
           this.$aImg.eq(rightNum).attr('onclick', null)
           k++
@@ -139,10 +132,10 @@ import InfoRight from './section/InfoRight'
       this.$aImg.eq(this.curDisplay).css({
         transform: 'translateZ(0px)',
         zIndex: 99999,
-        width: '60%'
+        width: '100%' // 中间宽度
       }).animate({
         height: 'auto',
-        marginTop: -_height / 2 + 'px',
+        marginTop: '-220px',
         opacity: '1'
       }, 500).addClass('on').attr('onclick', _href)
       this.$aNav.eq(this.curDisplay).addClass('on')
@@ -221,9 +214,9 @@ import InfoRight from './section/InfoRight'
 export default {
   name: 'Carousel',
   components: {
-    InfoLeft,
+    LatestReply,
     InfoCenter,
-    InfoRight
+    MostBrowse
   }
 }
 </script>
@@ -259,7 +252,7 @@ export default {
 
 #bannerNav {
   position: relative;
-  margin-top: 20px;
+  margin-top: -460px;
   height: 10px;
   padding: 10px 0;
   text-align: center;

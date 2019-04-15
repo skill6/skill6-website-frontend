@@ -1,15 +1,24 @@
 <template>
-  <skill6-carousel></skill6-carousel>
+  <div class="info-main">
+    <info-left></info-left>
+    <info-center></info-center>
+    <info-right></info-right>
+  </div>
 </template>
 
 <script>
 import $ from 'jquery'
-import Carousel from './home/Carousel'
+
+import InfoLeft from './home/InfoLeft'
+import InfoRight from './home/InfoRight'
+import InfoCenter from './home/InfoCenter'
 
 export default {
   name: 'HomePreview',
   components: {
-    'skill6-carousel': Carousel
+    InfoLeft,
+    InfoRight,
+    InfoCenter
   },
   mounted: function () {
     // 轮播立体效果
@@ -33,7 +42,7 @@ export default {
   background-color: #fff;
   padding-top: 40px;
   padding-bottom: 40px;
-  padding-left: 30px;
+  padding-left: 40px;
   padding-right: 30px;
   width: 100%;
   -webkit-box-orient: horizontal;

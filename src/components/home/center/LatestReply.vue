@@ -1,19 +1,20 @@
 <template>
   <div class="info-flow-center">
+    <h1>最新回复</h1>
     <div v-for="index in 10" :key="index">
       {{index}}
-      <single-info></single-info>
+      <single-reply></single-reply>
     </div>
   </div>
 </template>
 
 <script>
-import SingleInfo from '../center/SingleInfo'
+import SingleReply from './single/SingleReply'
 
 export default {
-  name: 'InfoCenter',
+  name: 'LatestReply',
   components: {
-    SingleInfo
+    SingleReply
   }
 }
 </script>

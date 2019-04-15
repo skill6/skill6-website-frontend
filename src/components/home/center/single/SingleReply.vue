@@ -3,7 +3,7 @@
     <div class="article-actual">
       <header class="article-header">
         <a href class="author-picture-show">
-          <img src="../../../assets/logo/logo.jpg" alt="这是头像" class="author-picture">
+          <img src="../../../../assets/logo/logo.jpg" alt="这是头像" class="author-picture">
         </a>
         <div>
           <a class="author-title">这是标题</a>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'SingleInfo'
+  name: 'SingleReply'
 }
 </script>
 
