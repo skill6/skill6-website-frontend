@@ -2,9 +2,12 @@
   <article class="article-preview">
     <div class="article-actual">
       <header class="article-header">
-        <a href class="author-picture-show">
-          <img src="../../../assets/logo/logo.jpg" alt="这是头像" class="author-picture">
-        </a>
+        <div>
+          <a href class="author-picture-show">
+            <img src="../../../assets/logo/logo.jpg" alt="这是头像" class="author-picture">
+          </a>
+          <div>{{user.username}}</div>
+        </div>
         <div>
           <a class="author-title">这是标题</a>
           <div class="article-description">发表时间、浏览量</div>
@@ -20,7 +23,8 @@
 
 <script>
 export default {
-  name: 'SingleInfo'
+  name: 'SingleInfo',
+  props: ['user']
 }
 </script>
 

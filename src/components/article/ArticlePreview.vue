@@ -1,9 +1,9 @@
 <template>
   <div class="info-flow-center">
     <h1>文章</h1>
-    <div v-for="index in 10" :key="index">
-      {{index}}
-      <single-article-preview></single-article-preview>
+    <div v-for="user in users" :key="user.id">
+      {{user.name}}
+      <single-article-preview v-bind:user="user"></single-article-preview>
     </div>
   </div>
 </template>
@@ -13,8 +13,18 @@ import SingleArticlePreview from './list/SingleArticlePreview'
 
 export default {
   name: 'ArticlePreview',
+  data () {
+    return {
+      users: []
+    }
+  },
   components: {
     SingleArticlePreview
+  },
+  created () {
+    this.$http.get('https://jsonplaceholder.typicode.com/users').then((data) => {
+      this.users = data.body
+    })
   }
 }
 </script>
