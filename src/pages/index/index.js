@@ -4,8 +4,14 @@ import Vue from 'vue'
 
 import Skill6 from './Skill6'
 import router from './router'
+import UIkit from './uikit'
+
+import 'jquery'
+import 'uikit'
+import 'uikit/dist/css/uikit.min.css'
 
 Vue.config.productionTip = false
+Vue.use(UIkit)
 
 /* eslint-disable no-new */
 new Vue({
