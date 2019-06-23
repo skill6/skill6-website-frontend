@@ -4,18 +4,21 @@
       <header class="article-header">
         <div>
           <a href class="author-picture-show">
-            <img src="../../../assets/logo/logo.jpg" alt="这是头像" class="author-picture">
+            <img :src="article.userHeadUrl" alt="头像" class="author-picture">
           </a>
-          <div>{{user.username}}</div>
         </div>
         <div>
-          <a class="author-title">这是标题</a>
-          <div class="article-description">发表时间、浏览量</div>
+          <router-link to="/article/123456789" class="author-title">{{article.articleTitle}}</router-link>
+          <div class="article-description">
+            <div class="article-detail">作者: {{article.articleAuthor}}</div>
+            <div class="article-detail">发表时间: {{article.articleCreateTime}}</div>
+            <div class="article-detail">浏览量: {{article.articleReadTotal}}</div>
+          </div>
         </div>
       </header>
       <div class="article-body">
-        <div class="article-content">这是文章内容</div>
-        <button class="article-read-more">阅读更多</button>
+        <div class="article-content">{{article.articleSummary}}</div>
+        <button class="article-read-more" v-on:click="readMoreArticle(article.articleId)">阅读更多</button>
       </div>
     </div>
   </article>
@@ -24,8 +27,16 @@
 <script>
 export default {
   name: 'SingleInfo',
-  props: ['user']
+  props: ['article'],
+  methods: {
+    // 跳转阅读文章细节
+    readMoreArticle: function (articleId) {
+      const url = '/article/' + articleId
+      this.$router.push({ path: url })
+    }
+  }
 }
+
 </script>
 
 <style scoped>
@@ -34,6 +45,7 @@ export default {
   position: relative;
   overflow: hidden;
   height: 100px;
+  color: #2f2f2f;
 }
 
 .article-read-more {
@@ -47,13 +59,13 @@ export default {
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  color: #fff;
   display: block;
   margin-top: 5px;
   box-sizing: border-box;
   background: none;
   border: 0;
   outline: none;
+  background-color: #f3eeee;
 }
 
 .article-description {
@@ -63,10 +75,17 @@ export default {
   line-height: 1.4;
   letter-spacing: 0.2px;
   -webkit-font-smoothing: antialiased;
+  margin-top: 3px;
+}
+
+.article-detail {
+  float: left;
+  margin-right: 15px;
+  color: #212529;
 }
 
 .author-title {
-  color: #fff;
+  color: #212529;
   text-decoration: none;
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans;
   font-weight: 600;
@@ -111,7 +130,7 @@ export default {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
-  background-color: chartreuse;
+  background-color: #f8f8f8;
 }
 
 .article-actual {
@@ -126,7 +145,6 @@ export default {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   padding: 21px;
-  background-color: #4a4a4a;
   color: #fff;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -145,7 +163,7 @@ export default {
   border-radius: 4px;
   border: 0;
   box-shadow: 0 1px 0 0 #e1e1e1;
-  background-color: #ff0d39;
+  background-color: #f3f3f3;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;

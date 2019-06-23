@@ -8,15 +8,19 @@
     <div class="body-main">
       <router-view></router-view>
     </div>
+    <!-- 脚部 -->
+    <skill6-footer></skill6-footer>
   </div>
 </template>
 
 <script>
 import Skill6Menu from '@/components/navigation/Menu'
+import Skill6Footer from '@//components/navigation/Footer'
 
 export default {
   components: {
-    'skill6-menu': Skill6Menu
+    'skill6-menu': Skill6Menu,
+    'skill6-footer': Skill6Footer
   },
   data () {
     return {

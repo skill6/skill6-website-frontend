@@ -1,29 +1,28 @@
 <template>
   <div class="info-flow-center">
-    <h1>文章</h1>
-    <div v-for="user in users" :key="user.id">
-      {{user.name}}
-      <single-article-preview v-bind:user="user"></single-article-preview>
+    <div v-for="article in articles" :key="article.articleId">
+      <single-article-preview v-bind:article="article"></single-article-preview>
     </div>
   </div>
 </template>
 
 <script>
-import SingleArticlePreview from './list/SingleArticlePreview'
+import SingleArticlePreview from './SingleArticlePreview'
+import Constant from '../../../modules/constant'
 
 export default {
   name: 'ArticlePreview',
   data () {
     return {
-      users: []
+      articles: []
     }
   },
   components: {
     SingleArticlePreview
   },
   created () {
-    this.$http.get('https://jsonplaceholder.typicode.com/users').then((data) => {
-      this.users = data.body
+    this.$http.get(Constant.articlesUrl).then((data) => {
+      this.articles = data.body.articles
     })
   }
 }
@@ -45,7 +44,6 @@ export default {
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -webkit-flex-grow: 1;
-  background-color: blue;
   z-index: 1;
   margin-bottom: 100px;
   width: 60%;

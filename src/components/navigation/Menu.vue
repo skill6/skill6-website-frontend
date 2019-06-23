@@ -13,7 +13,7 @@
           <router-link to="/article" class="nav-link">文章</router-link>
         </li>
         <li>
-          <router-link to="/code" class="nav-link">代码</router-link>
+          <router-link to="/question" class="nav-link">问答</router-link>
         </li>
         <li>
           <router-link to="/course" class="nav-link">教程</router-link>
