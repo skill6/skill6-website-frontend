@@ -6,10 +6,7 @@
       <!-- 作者区域 -->
       <div class="article-author">
         <a class="article-avatar" :href="article.userHomeUrl">
-          <img
-            :src="article.userHeadUrl"
-            alt="头像"
-          >
+          <img :src="article.userHeadUrl" alt="头像">
         </a>
         <div class="article-info">
           <span class="author-name">
@@ -33,27 +30,36 @@
 
       <!-- 文章内容 -->
       <div data-note-content class="article-content">
-        <div class="article-content-free">
-         {{article.articleMdContent}}
-        </div>
+        <div class="article-content-free">{{article.articleMdContent}}</div>
       </div>
+
+      <!-- 评论 -->
+      <comment :comments="commentData"></comment>
     </div>
   </article>
 </template>
 
 <script>
 import Constant from '../../modules/constant'
+import Comment from './comment/Comment'
 
 export default {
   name: 'Article',
+  components: {
+    Comment
+  },
   data () {
     return {
-      article: []
+      article: [],
+      commentData: []
     }
   },
   created () {
     this.$http.get(Constant.articleUrl).then((data) => {
       this.article = data.body
+    })
+    this.$http.get(Constant.commentUrl).then((data) => {
+      this.commentData = data.body
     })
   }
 }
