@@ -7,25 +7,22 @@
 
       <ul class="navbar-nav">
         <li>
-          <router-link to="/" class="nav-link">主页</router-link>
+          <router-link to="/" class="nav-link">首页</router-link>
         </li>
         <li>
-          <router-link to="/article" class="nav-link">文章</router-link>
+          <router-link to="/article" class="nav-link">博客文章</router-link>
         </li>
         <li>
-          <router-link to="/question" class="nav-link">问答</router-link>
+          <router-link to="/question" class="nav-link">提问答疑</router-link>
         </li>
         <li>
-          <router-link to="/course" class="nav-link">教程</router-link>
+          <router-link to="/video" class="nav-link">视频教程</router-link>
         </li>
         <li>
-          <router-link to="/video" class="nav-link">视频</router-link>
+          <router-link to="/share" class="nav-link">文件下载</router-link>
         </li>
         <li>
-          <router-link to="/share" class="nav-link">资料分享</router-link>
-        </li>
-        <li>
-          <router-link to="/about" class="nav-link">关于</router-link>
+          <router-link to="/about" class="nav-link">关于技术流</router-link>
         </li>
       </ul>
 

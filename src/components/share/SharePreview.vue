@@ -1,5 +1,5 @@
 <template>
-  <h1>分享</h1>
+  <h1>文件下载</h1>
 </template>
 
 <script>
