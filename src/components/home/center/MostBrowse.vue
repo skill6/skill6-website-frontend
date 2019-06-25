@@ -2,7 +2,6 @@
   <div class="info-flow-center">
     <h1>最多访问</h1>
     <div v-for="index in 10" :key="index">
-      {{index}}
       <single-browse></single-browse>
     </div>
   </div>
@@ -35,7 +34,6 @@ export default {
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -webkit-flex-grow: 1;
-  background-color: blue;
   z-index: 1;
   margin-bottom: 100px;
 }

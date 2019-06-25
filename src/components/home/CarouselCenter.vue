@@ -239,7 +239,7 @@ export default {
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-left: -420px;
+  margin-left: -390px;
   transition: transform 0.5s ease-in-out;
   box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
   cursor: pointer;
