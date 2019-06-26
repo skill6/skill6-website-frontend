@@ -46,7 +46,16 @@ export default {
 
 <style scoped>
 .top-menu {
-  margin-left: -100px;
-  margin-right: 200px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+.nav-link {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 </style>

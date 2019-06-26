@@ -31,12 +31,12 @@
           <div class="reply-bottom">
             <span>{{reply.date}}</span>
             <span class="reply-text" @click="showCommentInput(item, reply)">
-              <i class="iconfont icon-comment"></i>
+              <i class="el-icon-chat-square"></i>
               <span>回复</span>
             </span>
           </div>
         </div>
-        <div class="write-reply" v-if="item.reply.length > 0" @click="showCommentInput(item)">
+        <div class="write-reply" v-if="item.reply.length > 0" v-on:click="showCommentInput(item)">
           <i class="el-icon-edit"></i>
           <span class="add-comment">添加新评论</span>
         </div>
@@ -48,11 +48,12 @@
               type="textarea"
               :rows="3"
               autofocus
+              maxlength="10"
               placeholder="写下你的评论"
             ></el-input>
             <div class="btn-control">
-              <span class="cancel" @click="cancel">取消</span>
-              <el-button class="btn" type="success" round @click="commitComment">确定</el-button>
+              <span class="cancel" v-on:click="cancel">取消</span>
+              <el-button class="btn" type="success" round v-on:click="commitComment">确定</el-button>
             </div>
           </div>
         </transition>
@@ -109,7 +110,8 @@ export default {
      * 提交评论
      */
     commitComment () {
-      console.log(this.inputComment)
+      this.showItemId = ''
+      this.$emit('updateComment', this.inputComment)
     },
 
     /**
@@ -136,13 +138,14 @@ export default {
 .container {
   padding: 0 10px;
   box-sizing: border-box;
+  margin-top: 50px;
 }
 
 .comment {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  border-bottom: 1px solid;
+  padding: 20px 0 30px;
+  border-top: 1px solid #f0f0f0;
 }
 
 .info {
@@ -211,13 +214,13 @@ export default {
 
 .reply {
   margin: 10px 0;
-  border-left: 2px solid;
+  border-left: 1px solid;
 }
 
 .item {
   margin: 0 10px;
   padding: 10px 0;
-  border-bottom: 1px dashed;
+  border-bottom: 1px dashed #ebeef5;
 }
 
 .reply-content {
@@ -228,13 +231,21 @@ export default {
 }
 
 .from-name {
-  color: #303133;
+  color: #409eff;
+}
+
+.from-name:hover {
+  color: #333;
 }
 
 .to-name {
-  color: #303133;
+  color: #409eff;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.to-name:hover {
+  color: #333;
 }
 
 .reply-bottom {
@@ -252,6 +263,10 @@ export default {
   cursor: pointer;
 }
 
+.reply-text:hover {
+  color: #333;
+}
+
 .icon-comment {
   margin-right: 5px;
 }
@@ -265,8 +280,8 @@ export default {
   cursor: pointer;
 }
 
-:hover {
-  color: #303133;
+.comment-reply:hover {
+  color: #333;
 }
 
 .el-icon-edit {

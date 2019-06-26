@@ -34,7 +34,7 @@
       </div>
 
       <!-- 评论 -->
-      <comment :comments="commentData"></comment>
+      <comment :comments="commentData" @updateComment="updateComment"></comment>
     </div>
   </article>
 </template>
@@ -61,6 +61,13 @@ export default {
     this.$http.get(Constant.commentUrl).then((data) => {
       this.commentData = data.body
     })
+  },
+  methods: {
+    updateComment (inputComment) {
+      this.$http.get(Constant.commentUrl).then((data) => {
+        this.commentData = data.body
+      })
+    }
   }
 }
 </script>
