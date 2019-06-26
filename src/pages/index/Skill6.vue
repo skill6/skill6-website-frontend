@@ -1,11 +1,11 @@
 <template>
   <div id="skill6">
     <!-- 顶部菜单 -->
-    <div class="container">
+    <div class="header">
       <skill6-menu></skill6-menu>
     </div>
     <!-- 下面主题部分 -->
-    <div class="body-main">
+    <div class="container main-container">
       <router-view></router-view>
     </div>
     <!-- 脚部 -->
@@ -54,5 +54,16 @@ li,
 ul {
   list-style: none;
   text-transform: capitalize;
+}
+
+.header {
+  min-width: 1366px;
+  min-height: 50px;
+  margin-bottom: 20px;
+}
+
+.main-container {
+  width: 1366px;
+  max-width: none !important;
 }
 </style>
