@@ -1,10 +1,10 @@
 <template>
-  <h1>文件下载</h1>
+  <h1>下载详情页</h1>
 </template>
 
 <script>
 export default {
-  name: 'SharePreview'
+  name: 'Share'
 }
 </script>
 
