@@ -1,49 +1,47 @@
 <template>
-  <div>
-    <section id="bd">
-      <div class="container">
-        <!-- 左边菜单 -->
-        <side-menu></side-menu>
-        <!-- 右边主体部分 -->
-        <section class="g-main">
-          <!-- 头部 -->
-          <section id="lessonfocus" class="mod g-section">
-            <footer class="ft">
-              <a
-                target="_blank"
-                href="/upload"
-                act="upload"
-                class="g-btn g-btn-lg g-btn-warn log-xsend"
-                data-logxsend="[16,500001,{index:1}]"
-              >
-                <span class="g-ico g-ico-tools g-ico-tools-upload">
-                  <i data-v-1bece2d4 class="el-icon-upload2"></i>
-                </span>我要分享文件
-              </a>
-            </footer>
-          </section>
-          <!-- 主体 -->
-          <section id="cardlist" class="mod g-cardlist">
-            <!-- 单个下载 -->
-            <div>
-              <div v-for="question in 10" :key="question">
-                <single-share-preview></single-share-preview>
-              </div>
-            </div>
-            <!-- 分页 -->
-            <div class="g-page">
-              <span class="cur no1">1</span>
-              <a href="/share/list?page=1" class="no1">2</a>
-              <a href="/share/list?page=1" class="no1">3</a>
-              <a href="/share/list?page=1" class="no1">4</a>
-              <a href="/share/list?page=1" class="no1">5</a>
-              <a href="/share/list?page=1" class="next">下一页&gt;</a>
-            </div>
-          </section>
+  <section class="share-container">
+    <div>
+      <!-- 左边菜单 -->
+      <side-menu></side-menu>
+      <!-- 右边主体部分 -->
+      <section class="g-main">
+        <!-- 头部 -->
+        <section id="lessonfocus" class="mod g-section">
+          <footer class="ft">
+            <a
+              target="_blank"
+              href="/upload"
+              act="upload"
+              class="g-btn g-btn-lg g-btn-warn log-xsend"
+              data-logxsend="[16,500001,{index:1}]"
+            >
+              <span class="g-ico g-ico-tools g-ico-tools-upload">
+                <i data-v-1bece2d4 class="el-icon-upload2"></i>
+              </span>我要分享文件
+            </a>
+          </footer>
         </section>
-      </div>
-    </section>
-  </div>
+        <!-- 主体 -->
+        <section id="cardlist" class="mod g-cardlist">
+          <!-- 单个下载 -->
+          <div>
+            <div v-for="question in 10" :key="question">
+              <single-share-preview></single-share-preview>
+            </div>
+          </div>
+          <!-- 分页 -->
+          <div class="g-page">
+            <span class="cur no1">1</span>
+            <a href="/share/list?page=1" class="no1">2</a>
+            <a href="/share/list?page=1" class="no1">3</a>
+            <a href="/share/list?page=1" class="no1">4</a>
+            <a href="/share/list?page=1" class="no1">5</a>
+            <a href="/share/list?page=1" class="next">下一页&gt;</a>
+          </div>
+        </section>
+      </section>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -60,9 +58,11 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.share-container {
+  overflow: auto;
   width: 1366px;
   margin: 0 auto;
+  max-width: 1140px;
 }
 
 .g-main {

@@ -42,7 +42,6 @@ export default {
 <style scoped>
 .g-aside {
   float: left;
-  _display: inline;
   width: 192px;
   position: relative;
 }

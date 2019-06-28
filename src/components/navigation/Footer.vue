@@ -12,23 +12,24 @@
 
 <script>
 export default {
-  name: 'Footer',
-  data () {
-    return {
-      footerStyle: {
-        marginTop: '3000px'
-      }
-    }
-  },
-  watch: {
-    '$route' (val) {
-      if (this.$route.path === '/') {
-        this.footerStyle.marginTop = '3000px'
-      } else {
-        this.footerStyle.marginTop = '30px'
-      }
-    }
-  }
+  name: 'Footer'
+  // data () {
+  //   return {
+  //     footerStyle: {
+  //       marginTop: '3000px'
+  //     }
+  //   }
+  // }
+  // },
+  // watch: {
+  //   '$route' (val) {
+  //     if (this.$route.path === '/') {
+  //       this.footerStyle.marginTop = '3000px'
+  //     } else {
+  //       this.footerStyle.marginTop = '30px'
+  //     }
+  //   }
+  // }
 }
 </script>
 

@@ -63,7 +63,9 @@ ul {
 }
 
 .main-container {
+  overflow: auto;
   width: 1366px;
   max-width: none !important;
+  min-height: 768px;
 }
 </style>
