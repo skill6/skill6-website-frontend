@@ -1,5 +1,18 @@
 <template>
   <section class="info-flow-center">
+    <div id="bannerNav">
+      <ul>
+        <li>
+          <a>最新回复</a>
+        </li>
+        <li class="on">
+          <a>最新更新</a>
+        </li>
+        <li>
+          <a>最多访问</a>
+        </li>
+      </ul>
+    </div>
     <carousel-center></carousel-center>
   </section>
 </template>

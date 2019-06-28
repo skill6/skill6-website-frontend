@@ -54,6 +54,6 @@ export default {
   position: relative;
   display: block;
   width: 15%;
-  background-color: crimson;
+  background-color: whitesmoke;
 }
 </style>
