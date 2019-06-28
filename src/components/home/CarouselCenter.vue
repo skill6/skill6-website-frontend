@@ -1,64 +1,53 @@
 <template>
-  <div id="banner">
-    <div id="carousel">
-      <section class="carousel-section">
-        <latest-reply></latest-reply>
-      </section>
-      <section class="carousel-section">
-        <info-center></info-center>
-      </section>
-      <section class="carousel-section">
-        <most-browse></most-browse>
-      </section>
-    </div>
+  <div id="carousel">
+    <section class="carousel-section">
+      <latest-reply></latest-reply>
+    </section>
+    <section class="carousel-section">
+      <latest-update></latest-update>
+    </section>
+    <section class="carousel-section">
+      <most-browse></most-browse>
+    </section>
   </div>
 </template>
 
 <script>
 import $ from 'jquery'
 
-import InfoCenter from './center/LatestUpdate'
+import LatestUpdate from './center/LatestUpdate'
 import LatestReply from './center/LatestReply'
 import MostBrowse from './center/MostBrowse'
 
 (function ($, window, document) {
   var Carousel = function (elem, options) {
     this.defaults = {
-      curDisplay: 0,
+      currentDisplay: 1,
       autoPlay: false,
       interval: 3000
     }
     this.opts = $.extend({}, this.defaults, options)
 
     this.$carousel = elem
-    this.$aImg = this.$carousel.children('section')
+    this.$sectionList = this.$carousel.children('section')
 
-    this.imgLen = this.$aImg.length
-    this.curDisplay = this.opts.curDisplay
+    this.carouselNum = this.$sectionList.length
+    this.currentDisplay = this.opts.currentDisplay
     this.autoPlay = this.opts.autoPlay
     this.viewWidth = $(window).width() / 2
     this.b_switch = true
-    this.iNow = this.opts.curDisplay
+    this.iNow = this.opts.currentDisplay
     this.timer = null
     this.interval = this.opts.interval
-    // 生成小点点
-    var htmlNav = '<ul>'
-    for (var i = 0; i < this.imgLen; i++) {
-      if (this.curDisplay === i) {
-        htmlNav += '<li class=on><a>' + i + '</a></li>'
-      } else {
-        htmlNav += '<li><a>' + i + '</a></li>'
-      }
-    }
-    htmlNav += '</ul>'
-    this.$carousel.parent().append('<div id=bannerNav>' + htmlNav + '</div>')
-    this.$aNav = this.$carousel.siblings('#bannerNav').find('ul li')
+    // 获取点击元素
+    this.$bannerNav = $('#bannerNav').find('ul li')
   }
 
   Carousel.prototype = {
+    // 自动轮播
     play: function () {
       if (this.autoPlay) {
-        if (this.iNow === this.imgLen - 1) {
+        if (this.iNow === this.carouselNum - 1) {
           this.iNow = 0
         } else {
           this.iNow++
@@ -68,109 +57,86 @@ import MostBrowse from './center/MostBrowse'
       }
     },
 
+    // 移动到上一个
     movingPrev: function (index) {
-      this.curDisplay = index
+      this.currentDisplay = index
 
       this.initalCarousel()
     },
 
+    // 移动到下一个
     movingNext: function (index) {
-      this.curDisplay = index
+      this.currentDisplay = index
 
       this.initalCarousel()
     },
 
+    // 初始化轮播
     initalCarousel: function () {
       var self = this
-      var halfImgLen = Math.floor(this.imgLen / 2)
+      var halfCarouselNum = Math.floor(this.carouselNum / 2)
       var leftNum, rightNum
 
       var k = 0
-      for (var i = 0; i < halfImgLen; i++) {
-        leftNum = this.curDisplay - i - 1
+      for (var i = 0; i < halfCarouselNum; i++) {
+        leftNum = this.currentDisplay - i - 1
         if (k === 0) {
-          this.$aImg.eq(leftNum).css({
+          this.$sectionList.eq(leftNum).css({
             transform: 'translateX(' + (-330 * (i + 1)) + 'px) translateZ(-120px)',
             width: '15%' // 左边宽度
           }).animate({
             height: 'auto',
-            marginTop: '-220px',
             opacity: '0.0' // 左边透明度
           }, 500)
-          this.$aImg.eq(leftNum).attr('onclick', null)
 
-          rightNum = this.curDisplay + i + 1
-          if (rightNum > this.imgLen - 1) rightNum -= this.imgLen
-          this.$aImg.eq(rightNum).css({
+          rightNum = this.currentDisplay + i + 1
+          if (rightNum > this.carouselNum - 1) rightNum -= this.carouselNum
+          this.$sectionList.eq(rightNum).css({
             transform: 'translateX(' + (980 * (i + 1)) + 'px) translateZ(-120px) ',
             width: '15%' // 右边宽度
           }).animate({
             height: 'auto',
-            marginTop: '-220px',
             opacity: '0.0' // 右边透明度
           }, 500)
-          this.$aImg.eq(rightNum).attr('onclick', null)
           k++
         } else {
-          this.$aImg.eq(leftNum).css({
+          this.$sectionList.eq(leftNum).css({
             transform: 'translateX(0px) translateZ(-1000px) ',
             zIndex: -1
           })
 
-          rightNum = this.curDisplay + i + 1
-          if (rightNum > this.imgLen - 1) rightNum -= this.imgLen
-          this.$aImg.eq(rightNum).css({
+          rightNum = this.currentDisplay + i + 1
+          if (rightNum > this.carouselNum - 1) rightNum -= this.carouselNum
+          this.$sectionList.eq(rightNum).css({
             transform: 'translateX(0px) translateZ(-1000px) ',
             zIndex: -1
           })
         }
-        this.$aImg.removeClass('on')
-        this.$aNav.removeClass('on')
+        this.$sectionList.removeClass('on')
+        this.$bannerNav.removeClass('on')
       }
 
-      var _href = 'location.href=' + "'" + this.$aImg.eq(this.curDisplay).attr('data-url') + "'"
-      this.$aImg.eq(this.curDisplay).css({
-        transform: 'translateZ(0px)',
+      this.$sectionList.eq(this.currentDisplay).css({
+        transform: 'none',
         zIndex: 99999,
         width: '100%' // 中间宽度
       }).animate({
         height: 'auto',
-        marginTop: '-220px',
         opacity: '1'
-      }, 500).addClass('on').attr('onclick', _href)
-      this.$aNav.eq(this.curDisplay).addClass('on')
+      }, 500).addClass('on')
+      this.$bannerNav.eq(this.currentDisplay).addClass('on')
 
       this.$carousel.on('webkitTransitionEnd', function () {
         self.b_switch = true
       })
     },
 
+    // 初始化轮播组件
     inital: function () {
       var self = this
       this.initalCarousel()
 
-      this.$aImg.on('click', function (ev) {
-        if (self.b_switch && !$(this).hasClass('on')) {
-          self.iNow = $(this).index()
-          self.b_switch = false
-
-          var direction = self.viewWidth < ev.clientX ? 'next' : 'prev'
-          var index = $(this).index()
-
-          if (direction === 'next') {
-            self.movingNext(index)
-          } else {
-            self.movingPrev(index)
-          }
-        }
-      }).hover(function () {
-        clearInterval(self.timer)
-      }, function () {
-        self.timer = setInterval(function () {
-          self.play()
-        }, self.interval)
-      })
-      this.$aNav.on('click', function (ev) {
+      this.$bannerNav.on('click', function (ev) {
         if (self.b_switch && !$(this).hasClass('on')) {
           self.iNow = $(this).index()
           self.b_switch = false
@@ -215,31 +181,25 @@ export default {
   name: 'Carousel',
   components: {
     LatestReply,
-    InfoCenter,
+    LatestUpdate,
     MostBrowse
   }
 }
 </script>
 
 <style>
-#banner {
-  margin-bottom: -10px;
-}
-
 #carousel {
+  overflow: hidden;
   position: relative;
   z-index: 2;
-  margin-top: 20px;
   transform-style: preserve-3d;
   perspective: 800px;
-  height: 400px;
+  height: -webkit-fill-available;
 }
 
 .carousel-section {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -390px;
+  margin-left: 50px;
   transition: transform 0.5s ease-in-out;
   box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -251,10 +211,7 @@ export default {
 }
 
 #bannerNav {
-  position: relative;
-  margin-top: -460px;
-  height: 10px;
-  padding: 10px 0;
+  padding: 1px 1px 10px 1px;
   text-align: center;
 }
 
@@ -262,26 +219,21 @@ export default {
   cursor: pointer;
   overflow: hidden;
   display: inline-block;
-  width: 22px;
   margin: 0 2px;
 }
 
 #bannerNav ul li a {
   margin: 0 auto;
   display: block;
-  width: 6px;
-  height: 6px;
+  width: 66px;
   border-radius: 3px;
-  background: #5e6671;
-  font-size: 0;
+  background: #b9cbe4;
+  font-size: 10px;
+  padding: 2px;
 }
 
 #bannerNav ul li.on a,
 #bannerNav ul li:hover a {
   background: #00aeff;
-}
-
-#bannerNav ul li.on a {
-  width: 20px;
 }
 </style>
