@@ -9,10 +9,13 @@ import Skill6 from './Skill6'
 import router from './router'
 
 import ElementUI from 'element-ui'
+import IView from 'iview'
+import 'iview/dist/styles/iview.css'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueResource)
+Vue.use(IView)
 
 /* eslint-disable no-new */
 new Vue({

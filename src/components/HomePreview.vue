@@ -53,7 +53,7 @@ export default {
 .info-flow-side {
   position: relative;
   display: block;
-  width: 15%;
+  width: 200px;
   background-color: whitesmoke;
 }
 </style>
