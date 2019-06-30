@@ -4,7 +4,7 @@
       <!-- 左边菜单 -->
       <side-menu></side-menu>
       <!-- 右边主体部分 -->
-      <section class="g-main">
+      <section class="share-main">
         <!-- 头部 -->
         <section id="lessonfocus" class="mod g-section">
           <footer class="ft">
@@ -84,7 +84,7 @@ export default {
   max-width: 1140px;
 }
 
-.g-main {
+.share-main {
   width: 900px;
   float: right;
   position: relative;
@@ -140,21 +140,5 @@ export default {
   line-height: 1.5;
   vertical-align: middle;
   background-repeat: no-repeat;
-}
-
-.g-cardlist section.g-section {
-  margin-top: 10px;
-  position: relative;
-  padding: 26px 30px 25px 143px;
-  color: #555;
-  font-size: 12px;
-  min-height: 100px;
-}
-
-.g-section {
-  background-color: #fff;
-  border: 1px solid #ececec;
-  padding: 18px 20px;
-  margin-top: 10px;
 }
 </style>
