@@ -13,6 +13,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "element-ui": "^2.10.0",
+    "iview": "^3.4.2",
     "jquery": "^3.3.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"

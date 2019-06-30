@@ -3,27 +3,48 @@
     <div v-for="article in articles" :key="article.articleId">
       <single-article-preview v-bind:article="article"></single-article-preview>
     </div>
+    <pagination
+      v-bind:pageParam="pageParam"
+      @handlePageSizeChange="handlePageSizeChange"
+      @handleCurrentPageChange="handleCurrentPageChange"
+    ></pagination>
   </div>
 </template>
 
 <script>
-import SingleArticlePreview from './SingleArticlePreview'
 import Constant from '../../../modules/constant'
+import Pagination from '../../common/Pagination'
+import SingleArticlePreview from './SingleArticlePreview'
 
 export default {
   name: 'ArticlePreview',
   data () {
     return {
-      articles: []
+      articles: [],
+      pageParam: {}
     }
   },
   components: {
-    SingleArticlePreview
+    SingleArticlePreview,
+    Pagination
   },
   created () {
     this.$http.get(Constant.articlesUrl).then((data) => {
       this.articles = data.body.articles
     })
+    this.pageParam = {
+      pageSize: 10,
+      currentPage: 1,
+      totalCount: 1000
+    }
+  },
+  methods: {
+    handlePageSizeChange (pageSize, currentPage) {
+      console.log(`1 每页 ${pageSize} 条, 第${currentPage}页`)
+    },
+    handleCurrentPageChange (pageSize, currentPage) {
+      console.log(`2每页 ${pageSize} 条, 第${currentPage}页`)
+    }
   }
 }
 </script>
