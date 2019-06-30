@@ -30,14 +30,11 @@
             </div>
           </div>
           <!-- 分页 -->
-          <div class="g-page">
-            <span class="cur no1">1</span>
-            <a href="/share/list?page=1" class="no1">2</a>
-            <a href="/share/list?page=1" class="no1">3</a>
-            <a href="/share/list?page=1" class="no1">4</a>
-            <a href="/share/list?page=1" class="no1">5</a>
-            <a href="/share/list?page=1" class="next">下一页&gt;</a>
-          </div>
+          <pagination
+            v-bind:pageParam="pageParam"
+            @handlePageSizeChange="handlePageSizeChange"
+            @handleCurrentPageChange="handleCurrentPageChange"
+          ></pagination>
         </section>
       </section>
     </div>
@@ -46,13 +43,35 @@
 
 <script>
 import SideMenu from './SideMenu'
+import Pagination from '../../common/Pagination'
 import SingleSharePreview from './SingleSharePreview'
 
 export default {
   name: 'SharePreview',
   components: {
     SideMenu,
+    Pagination,
     SingleSharePreview
+  },
+  data () {
+    return {
+      pageParam: {}
+    }
+  },
+  created () {
+    this.pageParam = {
+      pageSize: 10,
+      currentPage: 1,
+      totalCount: 1000
+    }
+  },
+  methods: {
+    handlePageSizeChange (pageSize, currentPage) {
+      console.log(`1 每页 ${pageSize} 条, 第${currentPage}页`)
+    },
+    handleCurrentPageChange (pageSize, currentPage) {
+      console.log(`2每页 ${pageSize} 条, 第${currentPage}页`)
+    }
   }
 }
 </script>
@@ -137,49 +156,5 @@ export default {
   border: 1px solid #ececec;
   padding: 18px 20px;
   margin-top: 10px;
-}
-
-/* 分页 */
-.g-page {
-  padding: 20px 0;
-  font-family: arial;
-  text-align: center;
-}
-
-.g-page .cur {
-  color: #2dbe64;
-}
-.g-page a,
-.g-page .cur {
-  font-size: 16px;
-  vertical-align: top;
-  margin-right: 5px;
-  display: inline-block;
-  background-color: #fff;
-  border: 1px solid #e2e2e2;
-  height: 28px;
-  line-height: 29px;
-  overflow: hidden;
-  padding: 0 10px;
-  border-radius: 2px;
-}
-
-.g-cardlist a {
-  color: #333;
-  z-index: 2;
-}
-.g-page a,
-.g-page .cur {
-  font-size: 16px;
-  vertical-align: top;
-  margin-right: 5px;
-  display: inline-block;
-  background-color: #fff;
-  border: 1px solid #e2e2e2;
-  height: 28px;
-  line-height: 29px;
-  overflow: hidden;
-  padding: 0 10px;
-  border-radius: 2px;
 }
 </style>

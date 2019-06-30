@@ -3,27 +3,48 @@
     <div v-for="question in questions" :key="question.questionId">
       <single-question-preview v-bind:question="question"></single-question-preview>
     </div>
+    <pagination
+      v-bind:pageParam="pageParam"
+      @handlePageSizeChange="handlePageSizeChange"
+      @handleCurrentPageChange="handleCurrentPageChange"
+    ></pagination>
   </div>
 </template>
 
 <script>
-import SingleQuestionPreview from './SingleQuestionPreview'
 import Constant from '../../../modules/constant'
+import Pagination from '../../common/Pagination'
+import SingleQuestionPreview from './SingleQuestionPreview'
 
 export default {
   name: 'QuestionPreview',
   data () {
     return {
-      questions: []
+      questions: [],
+      pageParam: {}
     }
   },
   components: {
-    SingleQuestionPreview
+    SingleQuestionPreview,
+    Pagination
   },
   created () {
     this.$http.get(Constant.questionsUrl).then((data) => {
       this.questions = data.body.questions
     })
+    this.pageParam = {
+      pageSize: 10,
+      currentPage: 1,
+      totalCount: 1000
+    }
+  },
+  methods: {
+    handlePageSizeChange (pageSize, currentPage) {
+      console.log(`1 每页 ${pageSize} 条, 第${currentPage}页`)
+    },
+    handleCurrentPageChange (pageSize, currentPage) {
+      console.log(`2每页 ${pageSize} 条, 第${currentPage}页`)
+    }
   }
 }
 </script>
