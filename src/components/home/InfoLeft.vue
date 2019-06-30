@@ -17,13 +17,24 @@ export default {
   components: {
     VisitStatistics
   },
+  methods: {
+    loadDatePlugin: function () {
+      const regular = /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+      if (navigator.userAgent.match(regular)) {
+        return
+      }
+
+      $('#currentDate').html('<embed wmode="transparent"' +
+        'src="/static/clock.swf"' +
+        'quality="high" bgcolor="#ffffff" width="160" height="80" align="middle"' +
+        'allowscriptaccess="always" type="application/x-shockwave-flash"' +
+        'pluginspage="http://www.macromedia.com/go/getflashplayer">')
+    }
+  },
   mounted: function () {
-    $('#currentDate').html('<embed wmode="transparent"' +
-      'src="/static/clock.swf"' +
-      'quality="high" bgcolor="#ffffff" width="160" height="80" align="middle"' +
-      'allowscriptaccess="always" type="application/x-shockwave-flash"' +
-      'pluginspage="http://www.macromedia.com/go/getflashplayer">')
+    this.loadDatePlugin()
   }
+
 }
 </script>
 <style scoped>
