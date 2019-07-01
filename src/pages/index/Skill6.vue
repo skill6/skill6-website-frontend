@@ -56,6 +56,12 @@ ul {
   text-transform: capitalize;
 }
 
+#skill6 {
+  overflow: auto;
+  width: 1366px;
+  max-width: none !important;
+}
+
 .header {
   min-width: 1366px;
   min-height: 50px;

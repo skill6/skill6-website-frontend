@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
     "element-ui": "^2.10.0",
     "iview": "^3.4.2",
     "jquery": "^3.3.1",
@@ -63,6 +64,7 @@
     "vue-resource": "^1.5.1",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
+    "vue-video-player": "^5.0.2",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
