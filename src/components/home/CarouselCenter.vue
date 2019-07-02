@@ -189,7 +189,6 @@ export default {
 
 <style>
 #carousel {
-  overflow: hidden;
   position: relative;
   z-index: 2;
   transform-style: preserve-3d;
@@ -199,9 +198,8 @@ export default {
 
 .carousel-section {
   position: absolute;
-  margin-left: 50px;
   transition: transform 0.5s ease-in-out;
-  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   width: 500px;
   border-radius: 10px;

@@ -30,7 +30,7 @@ export default {
 
 <style scoped>
 .info-flow-center {
-  margin-right: 60px;
+  margin: 0 20px;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;

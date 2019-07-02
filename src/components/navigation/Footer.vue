@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer" class="text-center">
+  <footer id="footer" class="text-center" :style="footerStyle">
     <div class="footer-info">
       <ul class="info-links clearfix">
         <li>
@@ -26,7 +26,29 @@
 
 <script>
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  data () {
+    return {
+      footerStyle: {
+        marginTop: '3000px'
+      }
+    }
+  },
+  watch: {
+    '$route' () {
+      const protocol = window.location.protocol
+      const host = window.location.host
+      let href = window.location.href
+      const index = protocol + '//' + host
+
+      if (href.substr(index.length) === '/' || href.substr(index.length) === '') {
+        this.footerStyle.marginTop = '3000px'
+      } else {
+        this.footerStyle.marginTop = '25px'
+      }
+    }
+
+  }
 }
 </script>
 

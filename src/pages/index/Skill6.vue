@@ -15,7 +15,7 @@
 
 <script>
 import Skill6Menu from '@/components/navigation/Menu'
-import Skill6Footer from '@//components/navigation/Footer'
+import Skill6Footer from '@/components/navigation/Footer'
 
 export default {
   components: {
@@ -57,8 +57,7 @@ ul {
 }
 
 #skill6 {
-  overflow: auto;
-  width: 1366px;
+  min-width: 1366px;
   max-width: none !important;
 }
 
@@ -69,7 +68,6 @@ ul {
 }
 
 .main-container {
-  overflow: auto;
   width: 1366px;
   max-width: none !important;
   min-height: 768px;
