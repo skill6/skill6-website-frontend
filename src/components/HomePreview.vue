@@ -42,18 +42,11 @@ export default {
   background-color: #fff;
   padding-top: 40px;
   padding-bottom: 40px;
-  padding-left: 40px;
-  padding-right: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
   width: 100%;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
-}
-
-.info-flow-side {
-  position: relative;
-  display: block;
-  width: 200px;
-  background-color: whitesmoke;
 }
 </style>

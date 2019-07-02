@@ -1,9 +1,10 @@
 <template>
-  <div class="info-flow-side">
+  <div class="info-flow-side-left">
     <div class="ivu-card ivu-card-bordered current-date">
       <div id="currentDate" class="current-date-body"></div>
     </div>
     <visit-statistics></visit-statistics>
+    <lunar-calendar></lunar-calendar>
   </div>
 </template>
 
@@ -11,11 +12,13 @@
 import $ from 'jquery'
 
 import VisitStatistics from './sidebar/VisitStatistics'
+import LunarCalendar from './sidebar/LunarCalendar'
 
 export default {
   name: 'InfoLeft',
   components: {
-    VisitStatistics
+    VisitStatistics,
+    LunarCalendar
   },
   methods: {
     loadDatePlugin: function () {
@@ -38,6 +41,13 @@ export default {
 }
 </script>
 <style scoped>
+.info-flow-side-left {
+  position: relative;
+  display: block;
+  width: 300px;
+  background-color: whitesmoke;
+}
+
 .current-date {
   margin-bottom: 10px;
 }

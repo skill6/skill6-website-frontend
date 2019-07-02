@@ -6,20 +6,24 @@
       </p>
       <ul>
         <li>
-          <span>当前在线人数:</span>
-          <span>100</span>
+          当前在线
+          <span>100</span>位
         </li>
         <li>
-          <span>今日访问人数:</span>
-          <span>100</span>
+          最多同时在线
+          <span>100</span>位
         </li>
         <li>
-          <span>当月访问人数:</span>
-          <span>100</span>
+          今日访问数
+          <span>100</span>位
         </li>
         <li>
-          <span>历史访问总人数:</span>
-          <span>100</span>
+          当月访问总计
+          <span>100</span>位
+        </li>
+        <li>
+          历史访问总计
+          <span>100</span>位
         </li>
       </ul>
     </Card>
@@ -32,4 +36,10 @@ export default {
 </script>
 
 <style scoped>
+ul > li > span {
+  color: #084eec;
+  font-family: 'Arial';
+  display: inline-block;
+  margin: 0 5px;
+}
 </style>
