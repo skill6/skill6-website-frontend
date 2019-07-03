@@ -9,6 +9,8 @@
     <section class="carousel-section">
       <most-browse></most-browse>
     </section>
+    <!-- 脚部 -->
+    <skill6-footer></skill6-footer>
   </div>
 </template>
 
@@ -18,6 +20,7 @@ import $ from 'jquery'
 import LatestUpdate from './center/LatestUpdate'
 import LatestReply from './center/LatestReply'
 import MostBrowse from './center/MostBrowse'
+import Skill6Footer from '@/components/navigation/Footer'
 
 (function ($, window, document) {
   var Carousel = function (elem, options) {
@@ -187,7 +190,8 @@ export default {
   components: {
     LatestReply,
     LatestUpdate,
-    MostBrowse
+    MostBrowse,
+    Skill6Footer
   }
 }
 </script>
