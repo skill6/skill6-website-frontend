@@ -12,6 +12,10 @@
         </li>
         <li>
           <a href="/" target="_blank">加入我们</a>
+          <span class="global-footer-split">|</span>
+        </li>
+        <li>
+          <a href="/" target="_blank">赞赏支持</a>
         </li>
       </ul>
     </div>

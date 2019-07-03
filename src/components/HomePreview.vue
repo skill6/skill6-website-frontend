@@ -40,8 +40,8 @@ export default {
   display: flex;
   flex-direction: row;
   background-color: #fff;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 30px;
   padding-left: 10px;
   padding-right: 10px;
   width: 100%;
