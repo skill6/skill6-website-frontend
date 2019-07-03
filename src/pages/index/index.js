@@ -19,8 +19,8 @@ import 'video.js/dist/video-js.css'
 import 'vue-video-player/src/custom-theme.css'
 
 Vue.config.productionTip = false
-Vue.use(ElementUI)
 Vue.use(VueResource)
+Vue.use(ElementUI)
 Vue.use(IView)
 Vue.use(VueVideoPlayer)
 
