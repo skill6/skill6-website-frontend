@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: 'VideoPreview',
+  name: 'Video',
   data () {
     return {
       // videojs options

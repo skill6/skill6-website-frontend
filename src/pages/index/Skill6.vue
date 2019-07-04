@@ -5,7 +5,7 @@
       <skill6-menu></skill6-menu>
     </div>
     <!-- 下面主题部分 -->
-    <div class="container main-container">
+    <div class="main-container">
       <router-view></router-view>
     </div>
     <!-- 脚部 -->
@@ -68,7 +68,7 @@ ul {
 }
 
 .main-container {
-  width: 1366px;
+  min-width: 1366px;
   max-width: none !important;
   min-height: 768px;
 }

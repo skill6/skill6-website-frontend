@@ -3,8 +3,7 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 
-import Skill6 from './Skill6'
-import router from './router'
+import InfoFlow from './InfoFlow.vue'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -26,11 +25,10 @@ Vue.use(VueVideoPlayer)
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#skill6',
-  router,
+  el: '#infoflow',
   components: {
-    Skill6
+    InfoFlow
   },
-  template: '<Skill6/>',
-  render: h => h(Skill6)
+  template: '<InfoFlow/>',
+  render: h => h(InfoFlow)
 })

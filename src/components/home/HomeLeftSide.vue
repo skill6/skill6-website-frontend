@@ -4,7 +4,6 @@
       <div id="currentDate" class="current-date-body"></div>
     </div>
     <visit-statistics></visit-statistics>
-    <lunar-calendar></lunar-calendar>
   </div>
 </template>
 
@@ -12,13 +11,11 @@
 import $ from 'jquery'
 
 import VisitStatistics from './sidebar/VisitStatistics'
-import LunarCalendar from './sidebar/LunarCalendar'
 
 export default {
-  name: 'InfoLeft',
+  name: 'HomeLeftSide',
   components: {
-    VisitStatistics,
-    LunarCalendar
+    VisitStatistics
   },
   methods: {
     loadDatePlugin: function () {
@@ -44,7 +41,7 @@ export default {
 .info-flow-side-left {
   position: relative;
   display: block;
-  width: 300px;
+  width: 18%;
   background-color: whitesmoke;
 }
 

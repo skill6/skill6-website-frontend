@@ -73,6 +73,9 @@ import MostBrowse from './center/MostBrowse'
 
     // 初始化轮播
     initalCarousel: function () {
+      // 全部可见
+      this.$sectionList.css({ display: 'block' })
+
       var self = this
       var halfCarouselNum = Math.floor(this.carouselNum / 2)
       var leftNum, rightNum
@@ -88,6 +91,7 @@ import MostBrowse from './center/MostBrowse'
             height: 'auto',
             opacity: '0.0' // 左边透明度
           }, 500)
+            .css({ display: 'none' })
 
           rightNum = this.currentDisplay + i + 1
           if (rightNum > this.carouselNum - 1) rightNum -= this.carouselNum
@@ -98,6 +102,7 @@ import MostBrowse from './center/MostBrowse'
             height: 'auto',
             opacity: '0.0' // 右边透明度
           }, 500)
+            .css({ display: 'none' })
           k++
         } else {
           this.$sectionList.eq(leftNum).css({
@@ -123,7 +128,7 @@ import MostBrowse from './center/MostBrowse'
       }).animate({
         height: 'auto',
         opacity: '1'
-      }, 500).addClass('on')
+      }, 500).addClass('on').css({ display: 'block' })
       this.$bannerNav.eq(this.currentDisplay).addClass('on')
 
       this.$carousel.on('webkitTransitionEnd', function () {
