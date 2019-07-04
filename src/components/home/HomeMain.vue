@@ -12,6 +12,6 @@ export default {
 
 <style scoped>
 .home-main {
-  margin: auto 20%;
+  width: 56%;
 }
 </style>
