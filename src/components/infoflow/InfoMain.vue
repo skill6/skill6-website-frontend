@@ -13,17 +13,17 @@
         </li>
       </ul>
     </div>
-    <carousel-center></carousel-center>
+    <carousel></carousel>
   </section>
 </template>
 
 <script>
-import CarouselCenter from './CarouselCenter'
+import Carousel from './Carousel'
 
 export default {
   name: 'InfoCenter',
   components: {
-    CarouselCenter
+    Carousel
   }
 }
 </script>

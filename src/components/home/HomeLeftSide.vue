@@ -15,7 +15,7 @@ import VisitStatistics from './sidebar/VisitStatistics'
 import LunarCalendar from './sidebar/LunarCalendar'
 
 export default {
-  name: 'InfoLeft',
+  name: 'HomeLeftSide',
   components: {
     VisitStatistics,
     LunarCalendar
@@ -44,7 +44,7 @@ export default {
 .info-flow-side-left {
   position: relative;
   display: block;
-  width: 300px;
+  width: 20%;
   background-color: whitesmoke;
 }
 

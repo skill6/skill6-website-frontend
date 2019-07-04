@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'InfoRight'
+  name: 'HomeRightSide'
 }
 </script>
 
@@ -23,7 +23,7 @@ export default {
 .info-flow-side-right {
   position: relative;
   display: block;
-  width: 200px;
+  width: 20%;
   background-color: whitesmoke;
   margin-right: 15px;
 }

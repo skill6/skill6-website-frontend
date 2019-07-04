@@ -1,32 +1,22 @@
 <template>
   <div class="info-main">
-    <info-left></info-left>
-    <info-center></info-center>
-    <info-right></info-right>
+    <home-left-side></home-left-side>
+    <home-main></home-main>
+    <home-right-side></home-right-side>
   </div>
 </template>
 
 <script>
-import $ from 'jquery'
-
-import InfoLeft from './home/InfoLeft'
-import InfoRight from './home/InfoRight'
-import InfoCenter from './home/InfoCenter'
+import HomeLeftSide from './home/HomeLeftSide'
+import HomeRightSide from './home/HomeRightSide'
+import HomeMain from './home/HomeMain'
 
 export default {
-  name: 'HomePreview',
+  name: 'HomePage',
   components: {
-    InfoLeft,
-    InfoRight,
-    InfoCenter
-  },
-  mounted: function () {
-    // 轮播立体效果
-    $('#carousel').carousel({
-      curDisplay: 1,
-      autoPlay: false,
-      interval: 1500
-    })
+    HomeLeftSide,
+    HomeRightSide,
+    HomeMain
   }
 }
 </script>

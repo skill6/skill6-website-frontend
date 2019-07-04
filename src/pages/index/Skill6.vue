@@ -68,7 +68,7 @@ ul {
 }
 
 .main-container {
-  width: 1366px;
+  min-width: 1366px;
   max-width: none !important;
   min-height: 768px;
 }
