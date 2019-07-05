@@ -45,11 +45,30 @@
             <strong>版本更新历史</strong>
           </h1>
           <div class="about-desc">
-            <p>V1.0.0 Beta &emsp;2019-06-29</p>
-            <ul>
-              <li>1. 上线基础功能</li>
-              <li>2. 提供QQ、Github一键登录</li>
-            </ul>
+            <div class="block">
+              <div class="radio">
+                <el-radio-group v-model="reverse">
+                  <el-radio :label="true">时间逆序</el-radio>
+                  <el-radio :label="false">时间顺序</el-radio>
+                </el-radio-group>
+              </div>
+              <el-timeline :reverse="reverse">
+                <el-timeline-item
+                  v-for="(activity, index) in activities"
+                  :key="index"
+                  :timestamp="activity.timestamp"
+                  type="primary"
+                  placement="top"
+                >
+                  <el-card>
+                    <h4>{{activity.title}}</h4>
+                    <div class="content">
+                      <p>{{activity.content}}</p>
+                    </div>
+                  </el-card>
+                </el-timeline-item>
+              </el-timeline>
+            </div>
           </div>
         </div>
       </div>
@@ -105,7 +124,24 @@
 
 <script>
 export default {
-  name: 'AboutPreview'
+  data () {
+    return {
+      reverse: true,
+      activities: [{
+        title: '发布版本V1.0.0',
+        content: '何明胜 提交于 2018/4/2 20:46',
+        timestamp: '2018-04-10'
+      }, {
+        title: '发布版本V1.0.1',
+        content: '何明胜 提交于 2018/4/2 20:46',
+        timestamp: '2018-04-13'
+      }, {
+        title: '发布版本V1.0.2',
+        content: '何明胜 提交于 2018/4/2 20:46',
+        timestamp: '2018-04-18'
+      }]
+    }
+  }
 }
 </script>
 
@@ -223,5 +259,14 @@ a:hover {
   margin-top: 10px;
   background-size: cover;
   background-position: center;
+}
+
+/* 版本更新历史 */
+.radio {
+  margin-bottom: 20px;
+}
+
+.content {
+  margin-top: 10px;
 }
 </style>
