@@ -22,10 +22,12 @@
 </template>
 
 <script>
+import Constant from '../../modules/constant'
+
 export default {
-  name: 'Video',
   data () {
     return {
+      video: {},
       // videojs options
       playerOptions: {
         playbackRates: [0.7, 1.0, 1.5, 2.0], // 播放速度
@@ -40,11 +42,19 @@ export default {
         width: document.documentElement.clientWidth,
         sources: [{
           type: 'video/mp4',
-          src: 'https://www.hemingsheng.cn/file/download.hms?filename=oceans.mp4'
+          src: ''
         }],
-        poster: '/static/images/surmon.jpg'
+        poster: ''
       }
     }
+  },
+  created () {
+    this.$http.get(Constant.videoUrl).then((data) => {
+      this.video = data.body
+
+      this.playerOptions.sources[0].src = this.video.videoContentUrl
+      this.playerOptions.poster = this.video.videoPoster
+    })
   },
   mounted () {
     console.log('this is current player instance object', this.player)

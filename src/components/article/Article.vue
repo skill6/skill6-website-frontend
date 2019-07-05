@@ -44,13 +44,12 @@ import Constant from '../../modules/constant'
 import Comment from './comment/Comment'
 
 export default {
-  name: 'Article',
   components: {
     Comment
   },
   data () {
     return {
-      article: [],
+      article: {},
       commentData: []
     }
   },

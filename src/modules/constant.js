@@ -3,11 +3,15 @@ const articleUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/article/
 const questionsUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/questions'
 const questionUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/question/123'
 const commentUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/comment/123'
+const videosUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/videos'
+const videoUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/video/12345'
 
 export default {
   articlesUrl,
   articleUrl,
   questionsUrl,
   questionUrl,
-  commentUrl
+  commentUrl,
+  videosUrl,
+  videoUrl
 }

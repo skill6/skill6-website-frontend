@@ -26,7 +26,6 @@
 
 <script>
 export default {
-  name: 'SingleInfo',
   props: ['article'],
   methods: {
     // 跳转阅读文章细节
