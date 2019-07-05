@@ -2,10 +2,13 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand top-menu" href="#">
-        <img src="/static/logo/logo.jpg" height="50px" width="50px">
+        <img src="/static/logo/logo.jpg" height="50px" width="50px" />
       </a>
 
       <ul class="navbar-nav">
+        <li>
+          <a href="/infoflow.html" class="nav-link">信息流阅览</a>
+        </li>
         <li>
           <router-link to="/" class="nav-link">首页</router-link>
         </li>

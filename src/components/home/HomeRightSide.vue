@@ -2,14 +2,14 @@
   <div class="info-flow-side-right">
     <div class="hot-label">
       <el-row class="hot-label-row">
-        <el-button type="primary" size="mini">Java</el-button>
-        <el-button type="primary" size="mini">全栈</el-button>
-        <el-button type="primary" size="mini">VUE</el-button>
-        <el-button type="primary" size="mini">深度学习</el-button>
+        <el-tag>Java</el-tag>
+        <el-tag type="success">全栈</el-tag>
+        <el-tag type="info">VUE</el-tag>
+        <el-tag type="warning">深度学习</el-tag>
       </el-row>
       <el-row class="hot-label-row">
-        <el-button type="primary" size="mini">VUE</el-button>
-        <el-button type="primary" size="mini">人工智能</el-button>
+        <el-tag type="danger">VUE</el-tag>
+        <el-tag>人工智能</el-tag>
       </el-row>
     </div>
     <div>

@@ -4,7 +4,7 @@
       <header class="article-header">
         <div>
           <a href class="author-picture-show">
-            <img :src="article.userHeadUrl" alt="头像" class="author-picture">
+            <el-avatar :size="50" :src="article.userHeadUrl" alt="这是头像"></el-avatar>
           </a>
         </div>
         <div>
@@ -97,12 +97,6 @@ export default {
 .author-picture-show {
   height: 50px;
   margin-right: 15px;
-}
-
-.author-picture {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
 }
 
 .article-body {
