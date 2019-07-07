@@ -36,6 +36,8 @@ body {
   margin: 0;
   background: #fff;
   overflow-x: hidden;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
 }
 
 body,
@@ -65,6 +67,7 @@ ul {
   min-width: 1366px;
   min-height: 50px;
   margin-bottom: 20px;
+  font-size: 15px;
 }
 
 .main-container {

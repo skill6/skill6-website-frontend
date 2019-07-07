@@ -7,34 +7,34 @@
 
       <ul class="navbar-nav">
         <li>
-          <a href="/infoflow.html" class="nav-link">信息流阅览</a>
+          <a href="/infoflow.html" class="nav-link-pm">信息流阅览</a>
         </li>
         <li>
           <router-link to="/" class="nav-link">首页</router-link>
         </li>
         <li>
-          <router-link to="/article" class="nav-link">博客文章</router-link>
+          <router-link to="/article" class="nav-link-pm">博客文章</router-link>
         </li>
         <li>
-          <router-link to="/question" class="nav-link">提问答疑</router-link>
+          <router-link to="/question" class="nav-link-pm">提问答疑</router-link>
         </li>
         <li>
-          <router-link to="/video" class="nav-link">视频教程</router-link>
+          <router-link to="/video" class="nav-link-pm">视频教程</router-link>
         </li>
         <li>
-          <router-link to="/share" class="nav-link">文件下载</router-link>
+          <router-link to="/share" class="nav-link-pm">文件下载</router-link>
         </li>
         <li>
-          <router-link to="/about" class="nav-link">关于技术流</router-link>
+          <router-link to="/about" class="nav-link-pm">关于技术流</router-link>
         </li>
       </ul>
 
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto login-mr">
         <li>
-          <a href="/login.html" class="nav-link">登录</a>
+          <a href="/login.html" class="nav-link-pm">登录</a>
         </li>
         <li>
-          <a href="/signup" class="nav-link">注册</a>
+          <a href="/signup" class="nav-link-pm">注册</a>
         </li>
       </ul>
     </nav>
@@ -43,7 +43,6 @@
 
 <script>
 export default {
-  name: 'Menu'
 }
 </script>
 
@@ -57,8 +56,22 @@ export default {
   flex-direction: row;
 }
 
-.nav-link {
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+.nav-link-pm {
+  padding: 0.5rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar-nav li {
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav li a:hover {
+  color: #000;
+}
+
+.login-mr {
+  margin-right: 50px;
 }
 </style>
