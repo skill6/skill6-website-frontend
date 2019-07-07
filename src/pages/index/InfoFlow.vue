@@ -1,6 +1,6 @@
 <template>
   <div id="infofolw" class="info-flow-main" v-if="infoFlowShow">
-    <button class="nav-link-pm" v-on:click="showSkill6">进入主页</button>
+    <el-button size="small" round v-on:click="showSkill6" class="info-flow-btn">进入主页</el-button>
     <info-main></info-main>
   </div>
 </template>
@@ -39,5 +39,9 @@ export default {
 .info-flow-main {
   width: 60%;
   margin: auto 20%;
+}
+
+.info-flow-btn {
+  margin-top: 20px;
 }
 </style>
