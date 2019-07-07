@@ -1,13 +1,17 @@
 <template>
-  <div class="info-flow-center">
-    <div v-for="question in questions" :key="question.questionId">
-      <single-question-preview v-bind:question="question"></single-question-preview>
-    </div>
-    <pagination
-      v-bind:pageParam="pageParam"
-      @handlePageSizeChange="handlePageSizeChange"
-      @handleCurrentPageChange="handleCurrentPageChange"
-    ></pagination>
+  <div class="question-preview">
+    <section class="info-flow-center">
+      <div v-for="question in questions" :key="question.questionId">
+        <single-question-preview v-bind:question="question"></single-question-preview>
+      </div>
+      <pagination
+        v-bind:pageParam="pageParam"
+        @handlePageSizeChange="handlePageSizeChange"
+        @handleCurrentPageChange="handleCurrentPageChange"
+      ></pagination>
+    </section>
+    <!-- 右边栏 -->
+    <right-side-bar></right-side-bar>
   </div>
 </template>
 
@@ -15,18 +19,19 @@
 import Constant from '../../../modules/constant'
 import Pagination from '../../common/Pagination'
 import SingleQuestionPreview from './SingleQuestionPreview'
+import RightSideBar from '../../common/RightSideBar'
 
 export default {
-  name: 'QuestionPreview',
+  components: {
+    SingleQuestionPreview,
+    RightSideBar,
+    Pagination
+  },
   data () {
     return {
       questions: [],
       pageParam: {}
     }
-  },
-  components: {
-    SingleQuestionPreview,
-    Pagination
   },
   created () {
     this.$http.get(Constant.questionsUrl).then((data) => {
@@ -50,23 +55,23 @@ export default {
 </script>
 
 <style scoped>
-.info-flow-center {
-  margin-left: 20%;
-  margin-right: 30px;
+.question-preview {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  flex-direction: column;
   flex-grow: 1;
-  /* min-width: 524px; */
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
   -webkit-flex-grow: 1;
-  z-index: 1;
   margin-bottom: 100px;
+}
+
+.info-flow-center {
+  margin-left: 20%;
+  margin-right: 20px;
   width: 60%;
+  float: left;
 }
 </style>

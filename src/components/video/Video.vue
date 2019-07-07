@@ -1,31 +1,41 @@
 <template>
-  <div class="player-container">
-    <video-player
-      class="vjs-custom-skin"
-      ref="videoPlayer"
-      :options="playerOptions"
-      :playsinline="true"
-      customEventName="customstatechangedeventname"
-      @play="onPlayerPlay($event)"
-      @pause="onPlayerPause($event)"
-      @ended="onPlayerEnded($event)"
-      @waiting="onPlayerWaiting($event)"
-      @playing="onPlayerPlaying($event)"
-      @loadeddata="onPlayerLoadeddata($event)"
-      @timeupdate="onPlayerTimeupdate($event)"
-      @canplay="onPlayerCanplay($event)"
-      @canplaythrough="onPlayerCanplaythrough($event)"
-      @statechanged="playerStateChanged($event)"
-      @ready="playerReadied"
-    ></video-player>
-  </div>
+  <section class="player-container">
+    <div>
+      <video-player
+        class="vjs-custom-skin"
+        ref="videoPlayer"
+        :options="playerOptions"
+        :playsinline="true"
+        customEventName="customstatechangedeventname"
+        @play="onPlayerPlay($event)"
+        @pause="onPlayerPause($event)"
+        @ended="onPlayerEnded($event)"
+        @waiting="onPlayerWaiting($event)"
+        @playing="onPlayerPlaying($event)"
+        @loadeddata="onPlayerLoadeddata($event)"
+        @timeupdate="onPlayerTimeupdate($event)"
+        @canplay="onPlayerCanplay($event)"
+        @canplaythrough="onPlayerCanplaythrough($event)"
+        @statechanged="playerStateChanged($event)"
+        @ready="playerReadied"
+      ></video-player>
+    </div>
+    <!-- 底部功能区 -->
+    <bottom-bar></bottom-bar>
+  </section>
 </template>
 
 <script>
+import Constant from '../../modules/constant'
+import BottomBar from '../common/BottomBar'
+
 export default {
-  name: 'Video',
+  components: {
+    BottomBar
+  },
   data () {
     return {
+      video: {},
       // videojs options
       playerOptions: {
         playbackRates: [0.7, 1.0, 1.5, 2.0], // 播放速度
@@ -40,11 +50,19 @@ export default {
         width: document.documentElement.clientWidth,
         sources: [{
           type: 'video/mp4',
-          src: 'https://www.hemingsheng.cn/file/download.hms?filename=oceans.mp4'
+          src: ''
         }],
-        poster: '/static/images/surmon.jpg'
+        poster: ''
       }
     }
+  },
+  created () {
+    this.$http.get(Constant.videoUrl).then((data) => {
+      this.video = data.body
+
+      this.playerOptions.sources[0].src = this.video.videoContentUrl
+      this.playerOptions.poster = this.video.videoPoster
+    })
   },
   mounted () {
     console.log('this is current player instance object', this.player)

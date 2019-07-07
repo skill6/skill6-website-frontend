@@ -6,7 +6,7 @@
       <!-- 作者区域 -->
       <div class="article-author">
         <a class="article-avatar" :href="article.userHomeUrl">
-          <img :src="article.userHeadUrl" alt="头像">
+          <el-avatar :size="50" :src="article.userHeadUrl" alt="头像"></el-avatar>
         </a>
         <div class="article-info">
           <span class="author-name">
@@ -33,6 +33,8 @@
         <div class="article-content-free">{{article.articleMdContent}}</div>
       </div>
 
+      <!-- 底部功能区 -->
+      <bottom-bar></bottom-bar>
       <!-- 评论 -->
       <comment :comments="commentData" @updateComment="updateComment"></comment>
     </div>
@@ -42,15 +44,16 @@
 <script>
 import Constant from '../../modules/constant'
 import Comment from './comment/Comment'
+import BottomBar from '../common/BottomBar'
 
 export default {
-  name: 'Article',
   components: {
-    Comment
+    Comment,
+    BottomBar
   },
   data () {
     return {
-      article: [],
+      article: {},
       commentData: []
     }
   },
@@ -100,13 +103,6 @@ export default {
   height: 48px;
   vertical-align: middle;
   display: inline-block;
-}
-
-.article-avatar img {
-  width: 100%;
-  height: 100%;
-  border: 1px solid #ddd;
-  border-radius: 50%;
 }
 
 .article-info {

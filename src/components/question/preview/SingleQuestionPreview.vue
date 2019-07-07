@@ -38,14 +38,17 @@
 
 <script>
 export default {
-  name: 'SingleQuestionPreview',
   props: ['question']
 }
 </script>
 
 <style scoped>
+.article-preview {
+  background-color: #f1f1f1;
+}
+
 .question-item {
-  margin-top: 15px;
+  margin-bottom: 25px;
 }
 
 .question-item-info {

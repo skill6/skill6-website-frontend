@@ -1,19 +1,35 @@
 <template>
   <div class="video-main">
-    <el-row v-for="index in 3" :key="index">
-      <el-col :span="7" v-for="(o, index) in 3" :key="o" :offset="index > 0 ? 1 : 0">
-        <single-video-preview></single-video-preview>
+    <el-row :gutter="30">
+      <el-col :span="8" v-for="(video, index) in videoList" :key="index">
+        <single-video-preview v-bind:video="video"></single-video-preview>
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
+import Constant from '../../../modules/constant'
 import SingleVideoPreview from './SingleVideoPreview'
 
 export default {
   components: {
     SingleVideoPreview
+  },
+  data () {
+    return {
+      videoList: []
+    }
+  },
+  created () {
+    this.$http.get(Constant.videosUrl).then((data) => {
+      this.videoList = data.body.videoList
+    })
+    this.pageParam = {
+      pageSize: 10,
+      currentPage: 1,
+      totalCount: 1000
+    }
   }
 }
 </script>
@@ -23,7 +39,7 @@ export default {
   margin: 0 10%;
 }
 
-.el-row {
-  margin-bottom: 30px;
+.el-col {
+  margin-bottom: 40px;
 }
 </style>
