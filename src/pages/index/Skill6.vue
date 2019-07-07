@@ -1,5 +1,5 @@
 <template>
-  <div id="skill6">
+  <div id="skill6" v-if="skill6Show">
     <!-- 顶部菜单 -->
     <div class="header">
       <skill6-menu></skill6-menu>
@@ -22,9 +22,9 @@ export default {
     'skill6-menu': Skill6Menu,
     'skill6-footer': Skill6Footer
   },
-  data () {
-    return {
-      skill6Show: true
+  computed: {
+    skill6Show () {
+      return this.$store.state.skill6Show
     }
   }
 }

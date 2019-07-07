@@ -33,9 +33,9 @@ export default {
 .info-flow-side-right {
   position: relative;
   display: block;
-  width: 24%;
+  width: 300px;
   background-color: whitesmoke;
-  margin-right: 15px;
+  margin: 0 15px;
 }
 
 .hot-label {

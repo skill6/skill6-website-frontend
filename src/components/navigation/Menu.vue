@@ -6,8 +6,8 @@
       </a>
 
       <ul class="navbar-nav">
-        <li>
-          <a href="/infoflow.html" class="nav-link-pm">信息流阅览</a>
+        <li class="info-flow">
+          <a class="nav-link-pm" v-on:click="showInfoFlow">信息流</a>
         </li>
         <li>
           <router-link to="/" class="nav-link">首页</router-link>
@@ -43,6 +43,11 @@
 
 <script>
 export default {
+  methods: {
+    showInfoFlow () {
+      this.$store.commit('showInfoFlow')
+    }
+  }
 }
 </script>
 
@@ -54,6 +59,10 @@ export default {
 
 .navbar-nav {
   flex-direction: row;
+}
+
+.info-flow {
+  margin-right: 25px;
 }
 
 .nav-link-pm {
