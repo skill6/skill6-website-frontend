@@ -11,11 +11,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "element-ui": "^2.10.0",
     "iview": "^3.4.2",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.1.1"
@@ -57,7 +57,7 @@
     "postcss-url": "^7.2.1",
     "rimraf": "^2.6.0",
     "semver": "^5.3.0",
-    "shelljs": "^0.7.6",
+    "shelljs": "^0.8.3",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "url-loader": "^0.5.8",
@@ -67,7 +67,7 @@
     "vue-template-compiler": "^2.5.2",
     "vue-video-player": "^5.0.2",
     "webpack": "^3.6.0",
-    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0"
   },
