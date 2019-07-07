@@ -20,6 +20,24 @@
         <el-button slot="append" icon="el-icon-search"></el-button>
       </el-autocomplete>
     </div>
+    <div class="classification">
+      <Card>
+        <span slot="title">
+          <i class="el-icon-document"></i>分类
+        </span>
+        <ul>
+          <li>
+            <a href class="article-mr">Java（5）</a>
+          </li>
+          <li>
+            <a href class="article-mr">Mysql（18）</a>
+          </li>
+          <li>
+            <a href class="article-mr">前端（1）</a>
+          </li>
+        </ul>
+      </Card>
+    </div>
   </section>
 </template>
 
@@ -90,5 +108,14 @@ export default {
 
 .auto-complete .highlighted .addr {
   color: #ddd;
+}
+
+.classification {
+  margin-top: 20px;
+  width: 222px;
+}
+
+.classification ul li {
+  margin: 5px auto;
 }
 </style>
