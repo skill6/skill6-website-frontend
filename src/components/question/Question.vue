@@ -6,47 +6,45 @@
           <div class="block-for-right-border">
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
-                <div>
-                  <div class="post-topheader-info">
-                    <div class="question-auhtor-left">
+                <div class="post-topheader-info">
+                  <div class="question-auhtor-left">
+                    <a :href="question.authorHomeUrl">
+                      <img
+                        class="question-avatar"
+                        :src="question.userHeadUrl"
+                        :alt="question.questionAuthor"
+                      />
+                    </a>
+                  </div>
+                  <div class="question-author-right">
+                    <div>
                       <a :href="question.authorHomeUrl">
-                        <img
-                          class="question-avatar"
-                          :src="question.userHeadUrl"
-                          :alt="question.questionAuthor"
-                        >
+                        <strong>{{question.questionAuthor}}</strong>
                       </a>
+                      <span class="hidden-xs">
+                        <button type="button" class="btn btn-xs btn-success code-follow-user">关注作者</button>
+                      </span>
                     </div>
-                    <div class="question-author-right">
-                      <div>
-                        <a :href="question.authorHomeUrl">
-                          <strong>{{question.questionAuthor}}</strong>
-                        </a>
-                        <span class="hidden-xs">
-                          <button type="button" class="btn btn-xs btn-success code-follow-user">关注作者</button>
-                        </span>
-                      </div>
-                      <span style="display: block">{{question.questionCreateTime}}</span>
-                    </div>
+                    <span style="display: block">{{question.questionCreateTime}}</span>
                   </div>
-                  <h1 class="question-title">
-                    <a href="/a/1190000019516974">{{question.questionTitle}}</a>
-                  </h1>
-                  <div class="content__tech hidden-xs">
-                    <ul class="question-title-taglist">
-                      <li class="tagPopup mb5">
-                        <a class="question-title-tag" data-placement="top">
-                          <img :src="question.userHeadUrl">
-                          android
-                        </a>
-                      </li>
-                    </ul>
-                    <span class="code-title-taglist-span">
-                      70 次阅读
-                      &nbsp;·&nbsp;
-                      读完需要 19 分钟
-                    </span>
-                  </div>
+                </div>
+                <h1 class="question-title">
+                  <a href="/a/1190000019516974">{{question.questionTitle}}</a>
+                </h1>
+                <div class="content__tech hidden-xs">
+                  <ul class="question-title-taglist">
+                    <li class="tagPopup mb5">
+                      <a class="question-title-tag" data-placement="top">
+                        <img :src="question.userHeadUrl" />
+                        android
+                      </a>
+                    </li>
+                  </ul>
+                  <span class="code-title-taglist-span">
+                    70 次阅读
+                    &nbsp;·&nbsp;
+                    读完需要 19 分钟
+                  </span>
                 </div>
               </div>
             </div>
@@ -55,14 +53,19 @@
       </div>
       <div class="question-content">{{question.questionAnswer}}</div>
     </div>
+    <!-- 底部功能区 -->
+    <bottom-bar></bottom-bar>
   </article>
 </template>
 
 <script>
 import Constant from '../../modules/constant'
+import BottomBar from '../common/BottomBar'
 
 export default {
-  name: 'Question',
+  components: {
+    BottomBar
+  },
   data () {
     return {
       question: []

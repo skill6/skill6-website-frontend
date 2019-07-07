@@ -1,30 +1,38 @@
 <template>
-  <div class="player-container">
-    <video-player
-      class="vjs-custom-skin"
-      ref="videoPlayer"
-      :options="playerOptions"
-      :playsinline="true"
-      customEventName="customstatechangedeventname"
-      @play="onPlayerPlay($event)"
-      @pause="onPlayerPause($event)"
-      @ended="onPlayerEnded($event)"
-      @waiting="onPlayerWaiting($event)"
-      @playing="onPlayerPlaying($event)"
-      @loadeddata="onPlayerLoadeddata($event)"
-      @timeupdate="onPlayerTimeupdate($event)"
-      @canplay="onPlayerCanplay($event)"
-      @canplaythrough="onPlayerCanplaythrough($event)"
-      @statechanged="playerStateChanged($event)"
-      @ready="playerReadied"
-    ></video-player>
-  </div>
+  <section class="player-container">
+    <div>
+      <video-player
+        class="vjs-custom-skin"
+        ref="videoPlayer"
+        :options="playerOptions"
+        :playsinline="true"
+        customEventName="customstatechangedeventname"
+        @play="onPlayerPlay($event)"
+        @pause="onPlayerPause($event)"
+        @ended="onPlayerEnded($event)"
+        @waiting="onPlayerWaiting($event)"
+        @playing="onPlayerPlaying($event)"
+        @loadeddata="onPlayerLoadeddata($event)"
+        @timeupdate="onPlayerTimeupdate($event)"
+        @canplay="onPlayerCanplay($event)"
+        @canplaythrough="onPlayerCanplaythrough($event)"
+        @statechanged="playerStateChanged($event)"
+        @ready="playerReadied"
+      ></video-player>
+    </div>
+    <!-- 底部功能区 -->
+    <bottom-bar></bottom-bar>
+  </section>
 </template>
 
 <script>
 import Constant from '../../modules/constant'
+import BottomBar from '../common/BottomBar'
 
 export default {
+  components: {
+    BottomBar
+  },
   data () {
     return {
       video: {},
