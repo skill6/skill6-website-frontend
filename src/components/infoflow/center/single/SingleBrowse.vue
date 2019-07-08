@@ -6,7 +6,7 @@
           <img src="/static/logo/logo.jpg" alt="这是头像" class="author-picture">
         </a>
         <div>
-          <a class="author-title">这是标题</a>
+          <a class="author-title">这是标题 - 最多访问</a>
           <div class="article-description">发表时间、浏览量</div>
         </div>
       </header>

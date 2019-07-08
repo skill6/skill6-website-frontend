@@ -6,8 +6,6 @@
 </template>
 
 <script>
-import $ from 'jquery'
-
 import InfoMain from '@/components/infoflow/InfoMain'
 
 export default {
@@ -18,14 +16,6 @@ export default {
     infoFlowShow () {
       return this.$store.state.infoFlowShow
     }
-  },
-  updated () {
-    // 轮播立体效果
-    $('#carousel').carousel({
-      curDisplay: 1,
-      autoPlay: false,
-      interval: 1500
-    })
   },
   methods: {
     showSkill6 () {

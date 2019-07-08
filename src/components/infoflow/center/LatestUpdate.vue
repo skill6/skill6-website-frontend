@@ -19,7 +19,7 @@ export default {
   },
   data () {
     return {
-      count: 4,
+      count: 2,
       page: 1,
       page_count: 3
     }
@@ -28,6 +28,7 @@ export default {
     loadMore () {
       this.count += 2
       this.page += 1
+      this.$emit('changeHeight', this.count)
     }
   }
 }
