@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="lunar-calendar flex">
     <span :type="type">
       <i class="el-icon-date"></i>
       {{display}}
@@ -46,6 +46,11 @@ export default {
 </script>
 
 <style>
+.lunar-calendar {
+  width: 96%;
+  margin: 5px auto;
+}
+
 .flex {
   box-sizing: border-box;
   display: -webkit-box;
@@ -65,7 +70,6 @@ export default {
 
 .flex > div {
   width: 25%;
-  min-width: 300px;
   border: 1px solid #eee;
   border-radius: 2px;
   position: relative;

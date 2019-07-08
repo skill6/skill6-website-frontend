@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Card style="width:200px">
+    <Card>
       <p slot="title">
         <i class="el-icon-s-flag"></i> 访问统计
       </p>
