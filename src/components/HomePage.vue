@@ -1,22 +1,18 @@
 <template>
   <div class="info-main">
-    <home-left-side></home-left-side>
     <home-main></home-main>
-    <home-right-side></home-right-side>
+    <home-side></home-side>
   </div>
 </template>
 
 <script>
-import HomeLeftSide from './home/HomeLeftSide'
-import HomeRightSide from './home/HomeRightSide'
+import HomeSide from './home/HomeSide'
 import HomeMain from './home/HomeMain'
 
 export default {
-  name: 'HomePage',
   components: {
-    HomeLeftSide,
-    HomeRightSide,
-    HomeMain
+    HomeMain,
+    HomeSide
   }
 }
 </script>
