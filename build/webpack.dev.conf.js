@@ -6,7 +6,6 @@ const merge = require('webpack-merge')
 const path = require('path')
 const baseWebpackConfig = require('./webpack.base.conf')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
@@ -27,10 +26,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     clientLogLevel: 'warning',
     historyApiFallback: {
-      rewrites: [{
-        from: /.*/,
-        to: path.posix.join(config.dev.assetsPublicPath, 'index.html')
-      }, ],
+      rewrites: utils.rewrites(),
     },
     hot: true,
     contentBase: false, // since we use CopyWebpackPlugin.
@@ -57,13 +53,15 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
-    /* 注释这个区域的文件 ------------- 开始 */
+
+    /* --------------------- annotation start ------------------------ */
     // new HtmlWebpackPlugin({
     //   filename: 'index.html',
     //   template: 'index.html',
     //   inject: true
     // }),
-    /* 注释这个区域的文件 ------------- 结束 */
+    /* --------------------- annotation end ------------------------ */
+
     // copy custom static assets
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, '../static'),
