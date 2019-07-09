@@ -106,8 +106,8 @@ export default {
 
 <style scoped>
 .home-main {
-  width: 1100px;
-  margin-left: 20px;
+  width: 980px;
+  margin: 0 auto;
 }
 
 .recommend {

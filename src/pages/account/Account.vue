@@ -1,5 +1,7 @@
 <template>
-  <h1>登录</h1>
+  <div id="account">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>

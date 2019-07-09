@@ -4,6 +4,21 @@
 
 const path = require('path')
 
+/* ------------- add start 生产环境环境 多页面路由到html的配置 --------------- */
+
+// glob是webpack安装时依赖的一个第三方模块，还模块允许你使用 *等符号, 例如lib/*.js就是获取lib文件夹下的所有js后缀名的文件
+var glob = require('glob')
+
+// 取得相应的页面路径，因为之前的配置，所以是src文件夹下的pages文件夹
+const PAGE_PATH = path.resolve(__dirname, '../src/pages')
+
+let buildPath = {}
+glob.sync(PAGE_PATH + '/*/*.html').forEach((filePath) => {
+  let filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'))
+  buildPath[filename] = path.resolve(__dirname, `../dist/${filename}.html`)
+})
+/* ------------- add end 生产环境环境 多页面路由到html的配置 --------------- */
+
 module.exports = {
   dev: {
 
@@ -45,7 +60,7 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    ...buildPath,
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),

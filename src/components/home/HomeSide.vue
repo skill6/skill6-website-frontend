@@ -71,9 +71,9 @@ export default {
 .info-side {
   position: relative;
   display: block;
-  width: 330px;
+  width: 320px;
   background-color: whitesmoke;
-  margin: 0 15px;
+  margin: 0 20px 0 25px;
 }
 
 .current-date {
