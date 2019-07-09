@@ -8,7 +8,7 @@ Vue.use(Router)
 
 const routes = [{
   path: '/',
-  component: SignUp
+  component: SignIn
 },
 {
   path: '/signin',
@@ -22,7 +22,7 @@ const routes = [{
 
 const router = new Router({
   routes,
-  base: '/login',
+  base: '/account',
   mode: 'history'
 })
 

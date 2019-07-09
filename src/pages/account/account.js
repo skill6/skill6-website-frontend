@@ -4,7 +4,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VueResource from 'vue-resource'
 
-import Sign from './Sign'
+import Account from './Account.vue'
 import router from './router'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -23,11 +23,11 @@ Vue.use(IView)
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#sign',
+  el: '#account',
   router,
   components: {
-    Sign
+    Account
   },
-  template: '<Sign/>',
-  render: h => h(Sign)
+  template: '<Account/>',
+  render: h => h(Account)
 })

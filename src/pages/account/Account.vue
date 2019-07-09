@@ -1,7 +1,5 @@
 <template>
-  <div id="sign">
-    <router-link to="/signup">Go to Foo</router-link>
-    <router-link to="/signin">Go to Bar</router-link>
+  <div id="account">
     <router-view></router-view>
   </div>
 </template>
