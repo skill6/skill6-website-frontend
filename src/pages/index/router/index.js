@@ -2,14 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import HomePage from '@/components/HomePage'
-import ArticlePreview from '@/components/article/preview/ArticlePreview'
-import QuestionPreview from '@/components/question/preview/QuestionPreview'
-import VideoPreview from '@/components/video/preview/VideoPreview'
-import SharePreview from '@/components/share/preview/SharePreview'
-import AboutPreview from '@/components/about/AboutPreview'
-import Article from '@/components/article/Article'
-import Question from '@/components/question/Question'
-import Video from '@/components/video/Video'
 
 Vue.use(Router)
 
@@ -19,35 +11,35 @@ const routes = [{
 },
 {
   path: '/article',
-  component: ArticlePreview
+  component: () => import('@/components/article/preview/ArticlePreview')
 },
 {
   path: '/question',
-  component: QuestionPreview
+  component: () => import('@/components/question/preview/QuestionPreview')
 },
 {
   path: '/video',
-  component: VideoPreview
+  component: () => import('@/components/video/preview/VideoPreview')
 },
 {
   path: '/share',
-  component: SharePreview
+  component: () => import('@/components/share/preview/SharePreview')
 },
 {
   path: '/about',
-  component: AboutPreview
+  component: () => import('@/components/about/AboutPreview')
 },
 {
   path: '/article/:articleId',
-  component: Article
+  component: () => import('@/components/article/Article')
 },
 {
   path: '/question/:questionId',
-  component: Question
+  component: () => import('@/components/question/Question')
 },
 {
   path: '/video/:videoId',
-  component: Video
+  component: () => import('@/components/video/Video')
 },
 {
   path: '*',

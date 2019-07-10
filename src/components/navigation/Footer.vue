@@ -42,6 +42,8 @@ export default {
 #footer {
   min-height: 50px;
   background-color: gainsboro;
+  margin-top: 30px;
+  padding-bottom: 10px;
 }
 
 .footer-info {

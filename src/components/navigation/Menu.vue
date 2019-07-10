@@ -31,10 +31,10 @@
 
       <ul class="navbar-nav ml-auto login-mr">
         <li>
-          <a href="/login.html" class="nav-link-pm">登录</a>
+          <a href="/account/signin" class="nav-link-pm">登录</a>
         </li>
         <li>
-          <a href="/signup" class="nav-link-pm">注册</a>
+          <a href="/account/signup" class="nav-link-pm">注册</a>
         </li>
       </ul>
     </nav>

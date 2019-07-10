@@ -1,5 +1,5 @@
 <template>
-  <h1>注册123</h1>
+  <h1>个人中心</h1>
 </template>
 
 <script>
