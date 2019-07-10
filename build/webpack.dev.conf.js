@@ -68,8 +68,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       to: config.dev.assetsSubDirectory,
       ignore: ['.*']
     }])
-    /* 添加 .concat(utils.htmlPlugin()) ------------------ */
-  ].concat(utils.htmlPlugin())
+    /* 添加 .concat(utils.htmlPluginDev()) ------------------ */
+  ].concat(utils.htmlPluginDev())
 })
 
 module.exports = new Promise((resolve, reject) => {

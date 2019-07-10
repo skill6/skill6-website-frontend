@@ -109,7 +109,7 @@ exports.entries = function () {
 
 // 多页面输出配置
 // 与上面的多页面入口配置相同，读取pages文件夹下的对应的html后缀文件，然后放入数组中
-exports.htmlPlugin = function () {
+exports.htmlPluginDev = function () {
   let entryHtml = glob.sync(PAGE_PATH + '/*/*.html')
   let arr = []
   entryHtml.forEach((filePath) => {
@@ -123,16 +123,6 @@ exports.htmlPlugin = function () {
       chunks: ['manifest', 'vendor', filename],
       inject: true
     }
-    if (process.env.NODE_ENV === 'production') {
-      conf = merge(conf, {
-        minify: {
-          removeComments: true,
-          collapseWhitespace: true,
-          removeAttributeQuotes: true
-        },
-        chunksSortMode: 'dependency'
-      })
-    }
     arr.push(new HtmlWebpackPlugin(conf))
   })
   return arr
@@ -145,12 +135,10 @@ exports.htmlPluginProd = function () {
   entryHtml.forEach((filePath) => {
     let filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'))
     let conf = {
-      // 模板来源
-      template: config.build[filename],
       // 文件名称
-      filename: filename + '.html',
-      // 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引入所有的js脚本
-      chunks: ['manifest', 'vendor', filename],
+      template: filePath,
+      // 模板来源
+      filename: config.build[filename],
       inject: true,
       minify: {
         removeComments: true,
@@ -159,16 +147,8 @@ exports.htmlPluginProd = function () {
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency',
-    }
-    if (process.env.NODE_ENV === 'production') {
-      conf = merge(conf, {
-        minify: {
-          removeComments: true,
-          collapseWhitespace: true,
-          removeAttributeQuotes: true
-        },
-        chunksSortMode: 'dependency'
-      })
+      // 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引入所有的js脚本
+      chunks: ['manifest', 'vendor', filename]
     }
     arr.push(new HtmlWebpackPlugin(conf))
   })
