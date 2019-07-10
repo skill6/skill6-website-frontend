@@ -1,22 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import SignIn from '@/components/sign/SignIn'
-import SignUp from '@/components/sign/SignUp'
+import SignIn from '@/components/account/SignIn'
+import SignUp from '@/components/account/SignUp'
 
 Vue.use(Router)
 
 const routes = [{
-  path: '/',
-  component: SignIn
-},
-{
   path: '/signin',
   component: SignIn
 },
 {
   path: '/signup',
   component: SignUp
+},
+{
+  path: '*',
+  component: SignIn
 }
 ]
 

@@ -3,16 +3,15 @@
     <h3 class="sign-title">登录</h3>
     <div>
       <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class="demo-ruleForm">
-        <el-form-item prop="pass">
+        <el-form-item prop="username">
           <el-input
-            type="password"
             v-model="ruleForm.username"
             autocomplete="off"
             placeholder="用户名/手机号/邮箱"
             prefix-icon="el-icon-user-solid"
           ></el-input>
         </el-form-item>
-        <el-form-item prop="pass">
+        <el-form-item prop="password">
           <el-input
             type="password"
             v-model="ruleForm.password"
@@ -22,9 +21,14 @@
           ></el-input>
         </el-form-item>
         <el-form-item>
-          <Button type="success" shape="circle" long @click="submitForm('ruleForm')">提交</Button>
+          <Button type="primary" shape="circle" long @click="submitForm('ruleForm')">登录</Button>
         </el-form-item>
       </el-form>
+    </div>
+    <Divider />
+    <div class="second-operate">
+      <router-link to="/retrivepwd">找回密码</router-link>
+      <router-link to="/signup" class="register">注册账号</router-link>
     </div>
     <Divider />
     <!-- 第三方登录 -->
@@ -41,6 +45,9 @@
         </a>
         <a>
           <Icon type="md-paw" size="30" />
+        </a>
+        <a>
+          <el-image src="/static/images/thirdauth/qq_login.png" :lazy="true" class="qq-login"></el-image>
         </a>
       </div>
     </div>
@@ -61,10 +68,15 @@ export default {
     }
     return {
       ruleForm: {
-        pass: ''
+        username: '',
+        password: ''
       },
       rules: {
-        pass: [
+        username: [
+          { required: true, message: '请输入用户名/手机号/邮箱', trigger: 'blur' },
+          { min: 1, max: 20, message: '长度在 1 到 20 个字符', trigger: 'blur' }
+        ],
+        password: [
           { validator: validatePass, trigger: 'blur' }
         ]
       }
@@ -88,11 +100,26 @@ export default {
 .signin-form {
   width: 360px;
   margin: 100px auto;
+  background-color: #F2F6FC;
+  padding: 10px 20px;
 }
 
 .sign-title {
   text-align: center;
   margin-bottom: 25px;
+}
+
+.second-operate {
+  margin-top: -20px;
+}
+
+.retrieve-password {
+  margin-left: 25px;
+}
+
+.register {
+  float: right;
+  margin-right: 25px;
 }
 
 .third-party-sign-text {
@@ -101,7 +128,18 @@ export default {
   margin-bottom: 20px;
 }
 
+.third-party-sign {
+  width: fit-content;
+  margin: auto;
+}
+
 .third-party-sign a {
-  margin-right: 20px;
+  margin-right: 30px;
+}
+
+.qq-login {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
 }
 </style>

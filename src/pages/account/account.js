@@ -15,11 +15,14 @@ import 'element-ui/lib/theme-chalk/index.css'
 import IView from 'iview'
 import 'iview/dist/styles/iview.css'
 
+import VueParticles from 'vue-particles'
+
 Vue.config.productionTip = false
 Vue.use(Vuex)
 Vue.use(VueResource)
 Vue.use(ElementUI)
 Vue.use(IView)
+Vue.use(VueParticles)
 
 /* eslint-disable no-new */
 new Vue({
