@@ -5,7 +5,7 @@ const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const webpack = require('webpack')
 
-function resolve(dir) {
+function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -104,6 +104,7 @@ module.exports = {
     'vue-resource': 'VueResource',
     'jquery': 'jQuery',
     'axios': 'axios',
-    'video.js': 'videojs'
+    'video.js': 'videojs',
+    'vue-video-player': 'VueVideoPlayer',
   }
 }

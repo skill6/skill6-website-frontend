@@ -8,8 +8,6 @@ import Skill6 from './Skill6'
 import InfoFlow from './InfoFlow'
 import router from './router'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-
 import ElementUI from '../../modules/element'
 import 'element-ui/lib/theme-chalk/index.css'
 

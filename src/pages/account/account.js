@@ -7,8 +7,6 @@ import VueResource from 'vue-resource'
 import Account from './Account.vue'
 import router from './router'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
-
 import ElementUI from '../../modules/element'
 import 'element-ui/lib/theme-chalk/index.css'
 
