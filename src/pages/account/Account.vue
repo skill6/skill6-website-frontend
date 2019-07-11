@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Particles from '@/modules/particles/Particles'
+import Particles from '@/lib/particles'
 
 export default {
   components: {

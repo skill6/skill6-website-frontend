@@ -26,7 +26,9 @@
 </template>
 
 <script>
-import Constant from '../../modules/constant'
+import 'vue-video-player/src/custom-theme.css'
+
+import Constant from '../../api/constant'
 import BottomBar from '../common/BottomBar'
 
 export default {
@@ -56,7 +58,7 @@ export default {
       }
     }
   },
-  created () {
+  beforeCreate () {
     this.$http.get(Constant.videoUrl).then((data) => {
       this.video = data.body
 

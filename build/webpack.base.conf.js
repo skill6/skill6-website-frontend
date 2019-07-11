@@ -5,7 +5,7 @@ const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const webpack = require('webpack')
 
-function resolve(dir) {
+function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -95,5 +95,16 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
+  },
+  externals: {
+    // '包名': '全局变量名'
+    'vue': 'Vue',
+    'vuex': 'Vuex',
+    'vue-router': 'VueRouter',
+    'vue-resource': 'VueResource',
+    'jquery': 'jQuery',
+    'axios': 'axios',
+    'video.js': 'videojs',
+    'vue-video-player': 'VueVideoPlayer'
   }
 }
