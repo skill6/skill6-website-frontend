@@ -3,7 +3,7 @@ import {
   Button, Card, Radio, RadioGroup, Timeline, TimelineItem, Form,
   FormItem, Row, Col, Input, TabPane, Icon, Image, Steps, Step,
   Avatar, Divider, Tooltip, Badge, Pagination, Autocomplete,
-  Carousel, CarouselItem, Tag, Tabs
+  Carousel, CarouselItem, Tag, Tabs, ButtonGroup
 } from 'element-ui'
 
 const element = {
@@ -34,6 +34,7 @@ const element = {
     Vue.use(Carousel)
     Vue.use(CarouselItem)
     Vue.use(Tag)
+    Vue.use(ButtonGroup)
   }
 }
 

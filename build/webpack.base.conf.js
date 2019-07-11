@@ -103,6 +103,7 @@ module.exports = {
     'vue-router': 'VueRouter',
     'vue-resource': 'VueResource',
     'jquery': 'jQuery',
-    'axios': 'axios'
+    'axios': 'axios',
+    'video.js': 'videojs'
   }
 }

@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import 'vue-video-player/src/custom-theme.css'
+
 import Constant from '../../modules/constant'
 import BottomBar from '../common/BottomBar'
 

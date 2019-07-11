@@ -17,8 +17,6 @@ import { Button, Divider, Icon, BackTop, Card } from 'iview'
 import 'iview/dist/styles/iview.css'
 
 import VueVideoPlayer from 'vue-video-player'
-import 'video.js/dist/video-js.css'
-import 'vue-video-player/src/custom-theme.css'
 
 Vue.config.productionTip = false
 Vue.use(Vuex)
