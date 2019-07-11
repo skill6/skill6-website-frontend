@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import Constant from '../../../modules/constant'
+import Constant from '../../../api/constant'
 import Pagination from '../../common/Pagination'
 import SingleArticlePreview from './SingleArticlePreview'
 import RightSideBar from '../../common/RightSideBar'

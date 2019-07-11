@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import Constant from '../../modules/constant'
+import Constant from '../../api/constant'
 import Comment from './comment/Comment'
 import BottomBar from '../common/BottomBar'
 

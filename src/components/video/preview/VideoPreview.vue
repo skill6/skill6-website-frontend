@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Constant from '../../../modules/constant'
+import Constant from '../../../api/constant'
 import SingleVideoPreview from './SingleVideoPreview'
 
 export default {

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import Calendar from '../../../modules/calendar/Calendar.vue'
+import Calendar from '../../../lib/calendar'
 
 export default {
   components: {
