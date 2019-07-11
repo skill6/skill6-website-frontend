@@ -58,7 +58,7 @@ export default {
       }
     }
   },
-  created () {
+  beforeCreate () {
     this.$http.get(Constant.videoUrl).then((data) => {
       this.video = data.body
 
