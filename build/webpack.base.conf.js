@@ -95,5 +95,14 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
+  },
+  externals: {
+    // '包名': '全局变量名'
+    'vue': 'Vue',
+    'vuex': 'Vuex',
+    'vue-router': 'VueRouter',
+    'vue-resource': 'VueResource',
+    'jquery': 'jQuery',
+    'axios': 'axios'
   }
 }

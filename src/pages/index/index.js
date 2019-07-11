@@ -10,10 +10,10 @@ import router from './router'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import ElementUI from 'element-ui'
+import ElementUI from '../../modules/element'
 import 'element-ui/lib/theme-chalk/index.css'
 
-import IView from 'iview'
+import { Button, Divider, Icon, BackTop, Card } from 'iview'
 import 'iview/dist/styles/iview.css'
 
 import VueVideoPlayer from 'vue-video-player'
@@ -22,10 +22,15 @@ import 'vue-video-player/src/custom-theme.css'
 
 Vue.config.productionTip = false
 Vue.use(Vuex)
-Vue.use(VueResource)
 Vue.use(ElementUI)
-Vue.use(IView)
+Vue.use(VueResource)
 Vue.use(VueVideoPlayer)
+
+Vue.component('Button', Button)
+Vue.component('Divider', Divider)
+Vue.component('Icon', Icon)
+Vue.component('BackTop', BackTop)
+Vue.component('Card', Card)
 
 const store = new Vuex.Store({
   state: {
