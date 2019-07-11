@@ -105,6 +105,6 @@ module.exports = {
     'jquery': 'jQuery',
     'axios': 'axios',
     'video.js': 'videojs',
-    'vue-video-player': 'VueVideoPlayer',
+    'vue-video-player': 'VueVideoPlayer'
   }
 }
