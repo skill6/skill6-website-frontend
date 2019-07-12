@@ -33,6 +33,8 @@
 <script>
 import $ from 'jquery'
 
+import Util from '../../lib/util'
+
 import LunarCalendar from './sidebar/LunarCalendar'
 import VisitStatistics from './sidebar/VisitStatistics'
 import UpdateDynamic from './sidebar/UpdateDynamic'
@@ -49,8 +51,7 @@ export default {
   },
   methods: {
     loadDatePlugin: function () {
-      const regular = /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
-      if (navigator.userAgent.match(regular)) {
+      if (Util.isMobilePhone()) {
         return
       }
 

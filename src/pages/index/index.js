@@ -40,6 +40,7 @@ const store = new Vuex.Store({
 new Vue({
   el: '#infoflow',
   store,
+  router,
   components: {
     InfoFlow
   },

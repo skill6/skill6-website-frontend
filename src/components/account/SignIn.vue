@@ -100,7 +100,7 @@ export default {
 .signin-form {
   width: 360px;
   margin: 100px auto;
-  background-color: #FFF;
+  background-color: #fff;
   padding: 10px 20px;
 }
 

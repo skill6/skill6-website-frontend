@@ -5,7 +5,7 @@
       <skill6-menu></skill6-menu>
     </div>
     <!-- 下面主题部分 -->
-    <div class="main-container">
+    <div class="main-container" :style="mainStyle">
       <router-view></router-view>
     </div>
     <!-- 脚部 -->
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import Util from '../../lib/util'
+
 import Skill6Menu from '@/components/navigation/Menu'
 import Skill6Footer from '@/components/navigation/Footer'
 
@@ -22,10 +24,26 @@ export default {
     'skill6-menu': Skill6Menu,
     'skill6-footer': Skill6Footer
   },
+  data () {
+    return {
+      mainStyle: {
+        minHeight: '600px'
+      }
+    }
+  },
   computed: {
     skill6Show () {
       return this.$store.state.skill6Show
     }
+  },
+  mounted () {
+    const bottomBarHeight = window.screen.height - window.screen.availHeight
+    let minHeight = window.innerHeight - 76 - 84 - 20 - bottomBarHeight
+
+    if (Util.isMobilePhone()) {
+      minHeight -= 25
+    }
+    this.mainStyle.minHeight = minHeight + 'px'
   }
 }
 </script>
@@ -73,6 +91,6 @@ ul {
 .main-container {
   min-width: 1366px;
   max-width: none !important;
-  min-height: 768px;
+  min-height: 600px;
 }
 </style>

@@ -25,7 +25,7 @@
       <a href="http://www.miibeian.gov.cn" target="_blank">渝ICP备16013250号-4</a>
     </div>
     <div>
-      <p>推荐在1366×768及以上分辨率浏览本站，以获取更佳体验。</p>
+      <p>推荐在1366×768及以上分辨率浏览本站，以获得更佳体验。</p>
     </div>
     <!-- 回到顶部 -->
     <Back-top :bottom="80"></Back-top>
@@ -34,7 +34,6 @@
 
 <script>
 export default {
-  name: 'Footer'
 }
 </script>
 

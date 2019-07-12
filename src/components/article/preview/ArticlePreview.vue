@@ -65,7 +65,6 @@ export default {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-grow: 1;
-  margin-bottom: 100px;
 }
 
 .info-flow-center {
