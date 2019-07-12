@@ -14,7 +14,6 @@
     "axios": "^0.19.0",
     "element-ui": "^2.10.0",
     "iview": "^3.4.2",
-    "jquery": "^3.4.1",
     "vue": "^2.5.2",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1",

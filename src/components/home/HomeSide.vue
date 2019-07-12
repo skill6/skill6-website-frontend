@@ -31,8 +31,6 @@
 </template>
 
 <script>
-import $ from 'jquery'
-
 import Util from '../../lib/util'
 
 import LunarCalendar from './sidebar/LunarCalendar'
@@ -55,11 +53,10 @@ export default {
         return
       }
 
-      $('#currentDate').html('<embed wmode="transparent"' +
-        'src="/static/clock.swf"' +
-        'quality="high" bgcolor="#ffffff" width="160" height="80" align="middle"' +
-        'allowscriptaccess="always" type="application/x-shockwave-flash"' +
-        'pluginspage="http://www.macromedia.com/go/getflashplayer">')
+      document.getElementById('currentDate').innerHTML =
+        '<embed wmode="transparent" src="/static/clock.swf" quality="high" bgcolor="#ffffff" width="160"' +
+        'height="80" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash"' +
+        'pluginspage="http://www.macromedia.com/go/getflashplayer">'
     }
   },
   mounted: function () {

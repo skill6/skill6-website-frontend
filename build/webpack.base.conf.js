@@ -36,15 +36,6 @@ module.exports = {
       '@': resolve('src'),
     }
   },
-  // 添加代码
-  plugins: [
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery",
-      jquery: "jquery",
-      "window.jQuery": "jquery"
-    })
-  ],
   module: {
     rules: [
       ...(config.dev.useEslint ? [createLintingRule()] : []),
@@ -102,7 +93,6 @@ module.exports = {
     'vuex': 'Vuex',
     'vue-router': 'VueRouter',
     'vue-resource': 'VueResource',
-    'jquery': 'jQuery',
     'axios': 'axios',
     'video.js': 'videojs',
     'vue-video-player': 'VueVideoPlayer'
