@@ -1,12 +1,12 @@
 <template>
   <vue-particles
-    color="#409EFF"
+    color="#E6A23C"
     :particleOpacity="0.5"
     :particlesNumber="80"
     shapeType="star"
-    :particleSize="4"
-    linesColor="#409EFF"
-    :linesWidth="2"
+    :particleSize="3"
+    linesColor="#E6A23C"
+    :linesWidth="1"
     :lineLinked="true"
     :lineOpacity="0.4"
     :linesDistance="150"

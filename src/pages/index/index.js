@@ -9,20 +9,15 @@ import InfoFlow from './InfoFlow'
 import router from './router'
 
 import ElementUI from '../../lib/element-ui'
-import { Button, Divider, Icon, BackTop, Card } from 'iview'
+import IView from '../../lib/iview'
 import VueVideoPlayer from 'vue-video-player'
 
 Vue.config.productionTip = false
 Vue.use(Vuex)
+Vue.use(IView)
 Vue.use(ElementUI)
 Vue.use(VueResource)
 Vue.use(VueVideoPlayer)
-
-Vue.component('Button', Button)
-Vue.component('Divider', Divider)
-Vue.component('Icon', Icon)
-Vue.component('BackTop', BackTop)
-Vue.component('Card', Card)
 
 const store = new Vuex.Store({
   state: {

@@ -87,7 +87,7 @@ export default {
 .singup-section {
   width: 666px;
   margin: 100px auto;
-  background-color: #f2f6fc;
+  background-color: #FFF;
   padding: 10px 20px;
 }
 
