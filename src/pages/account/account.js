@@ -8,11 +8,7 @@ import Account from './Account.vue'
 import router from './router'
 
 import ElementUI from '../../lib/element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-
 import { Button, Divider, Icon, BackTop, Card } from 'iview'
-import 'iview/dist/styles/iview.css'
-
 import VueParticles from 'vue-particles'
 
 Vue.config.productionTip = false

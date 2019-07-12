@@ -9,11 +9,7 @@ import InfoFlow from './InfoFlow'
 import router from './router'
 
 import ElementUI from '../../lib/element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-
 import { Button, Divider, Icon, BackTop, Card } from 'iview'
-import 'iview/dist/styles/iview.css'
-
 import VueVideoPlayer from 'vue-video-player'
 
 Vue.config.productionTip = false
