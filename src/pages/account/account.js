@@ -8,24 +8,15 @@ import Account from './Account.vue'
 import router from './router'
 
 import ElementUI from '../../lib/element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-
-import { Button, Divider, Icon, BackTop, Card } from 'iview'
-import 'iview/dist/styles/iview.css'
-
+import IView from '../../lib/iview'
 import VueParticles from 'vue-particles'
 
 Vue.config.productionTip = false
 Vue.use(Vuex)
+Vue.use(IView)
 Vue.use(VueResource)
 Vue.use(ElementUI)
 Vue.use(VueParticles)
-
-Vue.component('Button', Button)
-Vue.component('Divider', Divider)
-Vue.component('Icon', Icon)
-Vue.component('BackTop', BackTop)
-Vue.component('Card', Card)
 
 /* eslint-disable no-new */
 new Vue({

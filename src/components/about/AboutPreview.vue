@@ -114,8 +114,8 @@
           <div class="about-desc">
             <p>如果觉得本站对你有所帮助，可以打赏支持。</p>
           </div>
-          <img src="/static/images/money/ali_pay.png" alt="支付宝赞助" class="reward" />
-          <img src="/static/images/money/wechat_pay.png" alt="微信赞助" class="reward" />
+          <img src="/static/images/money/ali_pay.jpg" alt="支付宝赞助" class="reward" />
+          <img src="/static/images/money/wechat_pay.jpg" alt="微信赞助" class="reward" />
         </div>
       </div>
     </div>

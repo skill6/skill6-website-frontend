@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import $ from 'jquery'
+import Util from '../../lib/util'
 
 import LunarCalendar from './sidebar/LunarCalendar'
 import VisitStatistics from './sidebar/VisitStatistics'
@@ -49,16 +49,14 @@ export default {
   },
   methods: {
     loadDatePlugin: function () {
-      const regular = /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
-      if (navigator.userAgent.match(regular)) {
+      if (Util.isMobilePhone()) {
         return
       }
 
-      $('#currentDate').html('<embed wmode="transparent"' +
-        'src="/static/clock.swf"' +
-        'quality="high" bgcolor="#ffffff" width="160" height="80" align="middle"' +
-        'allowscriptaccess="always" type="application/x-shockwave-flash"' +
-        'pluginspage="http://www.macromedia.com/go/getflashplayer">')
+      document.getElementById('currentDate').innerHTML =
+        '<embed wmode="transparent" src="/static/clock.swf" quality="high" bgcolor="#ffffff" width="160"' +
+        'height="80" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash"' +
+        'pluginspage="http://www.macromedia.com/go/getflashplayer">'
     }
   },
   mounted: function () {

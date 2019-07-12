@@ -20,6 +20,7 @@ export default {
   methods: {
     showSkill6 () {
       this.$store.commit('showSkill6')
+      this.$router.push({ path: '/' })
     }
   }
 }

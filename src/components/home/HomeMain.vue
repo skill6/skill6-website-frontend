@@ -8,7 +8,7 @@
             <div slot="header">
               <span>博客文章推荐</span>
             </div>
-            <div v-for="o in 4" :key="o" class="item">
+            <div v-for="o in 10" :key="o" class="item">
               <div>
                 <span>Java开发环境搭建</span>
                 <span class="item-fr">10阅读/10点赞/10收藏</span>
@@ -22,7 +22,7 @@
             <div slot="header">
               <span>提问答疑推荐</span>
             </div>
-            <div v-for="o in 4" :key="o" class="item">
+            <div v-for="o in 10" :key="o" class="item">
               <div>
                 <span>如何搭建Java开发环境</span>
                 <span class="item-fr">10阅读/10回答/10收藏</span>
@@ -36,7 +36,7 @@
             <div slot="header">
               <span>文件下载推荐</span>
             </div>
-            <div v-for="o in 4" :key="o" class="item">
+            <div v-for="o in 10" :key="o" class="item">
               <div>
                 <span>环境搭建文档</span>
                 <span class="item-fr">10阅读/10点赞/10收藏/10下载</span>
@@ -49,7 +49,7 @@
     </div>
     <div class="notice">
       <el-card shadow="hover">
-        <Icon size="20" color="red" type="md-notifications-outline" />通知：技术流网站V1.0.0与2019年8月10日发布
+        <Icon size="20" color="red" type="md-notifications-outline" />通知：技术流网站V1.0.0于2019年8月10日发布
       </el-card>
     </div>
     <!-- 第二层：轮播 -->
@@ -80,8 +80,11 @@
     <!-- 第三层：视频 -->
     <Divider />
     <div class="home-video">
+      <div>
+        <h2>视频推荐</h2>
+      </div>
       <el-row :gutter="20">
-        <el-col :span="5" v-for="index in 8" :key="index">
+        <el-col :span="6" v-for="index in 12" :key="index" class="video-col">
           <el-card>
             <a href="/">
               <el-image
@@ -162,5 +165,9 @@ export default {
 .home-video {
   margin-left: 50px;
   margin-top: 50px;
+}
+
+.video-col {
+  margin: 20px 0;
 }
 </style>

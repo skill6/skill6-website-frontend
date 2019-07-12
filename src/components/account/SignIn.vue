@@ -27,7 +27,7 @@
     </div>
     <Divider />
     <div class="second-operate">
-      <router-link to="/retrivepwd">找回密码</router-link>
+      <router-link to="/retrievepwd">找回密码</router-link>
       <router-link to="/signup" class="register">注册账号</router-link>
     </div>
     <Divider />
@@ -100,7 +100,7 @@ export default {
 .signin-form {
   width: 360px;
   margin: 100px auto;
-  background-color: #F2F6FC;
+  background-color: #fff;
   padding: 10px 20px;
 }
 
