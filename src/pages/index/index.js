@@ -11,6 +11,7 @@ import router from './router'
 import ElementUI from '../../lib/element-ui'
 import IView from '../../lib/iview'
 import VueVideoPlayer from 'vue-video-player'
+import VueClipboard from 'vue-clipboard2'
 
 Vue.config.productionTip = false
 Vue.use(Vuex)
@@ -18,6 +19,7 @@ Vue.use(IView)
 Vue.use(ElementUI)
 Vue.use(VueResource)
 Vue.use(VueVideoPlayer)
+Vue.use(VueClipboard)
 
 const store = new Vuex.Store({
   state: {
