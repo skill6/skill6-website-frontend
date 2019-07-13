@@ -37,13 +37,23 @@ export default {
     }
   },
   mounted () {
-    const bottomBarHeight = window.screen.height - window.screen.availHeight
-    let minHeight = window.innerHeight - 76 - 84 - 20 - bottomBarHeight
-
-    if (Util.isMobilePhone()) {
-      minHeight -= 25
+    this.fitFooter()
+    window.onresize = () => {
+      return (() => {
+        this.fitFooter()
+      })()
     }
-    this.mainStyle.minHeight = minHeight + 'px'
+  },
+  methods: {
+    fitFooter () {
+      const bottomBarHeight = window.screen.height - window.screen.availHeight
+      let minHeight = window.innerHeight - 76 - 84 - 20 - bottomBarHeight
+
+      if (Util.isMobilePhone()) {
+        minHeight -= 25
+      }
+      this.mainStyle.minHeight = minHeight + 'px'
+    }
   }
 }
 </script>
