@@ -15,7 +15,17 @@
     </div>
     <div>
       <el-row>
-        <el-col :span="2" :offset="20">
+        <el-col :span="5">
+          <el-tooltip
+            class="tooltip-item"
+            effect="light"
+            content="获得一个随机账号，3天后自动注销，有效期内绑定联系方式可激活账号。"
+            placement="top"
+          >
+            <el-link type="primary" :underline="false" class="quict-sign">快速注册</el-link>
+          </el-tooltip>
+        </el-col>
+        <el-col :span="2" :offset="15">
           <el-button size="medium" type="primary" plain @click="next">下一步</el-button>
         </el-col>
       </el-row>
@@ -87,7 +97,7 @@ export default {
 .singup-section {
   width: 666px;
   margin: 100px auto;
-  background-color: #FFF;
+  background-color: #fff;
   padding: 10px 20px;
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <h1>个人中心</h1>
+  <div>脚部</div>
 </template>
 
 <script>

@@ -2,20 +2,22 @@
   <article class="article-main">
     <div class="article">
       <h1 class="article-title">{{article.articleTitle}}</h1>
-
       <!-- 作者区域 -->
       <div class="article-author">
         <a class="article-avatar" :href="article.userHomeUrl">
           <el-avatar :size="50" :src="article.userHeadUrl" alt="头像"></el-avatar>
         </a>
         <div class="article-info">
-          <span class="author-name">
-            <a href="/u/4c41bdfecd3b">{{article.articleAuthor}}</a>
-          </span>
-          <!-- 关注用户按钮 -->
-          <a class="btn btn-success article-follow">
-            <span>关注</span>
-          </a>
+          <div>
+            <span class="author-name">
+              <a href="/u/4c41bdfecd3b">{{article.articleAuthor}}</a>
+            </span>
+            <!-- 关注用户按钮 -->
+            <a class="btn btn-success article-follow">
+              <span>关注</span>
+            </a>
+            <span class="read-info">阅读本文需要约1分钟</span>
+          </div>
           <!-- 文章数据信息 -->
           <div class="article-meta">
             <!-- 如果文章更新时间大于发布时间，那么使用 tooltip 显示更新时间 -->
@@ -27,12 +29,22 @@
           </div>
         </div>
       </div>
-
       <!-- 文章内容 -->
       <div data-note-content class="article-content">
         <div class="article-content-free">{{article.articleMdContent}}</div>
       </div>
-
+      <!-- 参考资料列表 -->
+      <div>
+        <el-divider></el-divider>
+        <el-card class="box-card">
+          <div slot="header">
+            <span>参考资料</span>
+          </div>
+          <div v-for="o in 4" :key="o" class="text item">
+            <el-link href="http://192.168.0.107:8080/article/123456789" target="_blank">搭建开发环境</el-link>
+          </div>
+        </el-card>
+      </div>
       <!-- 底部功能区 -->
       <bottom-bar></bottom-bar>
       <!-- 评论 -->
@@ -147,5 +159,13 @@ export default {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.7;
+}
+
+.read-info {
+  margin-left: 25px;
+}
+
+.box-card {
+  width: 480px;
 }
 </style>

@@ -52,6 +52,9 @@
         </div>
       </div>
       <div class="question-content">{{question.questionAnswer}}</div>
+      <el-tooltip class="item" effect="dark" content="复制代码" placement="bottom">
+        <el-button icon="el-icon-document-copy" size="mini" plain @click="doCopy"></el-button>
+      </el-tooltip>
     </div>
     <!-- 底部功能区 -->
     <bottom-bar></bottom-bar>
@@ -75,7 +78,25 @@ export default {
     this.$http.get(Constant.questionUrl).then((data) => {
       this.question = data.body
     })
+  },
+  methods: {
+    doCopy () { // this.clidata是要复制的动态数据
+      this.$copyText(this.buildCopyContent()).then(() => {
+        console.log(this.question.questionAnswer)
+      }, () => {
+        console.log('复制失败')
+      }
+      )
+    },
+    buildCopyContent () {
+      return this.question.questionAnswer +
+        '\n作者：' + this.question.questionAuthor +
+        '\n链接：' + window.location.href +
+        '\n来源：技术流' +
+        '\n著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。'
+    }
   }
+
 }
 </script>
 

@@ -18,9 +18,9 @@
         </el-badge>
       </el-tooltip>
       <el-button-group class="page-btn-group">
-        <el-button type="primary" icon="el-icon-arrow-left" size="mini" plain>上一页</el-button>
+        <el-button type="primary" icon="el-icon-arrow-left" size="mini" plain>上一个</el-button>
         <el-button type="primary" size="mini" plain>
-          下一页
+          下一个
           <i class="el-icon-arrow-right el-icon--right"></i>
         </el-button>
       </el-button-group>

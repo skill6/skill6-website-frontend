@@ -8,27 +8,23 @@ const ModifyPassword = () => import('@/components/account/ModifyPassword')
 
 Vue.use(Router)
 
-const routes = [{
-  path: '/signin',
-  component: SignIn
-},
-{
-  path: '/signup',
-  component: SignUp
-},
-{
-  path: '/retrievepwd',
-  component: RetrievePassword
-},
-{
-  path: '/modifypwd',
-  component: ModifyPassword
-},
-{
-  path: '*',
-  component: ModifyPassword
-}
-]
+const routes =
+  [{
+    path: '/signin',
+    component: SignIn
+  }, {
+    path: '/signup',
+    component: SignUp
+  }, {
+    path: '/retrievepwd',
+    component: RetrievePassword
+  }, {
+    path: '/modifypwd',
+    component: ModifyPassword
+  }, {
+    path: '*',
+    component: ModifyPassword
+  }]
 
 const router = new Router({
   routes,

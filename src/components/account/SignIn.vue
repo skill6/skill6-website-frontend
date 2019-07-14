@@ -29,6 +29,7 @@
     <div class="second-operate">
       <router-link to="/retrievepwd">找回密码</router-link>
       <router-link to="/signup" class="register">注册账号</router-link>
+      <el-link type="primary" :underline="false" class="quict-sign">验证码快速登录</el-link>
     </div>
     <Divider />
     <!-- 第三方登录 -->
@@ -118,8 +119,12 @@ export default {
 }
 
 .register {
+  margin-left: 10px;
+}
+
+.quict-sign {
   float: right;
-  margin-right: 25px;
+  margin-right: 5px;
 }
 
 .third-party-sign-text {
