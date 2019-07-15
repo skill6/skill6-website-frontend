@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 const PersonalCenter = () => import('@/components/profile/PersonalCenter')
+const EditArticle = () => import('@/components/profile/publish/EditArticle')
 
 Vue.use(Router)
 
@@ -11,6 +12,9 @@ const routes = [{
 }, {
   path: '/:userName',
   component: PersonalCenter
+}, {
+  path: '/publish/article',
+  component: EditArticle
 }, {
   path: '*',
   redirect: '/'

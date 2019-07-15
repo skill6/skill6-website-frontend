@@ -30,7 +30,7 @@ export default {
 .card-title {
   margin-bottom: 10px;
 }
-  
+
 .item {
   margin-bottom: 20px;
 }
