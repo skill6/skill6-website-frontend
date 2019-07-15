@@ -11,6 +11,7 @@
         <el-main>
           <profile-main></profile-main>
         </el-main>
+        <el-aside width="300px"></el-aside>
       </el-container>
       <el-footer>
         <profile-footer></profile-footer>
@@ -40,25 +41,24 @@ export default {
 .el-footer {
   color: #333;
   text-align: center;
-  line-height: 60px;
 }
 
 .el-aside {
-  background-color: #d3dce6;
   color: #333;
-  text-align: center;
-  line-height: 200px;
 }
 
 .el-main {
-  background-color: #e9eef3;
   color: #333;
-  text-align: center;
-  line-height: 160px;
+  padding-top: 0px;
+  margin-top: -10px;
+}
+
+.el-footer {
+  padding: 0;
 }
 
 .profile-header {
-  min-height: 300px;
+  min-height: 222px;
 }
 
 .profile-main {
