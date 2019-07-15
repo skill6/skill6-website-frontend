@@ -9,7 +9,7 @@ import router from './router'
 
 import ElementUI from '../../lib/element-ui'
 import IView from '../../lib/iview'
-import mavonEditor from 'mavon-editor'
+import MavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 
 Vue.config.productionTip = false
@@ -17,7 +17,7 @@ Vue.use(Vuex)
 Vue.use(IView)
 Vue.use(VueResource)
 Vue.use(ElementUI)
-Vue.use(mavonEditor)
+Vue.use(MavonEditor)
 
 /* eslint-disable no-new */
 new Vue({
