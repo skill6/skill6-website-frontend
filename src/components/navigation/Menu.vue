@@ -4,7 +4,6 @@
       <a class="navbar-brand top-menu" href="#">
         <img src="/static/logo/logo.jpg" height="50px" width="50px" />
       </a>
-
       <ul class="navbar-nav">
         <li class="info-flow">
           <a class="nav-link-pm" v-on:click="showInfoFlow">信息流</a>
@@ -28,7 +27,6 @@
           <router-link to="/about" class="nav-link-pm">关于技术流</router-link>
         </li>
       </ul>
-
       <ul class="navbar-nav ml-auto login-mr">
         <li>
           <a href="/account/signin" class="nav-link-pm">登录</a>
@@ -37,6 +35,18 @@
           <a href="/account/signup" class="nav-link-pm">注册</a>
         </li>
       </ul>
+      <el-dropdown @command="handleCommand">
+        <span class="el-dropdown-link">
+          个人中心
+          <i class="el-icon-arrow-down el-icon--right"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item command="profile">我的主页</el-dropdown-item>
+          <el-dropdown-item command="setting">设置</el-dropdown-item>
+          <el-dropdown-item command="about">关于</el-dropdown-item>
+          <el-dropdown-item command="quit" divided>退出</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
     </nav>
   </header>
 </template>
@@ -46,6 +56,17 @@ export default {
   methods: {
     showInfoFlow () {
       this.$store.commit('showInfoFlow')
+    },
+    handleCommand (command) {
+      if (command === 'profile') {
+        window.location.href = '/' + command
+      } else if (command === 'setting') {
+        window.location.href = '/profile/' + command
+      } else if (command === 'about') {
+        this.$router.push({ path: '/about' })
+      } else if (command === 'quit') {
+        localStorage.clear()
+      }
     }
   }
 }

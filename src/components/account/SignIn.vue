@@ -21,7 +21,7 @@
           ></el-input>
         </el-form-item>
         <el-form-item>
-          <Button type="primary" shape="circle" long @click="submitForm('ruleForm')">登录</Button>
+          <Button type="primary" shape="circle" long @click="submitForm">登录</Button>
         </el-form-item>
       </el-form>
     </div>
@@ -84,10 +84,11 @@ export default {
     }
   },
   methods: {
-    submitForm (formName) {
-      this.$refs[formName].validate((valid) => {
+    submitForm () {
+      this.$refs.ruleForm.validate((valid) => {
         if (valid) {
-          alert('submit!')
+          this.$store.commit('setToken', 'true')
+          window.location.href = '/'
         } else {
           console.log('error submit!!')
           return false

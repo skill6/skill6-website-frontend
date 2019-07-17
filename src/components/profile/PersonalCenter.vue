@@ -1,6 +1,20 @@
 <template>
   <div>
     <el-container>
+      <div class="top-menu">
+        <el-dropdown class="menu-dropdown">
+          <span class="el-dropdown-link">
+            个人中心
+            <i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item>我的主页</el-dropdown-item>
+            <el-dropdown-item>设置</el-dropdown-item>
+            <el-dropdown-item divided>关于</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </div>
+      <el-divider></el-divider>
       <el-header class="profile-header">
         <profile-header></profile-header>
       </el-header>
@@ -63,5 +77,13 @@ export default {
 
 .profile-main {
   min-height: 600px;
+}
+
+.top-menu {
+  margin: 20px 20px 0 20px;
+}
+
+.menu-dropdown {
+  float: right;
 }
 </style>
