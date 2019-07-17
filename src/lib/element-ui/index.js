@@ -4,7 +4,7 @@ import {
   FormItem, Row, Col, Input, TabPane, Icon, Image, Steps, Step,
   Avatar, Divider, Tooltip, Badge, Pagination, Autocomplete,
   Carousel, CarouselItem, Tag, Tabs, ButtonGroup, Link,
-  Container, Header, Aside, Main, Footer
+  Container, Header, Aside, Main, Footer, Dropdown, DropdownMenu, DropdownItem
 } from 'element-ui'
 
 const element = {
@@ -21,6 +21,9 @@ const element = {
     Vue.use(Col)
     Vue.use(Container)
     Vue.use(Divider)
+    Vue.use(Dropdown)
+    Vue.use(DropdownMenu)
+    Vue.use(DropdownItem)
     Vue.use(Form)
     Vue.use(FormItem)
     Vue.use(Footer)
