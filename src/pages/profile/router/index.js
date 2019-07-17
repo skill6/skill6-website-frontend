@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '../../../store'
 
 const PersonalCenter = () => import('@/components/profile/PersonalCenter')
 const EditArticle = () => import('@/components/profile/publish/EditArticle')
@@ -17,15 +18,24 @@ const routes = [{
   component: PersonalCenter
 }, {
   path: '/publish/article',
-  component: EditArticle
+  component: EditArticle,
+  meta: {
+    requireAuth: true
+  }
 }, {
   path: '/setting',
   component: Setting,
   redirect: '/setting/user',
+  meta: {
+    requireAuth: true
+  },
   children: [
     {
       path: 'user',
-      component: User
+      component: User,
+      meta: {
+        requireAuth: true
+      }
     },
     {
       path: 'security',
@@ -52,6 +62,19 @@ const router = new Router({
   routes,
   base: '/profile',
   mode: 'history'
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requireAuth) {
+    if (store.getters.getToken) {
+      next()
+    } else {
+      next(false)
+      window.location.href = '/account/signin'
+    }
+  } else {
+    next()
+  }
 })
 
 export default router

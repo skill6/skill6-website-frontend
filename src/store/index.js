@@ -1,4 +1,7 @@
+import Vue from 'vue'
 import Vuex from 'vuex'
+
+Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
@@ -21,8 +24,8 @@ const store = new Vuex.Store({
     }
   },
   getters: {
-    getToken (state) {
-      if (state.token) {
+    getToken: state => {
+      if (!state.token) {
         state.token = localStorage.getItem('token')
       }
 

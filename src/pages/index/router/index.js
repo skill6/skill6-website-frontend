@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from '../../../store'
 
 import HomePage from '@/components/HomePage'
 
@@ -42,24 +41,6 @@ const routes =
 const router = new Router({
   routes,
   mode: 'history'
-})
-
-router.beforeEach((to, from, next) => {
-  console.log(to.path)
-  if (store.getters.getToken) {
-    if (to.path === '/account/signin') {
-      next({ path: '/' })
-    } else {
-      next()
-    }
-  } else {
-    if (to.path === '/account/signin') {
-      next()
-    } else {
-      next(false)
-      window.location.href = '/account/signin'
-    }
-  }
 })
 
 export default router

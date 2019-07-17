@@ -43,7 +43,8 @@
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="profile">我的主页</el-dropdown-item>
           <el-dropdown-item command="setting">设置</el-dropdown-item>
-          <el-dropdown-item command="about" divided>关于</el-dropdown-item>
+          <el-dropdown-item command="about">关于</el-dropdown-item>
+          <el-dropdown-item command="quit" divided>退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </nav>
@@ -63,6 +64,8 @@ export default {
         window.location.href = '/profile/' + command
       } else if (command === 'about') {
         this.$router.push({ path: '/about' })
+      } else if (command === 'quit') {
+        localStorage.clear()
       }
     }
   }
