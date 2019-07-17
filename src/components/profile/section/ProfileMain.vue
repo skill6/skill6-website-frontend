@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import SingleCard from '../template/SingleCard'
+import SingleCard from './template/SingleCard'
 
 export default {
   components: {

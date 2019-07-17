@@ -3,8 +3,9 @@ import {
   Button, Card, Radio, RadioGroup, Timeline, TimelineItem, Form,
   FormItem, Row, Col, Input, TabPane, Icon, Image, Steps, Step,
   Avatar, Divider, Tooltip, Badge, Pagination, Autocomplete,
-  Carousel, CarouselItem, Tag, Tabs, ButtonGroup, Link,
-  Container, Header, Aside, Main, Footer, Dropdown, DropdownMenu, DropdownItem
+  Carousel, CarouselItem, Tag, Tabs, ButtonGroup, Link, Container,
+  Header, Aside, Main, Footer, Dropdown, DropdownMenu, DropdownItem,
+  Menu, MenuItem
 } from 'element-ui'
 
 const element = {
@@ -33,6 +34,8 @@ const element = {
     Vue.use(Image)
     Vue.use(Link)
     Vue.use(Main)
+    Vue.use(Menu)
+    Vue.use(MenuItem)
     Vue.use(Pagination)
     Vue.use(Radio)
     Vue.use(RadioGroup)
