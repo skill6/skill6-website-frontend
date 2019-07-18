@@ -6,6 +6,7 @@ const PersonalCenter = () => import('@/components/profile/PersonalCenter')
 const EditArticle = () => import('@/components/profile/publish/EditArticle')
 const UploadFile = () => import('@/components/profile/publish/UploadFile')
 const UploadVideo = () => import('@/components/profile/publish/UploadVideo')
+const EditQuestion = () => import('@/components/profile/publish/EditQuestion')
 
 const Setting = () => import('@/components/profile/setting/Setting')
 const User = () => import('@/components/profile/setting/subsetting/User')
@@ -24,6 +25,9 @@ const routes = [{
   meta: {
     requireAuth: true
   }
+}, {
+  path: '/publish/question',
+  component: EditQuestion
 }, {
   path: '/upload/file',
   component: UploadFile
