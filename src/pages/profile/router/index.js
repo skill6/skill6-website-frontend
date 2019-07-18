@@ -5,6 +5,7 @@ import store from '../../../store'
 const PersonalCenter = () => import('@/components/profile/PersonalCenter')
 const EditArticle = () => import('@/components/profile/publish/EditArticle')
 const UploadFile = () => import('@/components/profile/publish/UploadFile')
+const UploadVideo = () => import('@/components/profile/publish/UploadVideo')
 
 const Setting = () => import('@/components/profile/setting/Setting')
 const User = () => import('@/components/profile/setting/subsetting/User')
@@ -24,8 +25,11 @@ const routes = [{
     requireAuth: true
   }
 }, {
-  path: '/upload',
+  path: '/upload/file',
   component: UploadFile
+}, {
+  path: '/upload/video',
+  component: UploadVideo
 }, {
   path: '/setting',
   component: Setting,
