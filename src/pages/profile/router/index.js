@@ -4,6 +4,7 @@ import store from '../../../store'
 
 const PersonalCenter = () => import('@/components/profile/PersonalCenter')
 const EditArticle = () => import('@/components/profile/publish/EditArticle')
+const UploadFile = () => import('@/components/profile/publish/UploadFile')
 
 const Setting = () => import('@/components/profile/setting/Setting')
 const User = () => import('@/components/profile/setting/subsetting/User')
@@ -22,6 +23,9 @@ const routes = [{
   meta: {
     requireAuth: true
   }
+}, {
+  path: '/upload',
+  component: UploadFile
 }, {
   path: '/setting',
   component: Setting,

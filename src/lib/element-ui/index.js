@@ -5,7 +5,7 @@ import {
   Avatar, Divider, Tooltip, Badge, Pagination, Autocomplete,
   Carousel, CarouselItem, Tag, Tabs, ButtonGroup, Link, Container,
   Header, Aside, Main, Footer, Dropdown, DropdownMenu, DropdownItem,
-  Menu, MenuItem
+  Menu, MenuItem, Upload
 } from 'element-ui'
 
 const element = {
@@ -48,6 +48,7 @@ const element = {
     Vue.use(Timeline)
     Vue.use(TimelineItem)
     Vue.use(Tooltip)
+    Vue.use(Upload)
   }
 }
 
