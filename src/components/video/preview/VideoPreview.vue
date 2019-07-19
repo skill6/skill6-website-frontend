@@ -1,7 +1,21 @@
 <template>
   <div class="video-main">
+    <el-row>
+      <el-col :span="3" :offset="20" class="video-top-col">
+        <a target="_blank" href="/profile/upload/video">
+          <el-button
+            type="primary"
+            plain
+            icon="el-icon-upload2"
+            :loading="videoBtnLoading"
+            @click="uploadBtnClick"
+          >我要上传视频</el-button>
+        </a>
+      </el-col>
+    </el-row>
+    <el-divider></el-divider>
     <el-row :gutter="30">
-      <el-col :span="8" v-for="(video, index) in videoList" :key="index">
+      <el-col :span="6" v-for="(video, index) in videoList" :key="index">
         <single-video-preview v-bind:video="video"></single-video-preview>
       </el-col>
     </el-row>
@@ -18,7 +32,8 @@ export default {
   },
   data () {
     return {
-      videoList: []
+      videoList: [],
+      videoBtnLoading: false
     }
   },
   created () {
@@ -30,6 +45,14 @@ export default {
       currentPage: 1,
       totalCount: 1000
     }
+  },
+  methods: {
+    uploadBtnClick () {
+      this.videoBtnLoading = true
+      setTimeout(() => {
+        this.videoBtnLoading = false
+      }, 500)
+    }
   }
 }
 </script>
@@ -37,6 +60,10 @@ export default {
 <style scoped>
 .video-main {
   margin: 0 10%;
+}
+
+.video-top-col {
+  margin-bottom: 0 !important;
 }
 
 .el-col {

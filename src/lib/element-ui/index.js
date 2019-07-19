@@ -5,7 +5,7 @@ import {
   Avatar, Divider, Tooltip, Badge, Pagination, Autocomplete,
   Carousel, CarouselItem, Tag, Tabs, ButtonGroup, Link, Container,
   Header, Aside, Main, Footer, Dropdown, DropdownMenu, DropdownItem,
-  Menu, MenuItem, Upload
+  Menu, MenuItem, Upload, Loading
 } from 'element-ui'
 
 const element = {
@@ -33,6 +33,7 @@ const element = {
     Vue.use(Icon)
     Vue.use(Image)
     Vue.use(Link)
+    Vue.use(Loading)
     Vue.use(Main)
     Vue.use(Menu)
     Vue.use(MenuItem)

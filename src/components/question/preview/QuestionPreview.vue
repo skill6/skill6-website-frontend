@@ -1,6 +1,20 @@
 <template>
   <div class="question-preview">
     <section class="info-flow-center">
+      <el-row>
+        <el-col :span="3" :offset="19">
+          <a target="_blank" href="/profile/publish/question">
+            <el-button
+              type="primary"
+              plain
+              icon="el-icon-question"
+              :loading="questionBtnLoading"
+              @click="questionBtnClick"
+            >我要提问</el-button>
+          </a>
+        </el-col>
+      </el-row>
+      <el-divider></el-divider>
       <div v-for="question in questions" :key="question.questionId">
         <single-question-preview v-bind:question="question"></single-question-preview>
       </div>
@@ -30,7 +44,8 @@ export default {
   data () {
     return {
       questions: [],
-      pageParam: {}
+      pageParam: {},
+      questionBtnLoading: false
     }
   },
   created () {
@@ -49,6 +64,12 @@ export default {
     },
     handleCurrentPageChange (pageSize, currentPage) {
       console.log(`2每页 ${pageSize} 条, 第${currentPage}页`)
+    },
+    questionBtnClick () {
+      this.questionBtnLoading = true
+      setTimeout(() => {
+        this.questionBtnLoading = false
+      }, 500)
     }
   }
 }

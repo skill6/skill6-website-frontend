@@ -1,24 +1,26 @@
 <template>
   <div class="clearfix">
     <div class="about-wrap">
-      <div id="portamento_container" style="min-height: 236px; width: 180px;">
-        <div id="portamento_container">
-          <ul id="nav" class="about-menu fixed">
-            <li class="on">
-              <a href="#section1">关于我们</a>
-            </li>
-            <li>
-              <a href="#section2">版本更新历史</a>
-            </li>
-            <li>
-              <a href="#section3">联系我们</a>
-            </li>
-            <li>
-              <a href="#section4">赞赏支持</a>
-            </li>
-          </ul>
+      <Affix :offset-top="50">
+        <div id="portamento_container" style="min-height: 236px; width: 180px;">
+          <div id="portamento_container">
+            <ul id="nav" class="about-menu fixed">
+              <li class="on">
+                <a href="#section1">关于我们</a>
+              </li>
+              <li>
+                <a href="#section2">版本更新历史</a>
+              </li>
+              <li>
+                <a href="#section3">联系我们</a>
+              </li>
+              <li>
+                <a href="#section4">赞赏支持</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </Affix>
       <div class="about-content">
         <div id="section1" class="menu-wrap">
           <h1 class="title">

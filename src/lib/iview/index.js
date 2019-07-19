@@ -1,7 +1,8 @@
-import { Button, Divider, Icon, BackTop, Card, Steps, Step } from 'iview'
+import { Button, Divider, Icon, BackTop, Card, Steps, Step, Affix } from 'iview'
 
 const iview = {
   install: function (Vue) {
+    Vue.component('Affix', Affix)
     Vue.component('Button', Button)
     Vue.component('BackTop', BackTop)
     Vue.component('Card', Card)

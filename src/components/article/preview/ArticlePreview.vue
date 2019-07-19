@@ -1,6 +1,20 @@
 <template>
   <div class="article-preview">
     <section class="info-flow-center">
+      <el-row>
+        <el-col :span="3" :offset="19">
+          <a target="_blank" href="/profile/publish/article">
+            <el-button
+              type="primary"
+              plain
+              icon="el-icon-edit"
+              :loading="articleBtnLoading"
+              @click="articleBtnClick"
+            >我要发表博文</el-button>
+          </a>
+        </el-col>
+      </el-row>
+      <el-divider></el-divider>
       <div v-for="article in articles" :key="article.articleId">
         <single-article-preview v-bind:article="article"></single-article-preview>
       </div>
@@ -30,7 +44,8 @@ export default {
   data () {
     return {
       articles: [],
-      pageParam: {}
+      pageParam: {},
+      articleBtnLoading: false
     }
   },
   created () {
@@ -49,6 +64,12 @@ export default {
     },
     handleCurrentPageChange (pageSize, currentPage) {
       console.log(`2每页 ${pageSize} 条, 第${currentPage}页`)
+    },
+    articleBtnClick () {
+      this.articleBtnLoading = true
+      setTimeout(() => {
+        this.articleBtnLoading = false
+      }, 500)
     }
   }
 }

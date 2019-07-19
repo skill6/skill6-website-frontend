@@ -8,16 +8,14 @@
         <!-- 头部 -->
         <section id="lessonfocus" class="mod g-section">
           <footer class="ft">
-            <a
-              target="_blank"
-              href="/upload"
-              act="upload"
-              class="g-btn g-btn-lg g-btn-warn log-xsend"
-              data-logxsend="[16,500001,{index:1}]"
-            >
-              <span class="g-ico g-ico-tools g-ico-tools-upload">
-                <i data-v-1bece2d4 class="el-icon-upload2"></i>
-              </span>我要分享文件
+            <a target="_blank" href="/profile/upload/file">
+              <el-button
+                type="primary"
+                plain
+                icon="el-icon-upload2"
+                :loading="shareBtnLoading"
+                @click="shareBtnClick"
+              >我要分享文件</el-button>
             </a>
           </footer>
         </section>
@@ -47,7 +45,6 @@ import Pagination from '../../common/Pagination'
 import SingleSharePreview from './SingleSharePreview'
 
 export default {
-  name: 'SharePreview',
   components: {
     SideMenu,
     Pagination,
@@ -55,7 +52,8 @@ export default {
   },
   data () {
     return {
-      pageParam: {}
+      pageParam: {},
+      shareBtnLoading: false
     }
   },
   created () {
@@ -71,6 +69,12 @@ export default {
     },
     handleCurrentPageChange (pageSize, currentPage) {
       console.log(`2每页 ${pageSize} 条, 第${currentPage}页`)
+    },
+    shareBtnClick () {
+      this.shareBtnLoading = true
+      setTimeout(() => {
+        this.shareBtnLoading = false
+      }, 500)
     }
   }
 }
@@ -105,40 +109,5 @@ export default {
   right: 25px;
   top: 5px;
   text-align: right;
-}
-
-#lessonfocus .ft .g-btn-lg {
-  padding: 7px 10px;
-  font-size: 14px;
-}
-
-.g-btn-lg {
-  padding: 0 12px;
-  line-height: 2.5;
-}
-
-.g-btn-warn {
-  background-color: #fe7545;
-  color: #fff;
-  border: 1px solid #fe7545;
-}
-
-.g-ico-tools-upload {
-  line-height: 1.5;
-  font-size: 18px;
-  height: 20px;
-  background-position: 0 -396px;
-  cursor: pointer;
-  padding-right: 5px;
-  margin-top: 12px;
-}
-
-.g-ico {
-  display: inline-block;
-  display: inline;
-  zoom: 1;
-  line-height: 1.5;
-  vertical-align: middle;
-  background-repeat: no-repeat;
 }
 </style>
