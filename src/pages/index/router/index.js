@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import { LoadingBar } from 'iview'
 
 import HomePage from '@/components/HomePage'
 
@@ -41,6 +42,15 @@ const routes =
 const router = new Router({
   routes,
   mode: 'history'
+})
+
+router.beforeEach((to, from, next) => {
+  LoadingBar.start()
+  next()
+})
+
+router.afterEach(route => {
+  LoadingBar.finish()
 })
 
 export default router
