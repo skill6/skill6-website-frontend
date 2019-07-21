@@ -1,35 +1,37 @@
 <template>
   <aside class="g-aside">
-    <section id="nav" class="mod">
-      <div class="bd">
-        <div class="units" val="u0">
-          <div class="label item">
-            <span class="wrap" title="文件分类">
-              <span class="text" style="margin-left: 0px;">文件分类</span>
-            </span>
-            <span class="g-ico g-ico-arrow g-ico-arrow-top"></span>
-          </div>
-          <ul class="contentbox">
-            <li class="item on">
-              <a class="wrap" title="1. a o e" href="/course/list/8_s0_g0_v87_u0_l0">
-                <span class="text" style="margin-left: 0px;">1. Java编程</span>
-              </a>
-            </li>
+    <Affix :offset-top="50">
+      <section id="nav" class="mod">
+        <div class="bd">
+          <div class="units" val="u0">
+            <div class="label item">
+              <span class="wrap" title="文件分类">
+                <span class="text" style="margin-left: 0px;">文件分类</span>
+              </span>
+              <span class="g-ico g-ico-arrow g-ico-arrow-top"></span>
+            </div>
+            <ul class="contentbox">
+              <li class="item on">
+                <a class="wrap" title="1. a o e" href="/course/list/8_s0_g0_v87_u0_l0">
+                  <span class="text" style="margin-left: 0px;">1. Java编程</span>
+                </a>
+              </li>
 
-            <li class="item">
-              <a class="wrap" title="2. i u ü" href="/course/list/8_s0_g0_v87_u0_l1">
-                <span class="text" style="margin-left: 0px;">2. 装机必备</span>
-              </a>
-            </li>
-            <li class="item">
-              <a class="wrap" title="3. b p m f" href="/course/list/8_s0_g0_v87_u0_l2">
-                <span class="text" style="margin-left: 0px;">3. 哲学书籍</span>
-              </a>
-            </li>
-          </ul>
+              <li class="item">
+                <a class="wrap" title="2. i u ü" href="/course/list/8_s0_g0_v87_u0_l1">
+                  <span class="text" style="margin-left: 0px;">2. 装机必备</span>
+                </a>
+              </li>
+              <li class="item">
+                <a class="wrap" title="3. b p m f" href="/course/list/8_s0_g0_v87_u0_l2">
+                  <span class="text" style="margin-left: 0px;">3. 哲学书籍</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Affix>
   </aside>
 </template>
 

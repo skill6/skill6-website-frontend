@@ -18,12 +18,10 @@
                   </div>
                   <div class="question-author-right">
                     <div>
-                      <a :href="question.authorHomeUrl">
+                      <a :href="question.authorHomeUrl" class="question-author">
                         <strong>{{question.questionAuthor}}</strong>
                       </a>
-                      <span class="hidden-xs">
-                        <button type="button" class="btn btn-xs btn-success code-follow-user">关注作者</button>
-                      </span>
+                      <button type="button" class="btn btn-xs btn-success code-follow-user">关注作者</button>
                     </div>
                     <span style="display: block">{{question.questionCreateTime}}</span>
                   </div>
@@ -57,7 +55,9 @@
       </el-tooltip>
     </div>
     <!-- 底部功能区 -->
-    <bottom-bar></bottom-bar>
+    <div class="question-body">
+      <bottom-bar></bottom-bar>
+    </div>
   </article>
 </template>
 
@@ -133,6 +133,10 @@ export default {
   border-radius: 50%;
 }
 
+.question-author {
+  font-size: 17px;
+}
+
 .question-author-right {
   float: right;
   padding-left: 50px;
@@ -144,6 +148,7 @@ export default {
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
+  margin-left: 10px;
 }
 
 .question-author-right span {

@@ -21,6 +21,10 @@ const store = new Vuex.Store({
     setToken (state, token) {
       state.token = token
       localStorage.token = token
+    },
+    logout (state) {
+      state.token = ''
+      localStorage.clear()
     }
   },
   getters: {
@@ -30,6 +34,13 @@ const store = new Vuex.Store({
       }
 
       return state.token
+    },
+    isLogin: state => {
+      if (!state.token) {
+        state.token = localStorage.getItem('token')
+      }
+
+      return state.token !== '' && state.token !== null
     }
   }
 })

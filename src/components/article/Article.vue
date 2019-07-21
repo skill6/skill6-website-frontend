@@ -10,7 +10,7 @@
         <div class="article-info">
           <div>
             <span class="author-name">
-              <a href="/u/4c41bdfecd3b">{{article.articleAuthor}}</a>
+              <a href>{{article.articleAuthor}}</a>
             </span>
             <!-- 关注用户按钮 -->
             <a class="btn btn-success article-follow">
@@ -125,7 +125,7 @@ export default {
 
 .author-name {
   margin-right: 3px;
-  font-size: 16px;
+  font-size: 18px;
   vertical-align: middle;
 }
 

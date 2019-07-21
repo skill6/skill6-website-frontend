@@ -6,9 +6,9 @@
     <header class="hd g-clearfix">
       <h2 class="title">
         <a>1. Java 编程思想</a>
-        <span class="g-btn-succ-hollow g-btn-xs">书籍</span>
+        <el-tag effect="plain" size="mini">书籍</el-tag>
       </h2>
-      <div class="author g-person" uid="680fdbd3b14e852458fb57e0">
+      <div class="author g-person">
         <a target="_blank" href="/user/" class="g-userhead g-userhead-lg trigger">
           <img
             src="https://www.hemingsheng.cn/imageDownload.hms?imageUrl=20190623/80059000.jpeg"
@@ -21,7 +21,7 @@
     <div class="bd">
       <div class="apraise">
         <span>
-          <i data-v-1bece2d4 class="el-icon-star-on"></i>
+          <i class="el-icon-star-on"></i>
           <em>6921</em>次收藏
         </span>
         <span class="g-space">|</span>
@@ -36,19 +36,8 @@
         </span>
       </div>
       <div class="act">
-        <span class="ft-collect">
-          <span class="g-btn g-btn-lg act-btn-succ-hollow log-xsend font-size-lg">
-            <i class="el-icon-star-off"></i>
-            <span class="text">收藏</span>
-          </span>
-          <span class="hint">
-            <span class="text">收藏至个人中心</span>
-          </span>
-        </span>
-        <span class="g-btn g-btn-lg g-btn-succ log-xsend font-size-lg">
-          <i class="el-icon-download"></i>
-          <span class="text">免费下载教案</span>
-        </span>
+        <el-button type="success" plain icon="el-icon-download" size="small">收藏</el-button>
+        <el-button type="success" plain icon="el-icon-download" size="small">免费下载文件</el-button>
         <div class="property">
           <span class="g-ico g-ico-gray g-ico-gray-view">
             <i class="el-icon-view"></i>
@@ -74,7 +63,6 @@
 
 <script>
 export default {
-  name: 'SingleSharePreview'
 }
 </script>
 
@@ -108,22 +96,6 @@ section .share-section {
 .share-section a {
   color: #333;
   z-index: 2;
-}
-
-.g-btn-succ-hollow {
-  font-size: 12px;
-  margin-left: 6px;
-  padding: 0 8px;
-  border-radius: 15px;
-  background-color: #fff;
-  color: #2dbe60;
-  border: 1px solid #2dbe60;
-}
-
-.g-btn-xs {
-  padding: 0 5px;
-  line-height: 1.6;
-  border: 1px solid #2dbe60;
 }
 
 .author {
@@ -203,46 +175,6 @@ section .share-section {
   text-align: right;
 }
 
-.act .ft-collect {
-  display: inline-block;
-  position: relative;
-}
-
-.act .ft-collect .act-btn-succ-hollow {
-  background: #fff;
-  color: #2dbe60;
-}
-
-.act .act-btn-succ-hollow {
-  padding: 0 6px;
-  width: 100px;
-  margin-right: 4px;
-}
-
-.act-btn-succ-hollow {
-  background-color: #fff;
-  color: #2dbe60;
-  border: 1px solid #2dbe60;
-}
-
-.g-btn-lg {
-  padding: 0 12px;
-  line-height: 2;
-}
-
-.g-btn,
-.g-btn-df {
-  padding: 0 10px;
-}
-
-.g-btn {
-  display: inline-block;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: background ease 0.3s, color ease 0.3s;
-}
-
 .g-ico {
   display: inline-block;
   line-height: 1.5;
@@ -293,9 +225,5 @@ section .share-section {
   color: #d4d4d4;
   font-size: 12px;
   margin: 0 10px;
-}
-
-.font-size-lg {
-  font-size: 15px;
 }
 </style>

@@ -1,24 +1,14 @@
 <template>
   <div class="clearfix">
+    <div class="left-menu">
+      <Anchor :offset-top="50" show-ink>
+        <AnchorLink href="#section1" title="关于我们" />
+        <AnchorLink href="#section2" title="版本更新历史" />
+        <AnchorLink href="#section3" title="联系我们" />
+        <AnchorLink href="#section4" title="赞赏支持" />
+      </Anchor>
+    </div>
     <div class="about-wrap">
-      <div id="portamento_container" style="min-height: 236px; width: 180px;">
-        <div id="portamento_container">
-          <ul id="nav" class="about-menu fixed">
-            <li class="on">
-              <a href="#section1">关于我们</a>
-            </li>
-            <li>
-              <a href="#section2">版本更新历史</a>
-            </li>
-            <li>
-              <a href="#section3">联系我们</a>
-            </li>
-            <li>
-              <a href="#section4">赞赏支持</a>
-            </li>
-          </ul>
-        </div>
-      </div>
       <div class="about-content">
         <div id="section1" class="menu-wrap">
           <h1 class="title">
@@ -151,69 +141,21 @@ export default {
   margin: 0 auto;
 }
 
-.about-wrap {
-  margin-top: 30px;
-  position: relative;
-  display: block;
-}
-
 /* 左边菜单 */
-#portamento_container {
-  position: relative;
+.left-menu {
   float: left;
-}
-
-#portamento_container .fixed {
-  position: fixed;
-}
-
-#portamento_container .about-menu {
-  float: none;
-  position: absolute;
-  width: 180px;
-  display: block;
-  padding: 10px 0;
-  background: #eff2f5;
-  overflow: visible;
-}
-
-li {
-  margin-bottom: 10px;
-  padding-top: 0;
-}
-
-li {
-  display: list-item;
-}
-
-.about-menu .on a {
-  color: #3498db;
-  transition: 0.5s;
-  background: #fff;
-  border-left: 5px solid #3498db;
-  border-right: 5px solid #3498db;
-  margin-top: 0;
-  outline: 0;
-  text-decoration: none;
-}
-
-.about-menu li a {
-  padding: 2px 20px 2px 30px;
-  display: block;
-  border-left: 5px solid #eff2f5;
-  height: 40px;
-  line-height: 40px;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-a:hover {
-  background-color: #ffffff;
+  width: 222px;
 }
 
 /* 右边内容 */
+.about-wrap {
+  float: left;
+  position: relative;
+  display: block;
+  margin-left: 50px;
+}
+
 .about-content {
-  margin-left: 220px;
   margin-bottom: 50px;
   font-size: 15px;
   line-height: 25px;

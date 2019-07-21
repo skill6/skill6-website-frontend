@@ -26,9 +26,11 @@ export default {
   },
   methods: {
     loadMore () {
+      this.$Loading.start()
       this.count += 2
       this.page += 1
       this.$emit('changeHeight', this.count)
+      this.$Loading.finish()
     }
   }
 }

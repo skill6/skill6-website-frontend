@@ -27,13 +27,22 @@ const routes = [{
   }
 }, {
   path: '/publish/question',
-  component: EditQuestion
+  component: EditQuestion,
+  meta: {
+    requireAuth: true
+  }
 }, {
   path: '/upload/file',
-  component: UploadFile
+  component: UploadFile,
+  meta: {
+    requireAuth: true
+  }
 }, {
   path: '/upload/video',
-  component: UploadVideo
+  component: UploadVideo,
+  meta: {
+    requireAuth: true
+  }
 }, {
   path: '/setting',
   component: Setting,
