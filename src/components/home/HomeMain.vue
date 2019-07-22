@@ -14,12 +14,21 @@
               class="item"
             >
               <el-row :gutter="8">
-                <el-col :span="10" class="recommend-ellipsis">{{articleRecommend.title}}</el-col>
+                <el-col
+                  :span="10"
+                  class="recommend-ellipsis"
+                  :title="articleRecommend.title"
+                >{{articleRecommend.title}}</el-col>
                 <el-col
                   :span="8"
                   class="recommend-ellipsis"
+                  :title="articleRecommend.readCount + '阅读/' + articleRecommend.thumbUp + '点赞/' + articleRecommend.collection + '收藏'"
                 >{{articleRecommend.readCount}}阅读/{{articleRecommend.thumbUp}}点赞/{{articleRecommend.collection}}收藏</el-col>
-                <el-col :span="6" class="recommend-ellipsis">{{articleRecommend.publishDate}}</el-col>
+                <el-col
+                  :span="6"
+                  class="recommend-ellipsis"
+                  :title="articleRecommend.publishDate"
+                >{{articleRecommend.publishDate}}</el-col>
               </el-row>
             </div>
           </el-card>
@@ -35,12 +44,21 @@
               class="item"
             >
               <el-row :gutter="8">
-                <el-col :span="10" class="recommend-ellipsis">{{articleRecommend.title}}</el-col>
+                <el-col
+                  :span="10"
+                  class="recommend-ellipsis"
+                  :title="articleRecommend.title"
+                >{{articleRecommend.title}}</el-col>
                 <el-col
                   :span="8"
                   class="recommend-ellipsis"
+                  :title="articleRecommend.readCount + '阅读/' + articleRecommend.thumbUp + '点赞/' + articleRecommend.collection + '收藏'"
                 >{{articleRecommend.readCount}}阅读/{{articleRecommend.thumbUp}}点赞/{{articleRecommend.collection}}收藏</el-col>
-                <el-col :span="6" class="recommend-ellipsis">{{articleRecommend.publishDate}}</el-col>
+                <el-col
+                  :span="6"
+                  class="recommend-ellipsis"
+                  :title="articleRecommend.publishDate"
+                >{{articleRecommend.publishDate}}</el-col>
               </el-row>
             </div>
           </el-card>
@@ -56,12 +74,21 @@
               class="item"
             >
               <el-row :gutter="8">
-                <el-col :span="10" class="recommend-ellipsis">{{articleRecommend.title}}</el-col>
+                <el-col
+                  :span="10"
+                  class="recommend-ellipsis"
+                  :title="articleRecommend.title"
+                >{{articleRecommend.title}}</el-col>
                 <el-col
                   :span="8"
                   class="recommend-ellipsis"
+                  :title="articleRecommend.readCount + '阅读/' + articleRecommend.thumbUp + '点赞/' + articleRecommend.collection + '收藏'"
                 >{{articleRecommend.readCount}}阅读/{{articleRecommend.thumbUp}}点赞/{{articleRecommend.collection}}收藏</el-col>
-                <el-col :span="6" class="recommend-ellipsis">{{articleRecommend.publishDate}}</el-col>
+                <el-col
+                  :span="6"
+                  class="recommend-ellipsis"
+                  :title="articleRecommend.publishDate"
+                >{{articleRecommend.publishDate}}</el-col>
               </el-row>
             </div>
           </el-card>
