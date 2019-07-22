@@ -13,13 +13,14 @@
               :key="articleRecommend.id"
               class="item"
             >
-              <div>
-                <span>{{articleRecommend.title}}</span>
-                <span
-                  class="item-fr"
-                >{{articleRecommend.readCount}}阅读/{{articleRecommend.thumbUp}}点赞/{{articleRecommend.collection}}收藏</span>
-              </div>
-              <span class="item-fr">{{articleRecommend.publishDate}}</span>
+              <el-row :gutter="8">
+                <el-col :span="10" class="recommend-ellipsis">{{articleRecommend.title}}</el-col>
+                <el-col
+                  :span="8"
+                  class="recommend-ellipsis"
+                >{{articleRecommend.readCount}}阅读/{{articleRecommend.thumbUp}}点赞/{{articleRecommend.collection}}收藏</el-col>
+                <el-col :span="6" class="recommend-ellipsis">{{articleRecommend.publishDate}}</el-col>
+              </el-row>
             </div>
           </el-card>
         </el-col>
@@ -28,12 +29,19 @@
             <div slot="header">
               <span>提问答疑推荐</span>
             </div>
-            <div v-for="o in 10" :key="o" class="item">
-              <div>
-                <span>如何搭建Java开发环境</span>
-                <span class="item-fr">10阅读/10回答/10收藏</span>
-              </div>
-              <span class="item-fr">2019-07-09</span>
+            <div
+              v-for="articleRecommend in articleRecommends"
+              :key="articleRecommend.id"
+              class="item"
+            >
+              <el-row :gutter="8">
+                <el-col :span="10" class="recommend-ellipsis">{{articleRecommend.title}}</el-col>
+                <el-col
+                  :span="8"
+                  class="recommend-ellipsis"
+                >{{articleRecommend.readCount}}阅读/{{articleRecommend.thumbUp}}点赞/{{articleRecommend.collection}}收藏</el-col>
+                <el-col :span="6" class="recommend-ellipsis">{{articleRecommend.publishDate}}</el-col>
+              </el-row>
             </div>
           </el-card>
         </el-col>
@@ -42,12 +50,19 @@
             <div slot="header">
               <span>文件下载推荐</span>
             </div>
-            <div v-for="o in 10" :key="o" class="item">
-              <div>
-                <span>环境搭建文档</span>
-                <span class="item-fr">10阅读/10点赞/10收藏/10下载</span>
-              </div>
-              <span class="item-fr">2019-07-09</span>
+            <div
+              v-for="articleRecommend in articleRecommends"
+              :key="articleRecommend.id"
+              class="item"
+            >
+              <el-row :gutter="8">
+                <el-col :span="10" class="recommend-ellipsis">{{articleRecommend.title}}</el-col>
+                <el-col
+                  :span="8"
+                  class="recommend-ellipsis"
+                >{{articleRecommend.readCount}}阅读/{{articleRecommend.thumbUp}}点赞/{{articleRecommend.collection}}收藏</el-col>
+                <el-col :span="6" class="recommend-ellipsis">{{articleRecommend.publishDate}}</el-col>
+              </el-row>
             </div>
           </el-card>
         </el-col>
@@ -143,11 +158,16 @@ export default {
 }
 
 .item {
-  margin-bottom: 25px;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-bottom: 10px;
 }
 
-.item-fr {
-  float: right;
+.recommend-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
 }
 
 .notice {
