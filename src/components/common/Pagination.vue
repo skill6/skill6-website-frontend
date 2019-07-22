@@ -17,7 +17,6 @@
 
 <script>
 export default {
-  name: 'Pagination',
   data () {
     return {
       pageSize: this.pageParam.pageSize,

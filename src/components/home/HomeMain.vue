@@ -8,12 +8,18 @@
             <div slot="header">
               <span>博客文章推荐</span>
             </div>
-            <div v-for="o in 10" :key="o" class="item">
+            <div
+              v-for="articleRecommend in articleRecommends"
+              :key="articleRecommend.id"
+              class="item"
+            >
               <div>
-                <span>Java开发环境搭建</span>
-                <span class="item-fr">10阅读/10点赞/10收藏</span>
+                <span>{{articleRecommend.title}}</span>
+                <span
+                  class="item-fr"
+                >{{articleRecommend.readCount}}阅读/{{articleRecommend.thumbUp}}点赞/{{articleRecommend.collection}}收藏</span>
               </div>
-              <span class="item-fr">2019-07-09</span>
+              <span class="item-fr">{{articleRecommend.publishDate}}</span>
             </div>
           </el-card>
         </el-col>
@@ -103,7 +109,26 @@
 </template>
 
 <script>
+import UrlConstant from '../../api/constant'
+
 export default {
+  data () {
+    return {
+      articleRecommends: [{
+        id: 1,
+        title: '',
+        readCount: 0,
+        thumbUp: 0,
+        collection: 0,
+        publishDate: ''
+      }]
+    }
+  },
+  created () {
+    this.$http.get(UrlConstant.articleRecommendUrl).then((data) => {
+      this.articleRecommends = data.body
+    })
+  }
 }
 </script>
 
