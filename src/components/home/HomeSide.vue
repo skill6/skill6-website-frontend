@@ -1,32 +1,21 @@
 <template>
   <div class="info-side">
     <!-- 人体时间 -->
-    <div class="ivu-card ivu-card-bordered current-date">
+    <div class="ivu-card ivu-card-bordered side-section current-date">
       <div id="currentDate" class="current-date-body"></div>
     </div>
     <!-- 访问统计 -->
-    <visit-statistics></visit-statistics>
+    <visit-statistics class="side-section"></visit-statistics>
     <!-- 热门标签 -->
-    <div class="hot-label">
-      <el-row class="hot-label-row">
-        <el-tag size="small">Java</el-tag>
-        <el-tag type="success" size="small">全栈</el-tag>
-        <el-tag type="info" size="small">VUE</el-tag>
-        <el-tag type="warning" size="small">深度学习</el-tag>
-      </el-row>
-      <el-row class="hot-label-row">
-        <el-tag type="danger" size="small">VUE</el-tag>
-        <el-tag size="small">人工智能</el-tag>
-      </el-row>
-    </div>
+    <hot-label class="side-section"></hot-label>
     <!-- 农历日历 -->
-    <lunar-calendar></lunar-calendar>
+    <lunar-calendar class="side-section"></lunar-calendar>
     <!-- 更新动态 -->
-    <update-dynamic></update-dynamic>
+    <update-dynamic class="side-section"></update-dynamic>
     <!-- 活跃用户 -->
-    <active-users></active-users>
+    <active-users class="side-section"></active-users>
     <!-- top n 用户 -->
-    <top-users></top-users>
+    <top-users class="side-section"></top-users>
   </div>
 </template>
 
@@ -35,6 +24,7 @@ import Util from '../../lib/util'
 
 import LunarCalendar from './sidebar/LunarCalendar'
 import VisitStatistics from './sidebar/VisitStatistics'
+import HotLabel from './sidebar/HotLabel'
 import UpdateDynamic from './sidebar/UpdateDynamic'
 import ActiveUsers from './sidebar/ActiveUsers'
 import TopUsers from './sidebar/TopUsers'
@@ -43,6 +33,7 @@ export default {
   components: {
     LunarCalendar,
     VisitStatistics,
+    HotLabel,
     UpdateDynamic,
     ActiveUsers,
     TopUsers
@@ -74,6 +65,12 @@ export default {
   margin: 0 20px 0 25px;
 }
 
+.side-section {
+  margin: 10px;
+  background-color: white;
+  padding: 5px;
+}
+
 .current-date {
   margin-bottom: 10px;
 }
@@ -81,15 +78,5 @@ export default {
 .current-date-body {
   padding: 0 20px;
   margin: -15px 0;
-}
-
-.hot-label {
-  margin: 10px;
-  background-color: white;
-  padding: 5px;
-}
-
-.hot-label-row {
-  margin-bottom: 10px;
 }
 </style>

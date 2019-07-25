@@ -7,31 +7,42 @@
       <ul>
         <li>
           当前在线
-          <span>100</span>位
+          <span>{{visitStatistics.currentOnline}}</span>位
         </li>
         <li>
           最多同时在线
-          <span>100</span>位
+          <span>{{visitStatistics.mostOnline}}</span>位
         </li>
         <li>
           今日访问数
-          <span>100</span>位
+          <span>{{visitStatistics.visitToday}}</span>位
         </li>
         <li>
           当月访问总计
-          <span>100</span>位
+          <span>{{visitStatistics.monthlyVisits}}</span>位
         </li>
         <li>
           历史访问总计
-          <span>100</span>位
+          <span>{{visitStatistics.totalVisits}}</span>位
         </li>
       </ul>
     </Card>
   </section>
 </template>
 <script>
+import UrlConstant from '../../../api/constant'
+
 export default {
-  name: 'VisitStatistics'
+  data () {
+    return {
+      visitStatistics: {}
+    }
+  },
+  created () {
+    this.$http.get(UrlConstant.visitStatisticsUrl).then((data) => {
+      this.visitStatistics = data.body
+    })
+  }
 }
 </script>
 
