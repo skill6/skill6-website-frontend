@@ -39,26 +39,26 @@
               <span>提问答疑推荐</span>
             </div>
             <div
-              v-for="articleRecommend in articleRecommends"
-              :key="articleRecommend.id"
+              v-for="questionRecommend in questionRecommends"
+              :key="questionRecommend.id"
               class="item"
             >
               <el-row :gutter="8">
                 <el-col
                   :span="10"
                   class="recommend-ellipsis"
-                  :title="articleRecommend.title"
-                >{{articleRecommend.title}}</el-col>
+                  :title="questionRecommend.title"
+                >{{questionRecommend.title}}</el-col>
                 <el-col
                   :span="8"
                   class="recommend-ellipsis"
-                  :title="articleRecommend.readCount + '阅读/' + articleRecommend.thumbUp + '点赞/' + articleRecommend.collection + '收藏'"
-                >{{articleRecommend.readCount}}阅读/{{articleRecommend.thumbUp}}点赞/{{articleRecommend.collection}}收藏</el-col>
+                  :title="questionRecommend.readCount + '阅读/' + questionRecommend.thumbUp + '点赞/' + questionRecommend.collection + '收藏'"
+                >{{questionRecommend.readCount}}阅读/{{questionRecommend.thumbUp}}点赞/{{questionRecommend.collection}}收藏</el-col>
                 <el-col
                   :span="6"
                   class="recommend-ellipsis"
-                  :title="articleRecommend.publishDate"
-                >{{articleRecommend.publishDate}}</el-col>
+                  :title="questionRecommend.publishDate"
+                >{{questionRecommend.publishDate}}</el-col>
               </el-row>
             </div>
           </el-card>
@@ -68,27 +68,23 @@
             <div slot="header">
               <span>文件下载推荐</span>
             </div>
-            <div
-              v-for="articleRecommend in articleRecommends"
-              :key="articleRecommend.id"
-              class="item"
-            >
+            <div v-for="videoRecommend in videoRecommends" :key="videoRecommend.id" class="item">
               <el-row :gutter="8">
                 <el-col
                   :span="10"
                   class="recommend-ellipsis"
-                  :title="articleRecommend.title"
-                >{{articleRecommend.title}}</el-col>
+                  :title="videoRecommend.title"
+                >{{videoRecommend.title}}</el-col>
                 <el-col
                   :span="8"
                   class="recommend-ellipsis"
-                  :title="articleRecommend.readCount + '阅读/' + articleRecommend.thumbUp + '点赞/' + articleRecommend.collection + '收藏'"
-                >{{articleRecommend.readCount}}阅读/{{articleRecommend.thumbUp}}点赞/{{articleRecommend.collection}}收藏</el-col>
+                  :title="videoRecommend.readCount + '阅读/' + videoRecommend.thumbUp + '点赞/' + videoRecommend.collection + '收藏'"
+                >{{videoRecommend.readCount}}阅读/{{videoRecommend.thumbUp}}点赞/{{videoRecommend.collection}}收藏</el-col>
                 <el-col
                   :span="6"
                   class="recommend-ellipsis"
-                  :title="articleRecommend.publishDate"
-                >{{articleRecommend.publishDate}}</el-col>
+                  :title="videoRecommend.publishDate"
+                >{{videoRecommend.publishDate}}</el-col>
               </el-row>
             </div>
           </el-card>
@@ -163,12 +159,34 @@ export default {
         thumbUp: 0,
         collection: 0,
         publishDate: ''
+      }],
+      questionRecommends: [{
+        id: 1,
+        title: '',
+        readCount: 0,
+        thumbUp: 0,
+        collection: 0,
+        publishDate: ''
+      }],
+      videoRecommends: [{
+        id: 1,
+        title: '',
+        readCount: 0,
+        thumbUp: 0,
+        collection: 0,
+        publishDate: ''
       }]
     }
   },
   created () {
     this.$http.get(UrlConstant.articleRecommendUrl).then((data) => {
       this.articleRecommends = data.body
+    })
+    this.$http.get(UrlConstant.questionRecommendUrl).then((data) => {
+      this.questionRecommends = data.body
+    })
+    this.$http.get(UrlConstant.videoRecommendUrl).then((data) => {
+      this.videoRecommends = data.body
     })
   }
 }

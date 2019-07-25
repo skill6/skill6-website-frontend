@@ -2,14 +2,29 @@
   <div class="update-dynamic">
     <Card>
       <p slot="title">
-        <i class="el-icon-document"></i>博客文章更新
+        <i class="el-icon-document"></i> 最新博客文章
       </p>
       <ul>
-        <li v-for="index in 5" v-bind:key="index" class="update-item">
-          <a href>何明胜</a>发表了
-          <a href>博文</a>
-          <a href>《Java开发环境搭建》</a>
-          <span class="publish-time">{{index}}分钟前</span>
+        <li
+          v-for="latestPusblish in latestTenPusblish"
+          v-bind:key="latestPusblish.id"
+          class="update-item"
+        >
+          <el-row>
+            <el-col :span="4" class="update-ellipsis" :title="latestPusblish.author">
+              <a href>{{latestPusblish.author}}</a>
+            </el-col>
+            <el-col :span="4" class="update-ellipsis">发表了</el-col>
+            <el-col :span="3" class="update-ellipsis" :title="latestPusblish.type">
+              <a href>{{latestPusblish.type}}</a>
+            </el-col>
+            <el-col :span="9" class="update-ellipsis" :title="latestPusblish.title">
+              <a href>《{{latestPusblish.title}}》</a>
+            </el-col>
+            <el-col :span="4" class="update-ellipsis" :title="latestPusblish.publishTime + '分钟前'">
+              <span class="publish-time">{{latestPusblish.publishTime}}分钟前</span>
+            </el-col>
+          </el-row>
         </li>
       </ul>
     </Card>
@@ -17,7 +32,19 @@
 </template>
 
 <script>
+import UrlConstant from '../../../api/constant'
+
 export default {
+  data () {
+    return {
+      latestTenPusblish: []
+    }
+  },
+  created () {
+    this.$http.get(UrlConstant.latestTenPusblishUrl).then((data) => {
+      this.latestTenPusblish = data.body
+    })
+  }
 }
 </script>
 
@@ -33,6 +60,13 @@ export default {
 
 .update-item {
   font-size: 9px;
-  margin-bottom: 30px;
+  margin-bottom: 6px;
+}
+
+.update-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
 }
 </style>
