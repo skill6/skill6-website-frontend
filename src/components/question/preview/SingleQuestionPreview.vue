@@ -1,104 +1,111 @@
 <template>
-  <article class="article-preview">
-    <div class="question-item">
-      <div class="question-item-info">
-        <a
-          :href="'/question/' + question.questionId"
-          class="question-img"
-          :style="{backgroundImage:'url(' + question.userHeadUrl + ')'}"
-        ></a>
-        <router-link :to="'/question/' + question.questionId" class="author-title">
-          <div class="question-item-title">
-            <h4 class="question-title">{{question.questionTitle}}</h4>
-          </div>
+  <article class="question-preview">
+    <el-row>
+      <el-col :span="20" :offset="1">
+        <el-row>
+          <el-col :span="16">
+            <!-- 标题 -->
+            <router-link :to="'/question/' + question.questionId">
+              <div class="question-item-title">{{question.questionTitle}}</div>
+            </router-link>
+          </el-col>
+          <el-col :span="6" :offset="1">
+            <!-- 提问时间 -->
+            <div class="question-item-questioner">
+              <a :href="question.authorHome">{{question.questionAuthor}}</a>
+              <span>·</span>
+              提问于{{question.questionCreateTime}}
+            </div>
+          </el-col>
+        </el-row>
+        <!-- 回答 -->
+        <router-link :to="'/question/' + question.questionId">
           <div class="question-excerpt">{{question.questionAnswer}}</div>
         </router-link>
+        <!-- 提问其他信息 -->
         <div>
-          <span>
-            <span class="wrap">
-              <i class="fa fa-thumbs-up"></i>
-            </span>
-            <span class="votes-num">{{question.thumbsUpCount}}</span>
-            <span class="votes-word">赞</span>
-          </span>
-          <span class="bookmark-operation question-item-meta-pr">
-            <i class="fa-bookmark question-item-meta-pr"></i>
-            <span class="bookmark-word">收藏</span>
-          </span>
+          <el-tooltip class="tooltip-item" effect="light" content="点赞" placement="bottom">
+            <el-badge :value="200" :max="99">
+              <Button shape="circle" icon="md-thumbs-up" size="small"></Button>
+            </el-badge>
+          </el-tooltip>
+          <el-tooltip class="tooltip-item" effect="light" content="反对" placement="bottom">
+            <el-badge :value="200" :max="99">
+              <Button shape="circle" icon="md-thumbs-down" size="small"></Button>
+            </el-badge>
+          </el-tooltip>
+          <el-tooltip class="tooltip-item" effect="light" content="收藏" placement="bottom">
+            <el-badge :value="200" :max="99">
+              <el-button type="warning" icon="el-icon-star-off" size="mini" plain circle></el-button>
+            </el-badge>
+          </el-tooltip>
+          <!-- 回答时间 -->
           <span class="author question-item-meta-pr">
             <a :href="question.authorHome">{{question.questionAuthor}}</a>
-            <span class="dot">·</span>
-            {{question.questionCreateTime}}
+            <span>·</span>
+            回答于{{question.questionCreateTime}}
           </span>
         </div>
-      </div>
-    </div>
+      </el-col>
+      <el-col :span="2" :offset="1" class="user-header">
+        <a :href="'/question/' + question.questionId">
+          <el-avatar :size="60" shape="square" :src="question.userHeadUrl" alt="这是头像"></el-avatar>
+        </a>
+      </el-col>
+    </el-row>
   </article>
 </template>
 
 <script>
 export default {
-  props: ['question']
+  props: {
+    question: {
+      type: Object
+    }
+  }
 }
 </script>
 
 <style scoped>
-.article-preview {
+.question-preview {
   background-color: #f1f1f1;
-}
-
-.question-item {
-  margin-bottom: 25px;
-}
-
-.question-item-info {
+  margin-bottom: 36px;
   padding: 0 0 15px 0;
-  color: #9e9e9e;
-  font-size: 14px;
-}
-
-.question-img {
-  width: 80px;
-  height: 60px;
-  border-radius: 4px;
-  float: right;
-  margin-left: 30px;
-  margin-top: 10px;
-  background-size: cover;
-  background-position: center;
 }
 
 .question-item-title {
-  margin-top: 5px !important;
-  margin-bottom: 5px !important;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: #212529;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
 }
 
-.question-title {
-  display: inline;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 28px;
-  color: #212121;
-  position: relative;
-  vertical-align: middle;
+.question-item-questioner {
+  margin-top: 18px;
+  margin-bottom: 12px;
 }
 
 .question-excerpt {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
   line-height: 1.5;
-  color: #888;
+  color: #212529;
   font-size: 13px;
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC,
-    Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei,
-    sans-serif;
+}
+
+.tooltip-item {
+  padding: 5px;
+  margin-right: 25px;
 }
 
 .question-item-meta-pr {
-  padding-right: 20px !important;
+  margin-left: 30px;
+}
+
+.user-header {
+  margin-top: 10px;
 }
 </style>

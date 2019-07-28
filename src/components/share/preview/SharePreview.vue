@@ -6,8 +6,8 @@
       <!-- 右边主体部分 -->
       <section class="share-main">
         <!-- 头部 -->
-        <section id="lessonfocus" class="mod g-section">
-          <footer class="ft">
+        <section id="share-top">
+          <div class="share-btn">
             <a target="_blank" href="/profile/upload/file">
               <el-button
                 type="primary"
@@ -17,16 +17,12 @@
                 @click="shareBtnClick"
               >我要分享文件</el-button>
             </a>
-          </footer>
+          </div>
         </section>
         <!-- 主体 -->
-        <section id="cardlist" class="mod g-cardlist">
+        <section>
           <!-- 单个下载 -->
-          <div>
-            <div v-for="question in 10" :key="question">
-              <single-share-preview></single-share-preview>
-            </div>
-          </div>
+          <single-share-preview v-for="question in 10" :key="question"></single-share-preview>
           <!-- 分页 -->
           <pagination
             v-bind:pageParam="pageParam"
@@ -94,7 +90,7 @@ export default {
   position: relative;
 }
 
-#lessonfocus {
+#share-top {
   position: relative;
   padding-left: 26px;
   padding-top: 22px;
@@ -104,7 +100,7 @@ export default {
   color: #555;
 }
 
-.ft {
+.share-btn {
   position: absolute;
   right: 25px;
   top: 5px;

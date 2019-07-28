@@ -2,15 +2,16 @@
   <div class="clearfix">
     <div class="left-menu">
       <Anchor :offset-top="50" show-ink>
-        <AnchorLink href="#section1" title="关于我们" />
-        <AnchorLink href="#section2" title="版本更新历史" />
-        <AnchorLink href="#section3" title="联系我们" />
-        <AnchorLink href="#section4" title="赞赏支持" />
+        <AnchorLink href="#about" title="关于我们" />
+        <AnchorLink href="#reward" title="赞赏支持" />
+        <AnchorLink href="#version" title="版本更新" />
+        <AnchorLink href="#contact" title="联系我们" />
       </Anchor>
     </div>
     <div class="about-wrap">
+      <!-- 关于我们 -->
       <div class="about-content">
-        <div id="section1" class="menu-wrap">
+        <div id="about" class="menu-wrap">
           <h1 class="title">
             <strong>关于我们</strong>
           </h1>
@@ -24,13 +25,35 @@
               <strong></strong>
               <strong>开发者：何明胜.</strong>
             </span>
-            <p>通过博客文章、提问答疑、文件分享等，为各位渴望学习和分享技术的朋友提供一个良好的平台。</p>
-            <p>截至2019年7月3日，本站累计注册会员12345位。</p>
+            <div>
+              <p>通过博客文章、提问答疑、文件分享等，为各位渴望学习和分享技术的朋友提供一个良好的平台。</p>
+              <p>截至2019年7月3日，本站累计注册会员12345位。</p>
+            </div>
           </div>
         </div>
       </div>
+      <!-- 赞赏支持 -->
       <div class="about-content">
-        <div id="section2" class="menu-wrap">
+        <div id="reward" class="menu-wrap">
+          <h1 class="title">
+            <strong>赞赏支持</strong>
+          </h1>
+          <div class="about-desc">
+            <p>如果觉得本站对你有所帮助，可以打赏支持。</p>
+          </div>
+          <el-row>
+            <el-col :span="8" :offset="2">
+              <img src="/static/images/money/ali_pay.jpg" alt="支付宝赞助" class="reward" />
+            </el-col>
+            <el-col :span="8" :offset="2">
+              <img src="/static/images/money/wechat_pay.jpg" alt="微信赞助" class="reward" />
+            </el-col>
+          </el-row>
+        </div>
+      </div>
+      <!-- 版本更新历史 -->
+      <div class="about-content">
+        <div id="version" class="menu-wrap">
           <h1 class="title">
             <strong>版本更新历史</strong>
           </h1>
@@ -44,7 +67,7 @@
               </div>
               <el-timeline :reverse="reverse">
                 <el-timeline-item
-                  v-for="(activity, index) in activities"
+                  v-for="(activity, index) in versionUpdate"
                   :key="index"
                   :timestamp="activity.timestamp"
                   type="primary"
@@ -62,8 +85,9 @@
           </div>
         </div>
       </div>
+      <!-- 联系我们 -->
       <div class="about-content">
-        <div id="section3" class="menu-wrap">
+        <div id="contact" class="menu-wrap">
           <h1 class="title">
             <strong>联系我们</strong>
           </h1>
@@ -96,41 +120,24 @@
           </div>
         </div>
       </div>
-      <div class="about-content">
-        <div id="section4" class="menu-wrap">
-          <h1 class="title">
-            <strong>赞赏支持</strong>
-          </h1>
-          <div class="about-desc">
-            <p>如果觉得本站对你有所帮助，可以打赏支持。</p>
-          </div>
-          <img src="/static/images/money/ali_pay.jpg" alt="支付宝赞助" class="reward" />
-          <img src="/static/images/money/wechat_pay.jpg" alt="微信赞助" class="reward" />
-        </div>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
+import UrlConstant from '../../api/constant'
+
 export default {
   data () {
     return {
       reverse: true,
-      activities: [{
-        title: '发布版本V1.0.0',
-        content: '何明胜 提交于 2018/4/2 20:46',
-        timestamp: '2018-04-10'
-      }, {
-        title: '发布版本V1.0.1',
-        content: '何明胜 提交于 2018/4/2 20:46',
-        timestamp: '2018-04-13'
-      }, {
-        title: '发布版本V1.0.2',
-        content: '何明胜 提交于 2018/4/2 20:46',
-        timestamp: '2018-04-18'
-      }]
+      versionUpdate: []
     }
+  },
+  created () {
+    this.$http.get(UrlConstant.versionUpdateUrl).then((data) => {
+      this.versionUpdate = data.body
+    })
   }
 }
 </script>
@@ -193,14 +200,10 @@ export default {
 }
 
 .reward {
-  width: 180px;
+  width: 210px;
   height: 240px;
   border-radius: 4px;
-  float: left;
-  margin-left: 30px;
   margin-top: 10px;
-  background-size: cover;
-  background-position: center;
 }
 
 /* 版本更新历史 */

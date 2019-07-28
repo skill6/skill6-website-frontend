@@ -4,7 +4,7 @@
       <single-update></single-update>
     </div>
     <div class="load-more">
-      <Button long v-if="page <= page_count" @click="loadMore" class="load-btn">点击加载更多</Button>
+      <Button long v-if="page <= pageCount" @click="loadMore" class="load-btn">点击加载更多</Button>
       <Button long v-else class="load-btn">没有更多了</Button>
     </div>
   </div>
@@ -21,7 +21,7 @@ export default {
     return {
       count: 2,
       page: 1,
-      page_count: 3
+      pageCount: 3
     }
   },
   methods: {

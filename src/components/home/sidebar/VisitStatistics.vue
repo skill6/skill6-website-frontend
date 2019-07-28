@@ -29,6 +29,7 @@
     </Card>
   </section>
 </template>
+
 <script>
 import UrlConstant from '../../../api/constant'
 

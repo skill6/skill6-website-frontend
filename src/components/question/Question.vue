@@ -1,54 +1,44 @@
 <template>
   <article class="question-main">
     <div class="question-body">
+      <!-- 问题 -->
       <div class="question-top-header">
-        <div class="question-top-header-mb">
-          <div class="block-for-right-border">
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="post-topheader-info">
-                  <div class="question-auhtor-left">
-                    <a :href="question.authorHomeUrl">
-                      <img
-                        class="question-avatar"
-                        :src="question.userHeadUrl"
-                        :alt="question.questionAuthor"
-                      />
-                    </a>
-                  </div>
-                  <div class="question-author-right">
-                    <div>
-                      <a :href="question.authorHomeUrl" class="question-author">
-                        <strong>{{question.questionAuthor}}</strong>
-                      </a>
-                      <button type="button" class="btn btn-xs btn-success code-follow-user">关注作者</button>
-                    </div>
-                    <span style="display: block">{{question.questionCreateTime}}</span>
-                  </div>
-                </div>
-                <h1 class="question-title">
-                  <a href="/a/1190000019516974">{{question.questionTitle}}</a>
-                </h1>
-                <div class="content__tech hidden-xs">
-                  <ul class="question-title-taglist">
-                    <li class="tagPopup mb5">
-                      <a class="question-title-tag" data-placement="top">
-                        <img :src="question.userHeadUrl" />
-                        android
-                      </a>
-                    </li>
-                  </ul>
-                  <span class="code-title-taglist-span">
-                    70 次阅读
-                    &nbsp;·&nbsp;
-                    读完需要 19 分钟
-                  </span>
-                </div>
-              </div>
+        <!-- 问题头部 -->
+        <div class="post-topheader-info">
+          <div class="question-auhtor-left">
+            <a :href="question.authorHomeUrl">
+              <el-avatar :size="40" :src="question.userHeadUrl" alt="这是头像"></el-avatar>
+            </a>
+          </div>
+          <div class="question-author-right">
+            <div>
+              <a :href="question.authorHomeUrl" class="question-author">
+                <strong>{{question.questionAuthor}}</strong>
+              </a>
+              <button type="button" class="btn btn-xs btn-success code-follow-user">关注作者</button>
             </div>
+            <span>提问于 {{question.questionCreateTime}}</span>
           </div>
         </div>
+        <div class="question-title">{{question.questionTitle}}</div>
+        <!-- 提问其他信息 -->
+        <div>
+          <ul class="question-title-taglist">
+            <li class="tagPopup mb5">
+              <a class="question-title-tag">
+                <img :src="question.userHeadUrl" />
+                android
+              </a>
+            </li>
+          </ul>
+          <span>
+            70 次阅读
+            &nbsp;·&nbsp;
+            读完需要 19 分钟
+          </span>
+        </div>
       </div>
+      <!-- 回答列表 -->
       <div class="question-content">{{question.questionAnswer}}</div>
       <el-tooltip class="item" effect="dark" content="复制代码" placement="bottom">
         <el-button icon="el-icon-document-copy" size="mini" plain @click="doCopy"></el-button>
@@ -62,7 +52,7 @@
 </template>
 
 <script>
-import Constant from '../../api/constant'
+import UrlConstant from '../../api/constant'
 import BottomBar from '../common/BottomBar'
 
 export default {
@@ -75,7 +65,7 @@ export default {
     }
   },
   created () {
-    this.$http.get(Constant.questionUrl).then((data) => {
+    this.$http.get(UrlConstant.questionUrl).then((data) => {
       this.question = data.body
     })
   },
@@ -117,20 +107,11 @@ export default {
 
 .question-top-header {
   padding: 15px 0 0 0;
-}
-
-.question-top-header-mb {
   margin-bottom: 20px !important;
 }
 
 .question-auhtor-left {
   position: absolute;
-}
-
-.question-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
 }
 
 .question-author {
@@ -157,12 +138,8 @@ export default {
 
 .question-title {
   font-size: 30px;
-  line-height: 42px;
   margin-top: 15px;
   margin-bottom: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC',
-    'WenQuanYi Micro Hei', sans-serif;
 }
 
 .question-title-tag {
@@ -188,25 +165,8 @@ export default {
   vertical-align: middle;
 }
 
-.question-title-taglist-span {
-  color: #999;
-  font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, 'PingFang SC',
-    'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft Yahei', sans-serif;
-  font-size: 14px;
-  line-height: 1.42858;
-  margin-left: 10px;
-}
-
 .question-content {
   margin-top: 60px;
-  line-height: 1.8;
   font-size: 15px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
-    'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC',
-    'WenQuanYi Micro Hei', sans-serif;
-}
-
-.post-topheader-info {
-  display: table;
 }
 </style>

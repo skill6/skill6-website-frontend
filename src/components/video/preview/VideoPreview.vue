@@ -19,25 +19,35 @@
         <single-video-preview v-bind:video="video"></single-video-preview>
       </el-col>
     </el-row>
+    <pagination
+      v-bind:pageParam="pageParam"
+      @handlePageSizeChange="handlePageSizeChange"
+      @handleCurrentPageChange="handleCurrentPageChange"
+      class="video-pagination"
+    ></pagination>
   </div>
 </template>
 
 <script>
-import Constant from '../../../api/constant'
+import UrlConstant from '../../../api/constant'
+
+import Pagination from '../../common/Pagination'
 import SingleVideoPreview from './SingleVideoPreview'
 
 export default {
   components: {
+    Pagination,
     SingleVideoPreview
   },
   data () {
     return {
+      pageParam: {},
       videoList: [],
       videoBtnLoading: false
     }
   },
   created () {
-    this.$http.get(Constant.videosUrl).then((data) => {
+    this.$http.get(UrlConstant.videosUrl).then((data) => {
       this.videoList = data.body.videoList
     })
     this.pageParam = {
@@ -52,6 +62,12 @@ export default {
       setTimeout(() => {
         this.videoBtnLoading = false
       }, 500)
+    },
+    handlePageSizeChange (pageSize, currentPage) {
+      console.log(`1 每页 ${pageSize} 条, 第${currentPage}页`)
+    },
+    handleCurrentPageChange (pageSize, currentPage) {
+      console.log(`2每页 ${pageSize} 条, 第${currentPage}页`)
     }
   }
 }
@@ -68,5 +84,9 @@ export default {
 
 .el-col {
   margin-bottom: 40px;
+}
+
+.video-pagination {
+  margin: 0 15% !important;
 }
 </style>

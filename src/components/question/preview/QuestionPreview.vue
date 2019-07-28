@@ -1,5 +1,5 @@
 <template>
-  <div class="question-preview">
+  <div class="question-container">
     <section class="info-flow-center">
       <el-row>
         <el-col :span="3" :offset="19">
@@ -30,8 +30,9 @@
 </template>
 
 <script>
-import Constant from '../../../api/constant'
+import UrlConstant from '../../../api/constant'
 import Pagination from '../../common/Pagination'
+
 import SingleQuestionPreview from './SingleQuestionPreview'
 import RightSideBar from '../../common/RightSideBar'
 
@@ -49,7 +50,7 @@ export default {
     }
   },
   created () {
-    this.$http.get(Constant.questionsUrl).then((data) => {
+    this.$http.get(UrlConstant.questionsUrl).then((data) => {
       this.questions = data.body.questions
     })
     this.pageParam = {
@@ -76,17 +77,9 @@ export default {
 </script>
 
 <style scoped>
-.question-preview {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
+.question-container {
   display: flex;
-  flex-grow: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-grow: 1;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .info-flow-center {

@@ -53,15 +53,15 @@ export default {
       isActice1: false,
       isActice2: true,
       isActice3: false,
-      carouselHeight0: 500,
-      carouselHeight1: 500,
-      carouselHeight2: 500,
-      carouselHeight3: 500
+      carouselHeight0: 600,
+      carouselHeight1: 600,
+      carouselHeight2: 600,
+      carouselHeight3: 600
     }
   },
   computed: {
     carouselHeight () {
-      return (this.carouselHeight0 + 50) + 'px'
+      return (this.carouselHeight0 + 20) + 'px'
     }
   },
   methods: {
@@ -87,13 +87,13 @@ export default {
       this.isActice1 = this.isActice2 = false
     },
     changeHeight1 (count) {
-      this.carouselHeight0 = this.carouselHeight1 = 250 * count
+      this.carouselHeight0 = this.carouselHeight1 = 300 * count
     },
     changeHeight2 (count) {
-      this.carouselHeight0 = this.carouselHeight2 = 250 * count
+      this.carouselHeight0 = this.carouselHeight2 = 300 * count
     },
     changeHeight3 (count) {
-      this.carouselHeight0 = this.carouselHeight3 = 250 * count
+      this.carouselHeight0 = this.carouselHeight3 = 300 * count
     }
   }
 }
@@ -102,19 +102,8 @@ export default {
 <style scoped>
 .info-flow-center {
   margin: 0 20px;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
   flex-direction: column;
-  flex-grow: 1;
   min-width: 524px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -webkit-flex-grow: 1;
-  z-index: 1;
 }
 
 .info-carousel {
@@ -146,5 +135,54 @@ export default {
 #bannerNav ul li.on span,
 #bannerNav ul li:hover span {
   background: #00aeff;
+}
+
+/* 子组件共用样式 */
+.info-carousel >>> .article-preview {
+  background-color: #f3f3f3;
+  margin-bottom: 36px;
+}
+
+.info-carousel >>> .article-actual {
+  flex-direction: column;
+  width: 100%;
+  padding: 20px 20px 10px 20px;
+}
+
+.info-carousel >>> .article-header {
+  display: flex;
+  background-color: #f8f8f8;
+  padding: 10px 5px;
+}
+
+.info-carousel >>> .author-picture-show {
+  margin-right: 15px;
+}
+
+.info-carousel >>> .author-title {
+  color: #212529;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+}
+
+.info-carousel >>> .article-description {
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+.info-carousel >>> .article-content {
+  margin-top: 17px;
+  height: 100px;
+  color: #2f2f2f;
+}
+
+.info-carousel >>> .article-read-more {
+  font-size: 14px;
+  width: 100%;
+  margin-top: 5px;
+  border: 0;
+  background-color: #f3eeee;
 }
 </style>

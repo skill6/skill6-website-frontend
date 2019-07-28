@@ -1,6 +1,6 @@
 <!--评论模块-->
 <template>
-  <div class="container">
+  <div class="comment-container">
     <div class="comment" v-for="item in comments" :key="item.id">
       <div class="info">
         <img class="avatar" :src="item.fromAvatar" width="36" height="36">
@@ -63,7 +63,6 @@
 </template>
 
 <script>
-
 import Vue from 'vue'
 
 export default {
@@ -98,14 +97,12 @@ export default {
         item.isLike = !item.isLike
       }
     },
-
     /**
      * 点击取消按钮
      */
     cancel () {
       this.showItemId = ''
     },
-
     /**
      * 提交评论
      */
@@ -113,7 +110,6 @@ export default {
       this.showItemId = ''
       this.$emit('updateComment', this.inputComment)
     },
-
     /**
      * 点击评论按钮显示输入框
      * item: 当前大评论
@@ -135,7 +131,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.comment-container {
   padding: 0 10px;
   box-sizing: border-box;
   margin-top: 50px;

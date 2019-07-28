@@ -1,5 +1,5 @@
 <template>
-  <div class="article-preview">
+  <div class="article-container">
     <section class="info-flow-center">
       <el-row>
         <el-col :span="3" :offset="19">
@@ -31,6 +31,7 @@
 
 <script>
 import UrlConstant from '../../../api/constant'
+
 import Pagination from '../../common/Pagination'
 import SingleArticlePreview from './SingleArticlePreview'
 import RightSideBar from '../../common/RightSideBar'
@@ -76,16 +77,8 @@ export default {
 </script>
 
 <style scoped>
-.article-preview {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
+.article-container {
   display: flex;
-  flex-grow: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-grow: 1;
 }
 
 .info-flow-center {

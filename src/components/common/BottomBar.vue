@@ -36,8 +36,6 @@ export default {
 <style scoped>
 .bottom-container {
   padding: 0 10px;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
   margin-top: 50px;
 }
 

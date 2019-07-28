@@ -1,5 +1,11 @@
 <template>
-  <div class="signin-form">
+  <div
+    class="signin-form"
+    v-loading.fullscreen.lock="fullscreenLoading"
+    element-loading-text="登录中"
+    element-loading-spinner="el-icon-loading"
+    element-loading-background="rgba(0, 0, 0, 0.8)"
+  >
     <h3 class="sign-title">登录</h3>
     <div>
       <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class="demo-ruleForm">
@@ -54,7 +60,10 @@
     </div>
   </div>
 </template>
+
 <script>
+import UrlConstant from '../../api/constant'
+
 export default {
   data () {
     var validatePass = (rule, value, callback) => {
@@ -68,6 +77,7 @@ export default {
       }
     }
     return {
+      fullscreenLoading: false,
       ruleForm: {
         username: '',
         password: ''
@@ -87,17 +97,27 @@ export default {
     submitForm () {
       this.$refs.ruleForm.validate((valid) => {
         if (valid) {
-          this.$store.commit('setToken', 'true')
-          window.location.href = '/'
+          this.fullscreenLoading = true
+          this.login()
         } else {
           console.log('error submit!!')
           return false
         }
       })
+    },
+    login () {
+      this.$http.post(UrlConstant.signInUrl).then((data) => {
+        this.$store.commit('setToken', 'true')
+        setTimeout(() => {
+          this.fullscreenLoading = false
+          window.location.href = '/'
+        }, 1000)
+      })
     }
   }
 }
 </script>
+
 <style scoped>
 .signin-form {
   width: 360px;

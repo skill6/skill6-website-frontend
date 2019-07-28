@@ -28,6 +28,7 @@
     </el-row>
   </div>
 </template>
+
 <script>
 import UrlConstant from '../../../api/constant'
 
@@ -44,6 +45,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .home-video {
   margin-left: 50px;
