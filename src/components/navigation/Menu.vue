@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light" v-loading.fullscreen.lock="fullscreenLoading">
       <a class="navbar-brand top-menu" href="#">
         <img src="/static/logo/logo.jpg" height="50px" width="125px" />
       </a>
@@ -45,7 +45,7 @@
           个人中心
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
-        <el-dropdown-menu slot="dropdown" v-loading.fullscreen.lock="fullscreenLoading">
+        <el-dropdown-menu slot="dropdown">
           <el-dropdown-item command="profile">我的主页</el-dropdown-item>
           <el-dropdown-item command="setting">设置</el-dropdown-item>
           <el-dropdown-item command="about">关于</el-dropdown-item>
@@ -57,6 +57,8 @@
 </template>
 
 <script>
+import UrlConstant from '../../api/constant'
+
 export default {
   data () {
     return {
@@ -82,12 +84,17 @@ export default {
         this.$router.push({ path: '/about' })
       } else if (command === 'quit') {
         this.fullscreenLoading = true
-        setTimeout(() => {
-          this.loginState = false
-          this.$store.commit('logout')
-          this.fullscreenLoading = false
-        }, 500)
+        this.logout()
       }
+    },
+    logout () {
+      this.$http.post(UrlConstant.logoutUrl).then((data) => {
+        this.loginState = false
+        this.$store.commit('logout')
+        setTimeout(() => {
+          this.fullscreenLoading = false
+        }, 600)
+      })
     }
   }
 }

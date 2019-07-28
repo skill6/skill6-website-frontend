@@ -1,3 +1,4 @@
+// GET 接口
 const commentUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/comment/123'
 const articlesUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/articles'
 const articleUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/article/123'
@@ -22,6 +23,10 @@ const getNoticeUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/notice
 
 const versionUpdateUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/about/version'
 
+// POST 接口
+const signInUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/signin'
+const logoutUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/logout'
+
 export default {
   articlesUrl,
   articleUrl,
@@ -40,5 +45,7 @@ export default {
   mostTenActiveUrl,
   mostTenVisitUrl,
   getNoticeUrl,
-  versionUpdateUrl
+  versionUpdateUrl,
+  signInUrl,
+  logoutUrl
 }
