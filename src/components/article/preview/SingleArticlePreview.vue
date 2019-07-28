@@ -8,7 +8,7 @@
           </a>
         </div>
         <div>
-          <router-link to="/article/123456789" class="author-title">{{article.articleTitle}}</router-link>
+          <router-link to="/article/123456789" class="article-title">{{article.articleTitle}}</router-link>
           <div class="article-description">
             <div class="article-detail">作者: {{article.articleAuthor}}</div>
             <div class="article-detail">发表时间: {{article.articleCreateTime}}</div>
@@ -18,7 +18,6 @@
       </header>
       <div class="article-body">
         <div class="article-content">{{article.articleSummary}}</div>
-        <button class="article-read-more" v-on:click="readMoreArticle(article.articleId)">阅读更多</button>
       </div>
     </div>
   </article>
@@ -26,12 +25,9 @@
 
 <script>
 export default {
-  props: ['article'],
-  methods: {
-    // 跳转阅读文章细节
-    readMoreArticle: function (articleId) {
-      const url = '/article/' + articleId
-      this.$router.push({ path: url })
+  props: {
+    article: {
+      type: Object
     }
   }
 }
@@ -45,26 +41,6 @@ export default {
   overflow: hidden;
   height: 100px;
   color: #2f2f2f;
-}
-
-.article-read-more {
-  font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.4;
-  letter-spacing: normal;
-  -webkit-font-smoothing: antialiased;
-  width: 100%;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  display: block;
-  margin-top: 5px;
-  box-sizing: border-box;
-  background: none;
-  border: 0;
-  outline: none;
-  background-color: #f3eeee;
 }
 
 .article-description {
@@ -83,7 +59,7 @@ export default {
   color: #212529;
 }
 
-.author-title {
+.article-title {
   color: #212529;
   text-decoration: none;
   font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans;
