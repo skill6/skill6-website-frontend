@@ -75,9 +75,9 @@ export default {
     },
     handleCommand (command) {
       if (command === 'profile') {
-        window.location.href = '/' + command
+        window.open('/profile', '_blank')
       } else if (command === 'setting') {
-        window.location.href = '/profile/' + command
+        window.open('/profile/setting', '_blank')
       } else if (command === 'about') {
         this.$router.push({ path: '/about' })
       } else if (command === 'quit') {

@@ -3,7 +3,7 @@
     <div class="footer-info">
       <ul class="info-links clearfix">
         <li>
-          <a href="/about" target="_blank">关于技术流工作室</a>
+          <router-link target="_blank" to="/about">关于技术流工作室</router-link>
           <span class="global-footer-split">|</span>
         </li>
         <li>
@@ -15,7 +15,7 @@
           <span class="global-footer-split">|</span>
         </li>
         <li>
-          <a href="/about#reward" target="_blank">赞赏支持</a>
+          <router-link target="_blank" to="/about#reward">赞赏支持</router-link>
         </li>
       </ul>
     </div>

@@ -3,9 +3,9 @@
     <div class="left-menu">
       <Anchor :offset-top="50" show-ink>
         <AnchorLink href="#about" title="关于我们" />
-        <AnchorLink href="#version" title="版本更新历史" />
-        <AnchorLink href="#contact" title="联系我们" />
         <AnchorLink href="#reward" title="赞赏支持" />
+        <AnchorLink href="#version" title="版本更新" />
+        <AnchorLink href="#contact" title="联系我们" />
       </Anchor>
     </div>
     <div class="about-wrap">
@@ -30,6 +30,25 @@
               <p>截至2019年7月3日，本站累计注册会员12345位。</p>
             </div>
           </div>
+        </div>
+      </div>
+      <!-- 赞赏支持 -->
+      <div class="about-content">
+        <div id="reward" class="menu-wrap">
+          <h1 class="title">
+            <strong>赞赏支持</strong>
+          </h1>
+          <div class="about-desc">
+            <p>如果觉得本站对你有所帮助，可以打赏支持。</p>
+          </div>
+          <el-row>
+            <el-col :span="8" :offset="2">
+              <img src="/static/images/money/ali_pay.jpg" alt="支付宝赞助" class="reward" />
+            </el-col>
+            <el-col :span="8" :offset="2">
+              <img src="/static/images/money/wechat_pay.jpg" alt="微信赞助" class="reward" />
+            </el-col>
+          </el-row>
         </div>
       </div>
       <!-- 版本更新历史 -->
@@ -99,19 +118,6 @@
               <li style="text-transform: lowercase">邮箱：husen@skill6.cn</li>
             </ul>
           </div>
-        </div>
-      </div>
-      <!-- 赞赏支持 -->
-      <div class="about-content">
-        <div id="reward" class="menu-wrap">
-          <h1 class="title">
-            <strong>赞赏支持</strong>
-          </h1>
-          <div class="about-desc">
-            <p>如果觉得本站对你有所帮助，可以打赏支持。</p>
-          </div>
-          <img src="/static/images/money/ali_pay.jpg" alt="支付宝赞助" class="reward" />
-          <img src="/static/images/money/wechat_pay.jpg" alt="微信赞助" class="reward" />
         </div>
       </div>
     </div>
@@ -194,14 +200,10 @@ export default {
 }
 
 .reward {
-  width: 180px;
+  width: 210px;
   height: 240px;
   border-radius: 4px;
-  float: left;
-  margin-left: 30px;
   margin-top: 10px;
-  background-size: cover;
-  background-position: center;
 }
 
 /* 版本更新历史 */
