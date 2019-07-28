@@ -15,7 +15,7 @@
           <span class="global-footer-split">|</span>
         </li>
         <li>
-          <a href="/about#section4" target="_blank">赞赏支持</a>
+          <a href="/about#reward" target="_blank">赞赏支持</a>
         </li>
       </ul>
     </div>
