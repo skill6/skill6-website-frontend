@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import Constant from '../../api/constant'
+import UrlConstant from '../../api/constant'
 import Comment from './comment/Comment'
 import BottomBar from '../common/BottomBar'
 
@@ -70,16 +70,16 @@ export default {
     }
   },
   created () {
-    this.$http.get(Constant.articleUrl).then((data) => {
+    this.$http.get(UrlConstant.articleUrl).then((data) => {
       this.article = data.body
     })
-    this.$http.get(Constant.commentUrl).then((data) => {
+    this.$http.get(UrlConstant.commentUrl).then((data) => {
       this.commentData = data.body
     })
   },
   methods: {
     updateComment (inputComment) {
-      this.$http.get(Constant.commentUrl).then((data) => {
+      this.$http.get(UrlConstant.commentUrl).then((data) => {
         this.commentData = data.body
       })
     }

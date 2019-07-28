@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import Constant from '../../api/constant'
+import UrlConstant from '../../api/constant'
 import BottomBar from '../common/BottomBar'
 
 export default {
@@ -75,7 +75,7 @@ export default {
     }
   },
   created () {
-    this.$http.get(Constant.questionUrl).then((data) => {
+    this.$http.get(UrlConstant.questionUrl).then((data) => {
       this.question = data.body
     })
   },

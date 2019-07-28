@@ -30,8 +30,9 @@
 </template>
 
 <script>
-import Constant from '../../../api/constant'
+import UrlConstant from '../../../api/constant'
 import Pagination from '../../common/Pagination'
+
 import SingleQuestionPreview from './SingleQuestionPreview'
 import RightSideBar from '../../common/RightSideBar'
 
@@ -49,7 +50,7 @@ export default {
     }
   },
   created () {
-    this.$http.get(Constant.questionsUrl).then((data) => {
+    this.$http.get(UrlConstant.questionsUrl).then((data) => {
       this.questions = data.body.questions
     })
     this.pageParam = {
