@@ -70,6 +70,7 @@
     </el-tabs>
   </div>
 </template>
+
 <script>
 export default {
   data () {
@@ -89,6 +90,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .bind-contact {
   width: 500px;

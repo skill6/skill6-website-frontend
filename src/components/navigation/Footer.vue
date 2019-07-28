@@ -1,7 +1,7 @@
 <template>
-  <footer id="footer" class="text-center">
+  <footer id="footer">
     <div class="footer-info">
-      <ul class="info-links clearfix">
+      <ul class="info-links">
         <li>
           <router-link target="_blank" to="/about">关于技术流工作室</router-link>
           <span class="global-footer-split">|</span>
@@ -40,24 +40,20 @@ export default {
 <style scoped>
 #footer {
   min-height: 50px;
-  background-color: gainsboro;
   margin-top: 30px;
   padding-bottom: 10px;
+  background-color: gainsboro;
+  text-align: center !important;
 }
 
 .footer-info {
   padding-top: 10px;
-  display: -webkit-flex;
   display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
   justify-content: center;
 }
 
 .info-links li {
   float: left;
-  list-style: none;
 }
 
 .info-links li a {

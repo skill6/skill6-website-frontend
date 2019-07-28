@@ -42,6 +42,7 @@
     </el-container>
   </div>
 </template>
+
 <script>
 export default {
   methods: {
@@ -51,6 +52,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .top-menu {
   margin: 20px 20px 0 20px;

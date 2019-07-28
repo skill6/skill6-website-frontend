@@ -1,5 +1,5 @@
 <template>
-  <article class="single-question-preview">
+  <article class="question-preview">
     <el-row>
       <el-col :span="20" :offset="1">
         <el-row>
@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style scoped>
-.single-question-preview {
+.question-preview {
   background-color: #f1f1f1;
   margin-bottom: 36px;
   padding: 0 0 15px 0;
@@ -89,14 +89,10 @@ export default {
 }
 
 .question-excerpt {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
   line-height: 1.5;
-  color: #888;
+  color: #212529;
   font-size: 13px;
 }
 

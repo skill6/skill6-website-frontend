@@ -47,25 +47,15 @@ export default {
 
 <style>
 .lunar-calendar {
-  width: 96%;
-  margin: 5px auto;
+  width: 90%;
+  margin: 5px auto !important;
 }
 
 .flex {
-  box-sizing: border-box;
-  display: -webkit-box;
-  -webkit-box-pack: start;
-  -webkit-box-align: start;
-  display: -webkit-flex;
-  -webkit-justify-content: space-between;
-  -webkit-align-items: top;
   display: flex;
   justify-content: space-between;
-  align-items: top;
   flex-flow: row wrap;
   margin-top: 20px;
-  border: 1px solid #dcdee2;
-  border-color: #e8eaec;
 }
 
 .flex > div {

@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light" v-loading.fullscreen.lock="fullscreenLoading">
-      <a class="navbar-brand top-menu" href="#">
+      <a class="navbar-brand top-menu" href="/">
         <img src="/static/logo/logo.jpg" height="50px" width="125px" />
       </a>
       <ul class="navbar-nav">

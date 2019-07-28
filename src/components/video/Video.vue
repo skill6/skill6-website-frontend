@@ -128,7 +128,7 @@ export default {
   cursor: pointer;
 }
 
-/*播放器播放按钮样式*/
+/* 播放器播放按钮样式 */
 .video-js .vjs-big-play-button {
   height: 2em;
   width: 2em;
@@ -136,19 +136,23 @@ export default {
   border-radius: 1em;
   border: 0;
 }
+
 .vjs-custom-skin > .video-js .vjs-big-play-button {
   margin-left: -1em;
 }
+
 .video-js .vjs-big-play-button:hover,
 .vjs-custom-skin .video-js:hover .vjs-big-play-button {
   background-color: #ff0000;
   transition: all 0.3s;
 }
+
 .video-js .vjs-control:focus:before,
 .video-js .vjs-control:hover:before,
 .video-js .vjs-control:focus {
   outline: none;
 }
+
 .vjs-custom-skin > .video-js .vjs-play-progress,
 .vjs-custom-skin > .video-js .vjs-volume-level {
   background-color: #ff0000;

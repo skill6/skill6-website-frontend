@@ -6,7 +6,6 @@
           <span class="wrap" title="文件分类">
             <span>文件分类</span>
           </span>
-          <span class="g-ico g-ico-arrow g-ico-arrow-top"></span>
         </div>
         <ul class="contentbox">
           <li class="item on">

@@ -41,7 +41,7 @@
             <span>参考资料</span>
           </div>
           <div v-for="o in 4" :key="o" class="text item">
-            <el-link href="http://192.168.0.107:8080/article/123456789" target="_blank">搭建开发环境</el-link>
+            <el-link href="/article/123456789" target="_blank">搭建开发环境</el-link>
           </div>
         </el-card>
       </div>
@@ -55,6 +55,7 @@
 
 <script>
 import UrlConstant from '../../api/constant'
+
 import Comment from './comment/Comment'
 import BottomBar from '../common/BottomBar'
 
@@ -96,12 +97,7 @@ export default {
 }
 
 .article-title {
-  word-break: break-word !important;
-  word-break: break-all;
-  margin: 20px 0 0;
-  font-family: -apple-system, SF UI Display, Arial, PingFang SC,
-    Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 700;
   line-height: 1.3;
 }
@@ -154,8 +150,6 @@ export default {
 
 .article-content {
   color: #2f2f2f;
-  word-break: break-word !important;
-  word-break: break-all;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.7;

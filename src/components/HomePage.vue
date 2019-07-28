@@ -1,5 +1,5 @@
 <template>
-  <div class="info-main">
+  <div class="home-page">
     <home-main></home-main>
     <home-side></home-side>
   </div>
@@ -18,21 +18,12 @@ export default {
 </script>
 
 <style>
-.info-main {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
+.home-page {
   display: flex;
-  flex-direction: row;
-  background-color: #fff;
   padding-top: 20px;
   padding-bottom: 30px;
   padding-left: 10px;
   padding-right: 10px;
   width: 100%;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
 }
 </style>

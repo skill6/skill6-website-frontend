@@ -31,6 +31,7 @@
     </el-row>
   </div>
 </template>
+
 <script>
 import UrlConstant from '../../../api/constant'
 
@@ -51,6 +52,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .el-carousel__item h3 {
   color: #475669;

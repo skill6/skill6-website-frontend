@@ -6,6 +6,7 @@
     </el-card>
   </div>
 </template>
+
 <script>
 import UrlConstant from '../../../api/constant'
 
@@ -43,6 +44,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .notice {
   clear: both;

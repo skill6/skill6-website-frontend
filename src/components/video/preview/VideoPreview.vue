@@ -78,15 +78,15 @@ export default {
   margin: 0 10%;
 }
 
-.video-pagination {
-  margin: 0 12.5%;
-}
-
 .video-top-col {
   margin-bottom: 0 !important;
 }
 
 .el-col {
   margin-bottom: 40px;
+}
+
+.video-pagination {
+  margin: 0 15% !important;
 }
 </style>

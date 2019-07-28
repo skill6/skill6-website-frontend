@@ -1,10 +1,10 @@
 <template>
   <div>
-    <el-card :body-style="{ padding: '0px' }">
-      <img class="image" :src="video.videoPoster" />
-      <div style="padding: 14px;">
+    <el-card class="video-card">
+      <el-image :src="video.videoPoster" class="video-image"></el-image>
+      <div class="video-desc">
         <span>{{video.videoName}}</span>
-        <div class="bottom clearfix">
+        <div>
           <router-link :to="'/video/' + video.videoId" class="view-video">观看视频</router-link>
         </div>
       </div>
@@ -19,30 +19,24 @@ export default {
 </script>
 
 <style scoped>
-.bottom {
-  margin-top: 13px;
-  line-height: 12px;
-}
-
-.view-video {
+.el-card__body {
   padding: 0;
-  float: right;
 }
 
-.image {
+.video-image {
   width: 100%;
   display: block;
   width: 360px;
   height: 300px;
 }
 
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: '';
+.video-desc {
+  padding: 15px;
 }
 
-.clearfix:after {
-  clear: both;
+.view-video {
+  padding: 0;
+  float: right;
+  margin-bottom: 10px;
 }
 </style>

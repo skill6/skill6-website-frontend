@@ -1,5 +1,5 @@
 <template>
-  <div class="question-preview">
+  <div class="question-container">
     <section class="info-flow-center">
       <el-row>
         <el-col :span="3" :offset="19">
@@ -77,17 +77,9 @@ export default {
 </script>
 
 <style scoped>
-.question-preview {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
+.question-container {
   display: flex;
-  flex-grow: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-grow: 1;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .info-flow-center {

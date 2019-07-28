@@ -1,5 +1,5 @@
 <template>
-  <div class="home-main">
+  <div class="home-container">
     <!-- 第一层: 推荐 -->
     <first-layer></first-layer>
     <!-- 第二层: 通知 -->
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style scoped>
-.home-main {
+.home-container {
   width: 980px;
   margin: 0 auto;
 }
