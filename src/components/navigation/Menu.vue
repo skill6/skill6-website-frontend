@@ -2,7 +2,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand top-menu" href="#">
-        <img src="/static/logo/logo.jpg" height="50px" width="50px" />
+        <img src="/static/logo/logo.jpg" height="50px" width="125px" />
       </a>
       <ul class="navbar-nav">
         <li class="info-flow">
