@@ -102,8 +102,7 @@ export default {
 
 <style scoped>
 .top-menu {
-  margin-left: 100px;
-  margin-right: 100px;
+  margin: 5px 100px;
 }
 
 .navbar-nav {

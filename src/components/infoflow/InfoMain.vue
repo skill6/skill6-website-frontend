@@ -1,5 +1,6 @@
 <template>
   <section class="info-flow-center">
+    <!-- 选择按钮 -->
     <div id="bannerNav">
       <ul>
         <li v-on:click="showLatestReply" :class="{on: isActice1}">
@@ -13,6 +14,7 @@
         </li>
       </ul>
     </div>
+    <!-- 轮播 -->
     <div class="info-carousel">
       <el-carousel
         :autoplay="false"
@@ -33,6 +35,8 @@
         </el-carousel-item>
       </el-carousel>
     </div>
+    <!-- 回到顶部 -->
+    <Back-top :bottom="80"></Back-top>
   </section>
 </template>
 
@@ -53,7 +57,6 @@ export default {
       isActice1: false,
       isActice2: true,
       isActice3: false,
-      carouselHeight0: 600,
       carouselHeight1: 600,
       carouselHeight2: 600,
       carouselHeight3: 600
@@ -61,39 +64,44 @@ export default {
   },
   computed: {
     carouselHeight () {
-      return (this.carouselHeight0 + 20) + 'px'
+      if (this.isActice1) {
+        return (this.carouselHeight1 + 20) + 'px'
+      }
+      if (this.isActice2) {
+        return (this.carouselHeight2 + 20) + 'px'
+      }
+      if (this.isActice3) {
+        return (this.carouselHeight3 + 20) + 'px'
+      }
     }
   },
   methods: {
     showLatestReply () {
       this.$refs.infoFlowCarousel.setActiveItem(0)
-      this.carouselHeight0 = this.carouselHeight1
 
       this.isActice1 = true
       this.isActice2 = this.isActice3 = false
     },
     showLatestUpdate () {
       this.$refs.infoFlowCarousel.setActiveItem(1)
-      this.carouselHeight0 = this.carouselHeight2
 
       this.isActice2 = true
       this.isActice1 = this.isActice3 = false
     },
     showMostBrowse () {
       this.$refs.infoFlowCarousel.setActiveItem(2)
-      this.carouselHeight0 = this.carouselHeight3
 
       this.isActice3 = true
       this.isActice1 = this.isActice2 = false
     },
-    changeHeight1 (count) {
-      this.carouselHeight0 = this.carouselHeight1 = 300 * count
+    changeHeight1 (currentHeight) {
+      this.carouselHeight1 = currentHeight
     },
-    changeHeight2 (count) {
-      this.carouselHeight0 = this.carouselHeight2 = 300 * count
+    changeHeight2 (currentHeight) {
+      this.carouselHeight2 = currentHeight
     },
-    changeHeight3 (count) {
-      this.carouselHeight0 = this.carouselHeight3 = 300 * count
+    changeHeight3 (currentHeight) {
+      this.carouselHeight3 = currentHeight
     }
   }
 }
@@ -174,14 +182,14 @@ export default {
 
 .info-carousel >>> .article-content {
   margin-top: 17px;
-  height: 100px;
+  min-height: 100px;
   color: #2f2f2f;
 }
 
 .info-carousel >>> .article-read-more {
   font-size: 14px;
   width: 100%;
-  margin-top: 5px;
+  margin-top: 20px;
   border: 0;
   background-color: #f3eeee;
 }

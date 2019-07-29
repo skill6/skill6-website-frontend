@@ -3,32 +3,28 @@
     <!-- 左边头部 -->
     <header>
       <h2 class="share-title">
-        <a>1. Java 编程思想</a>
-        <el-tag effect="plain" size="mini">书籍</el-tag>
+        <a>{{file.fileName}}</a>
+        <el-tag effect="plain" size="mini">{{file.fileLabel}}</el-tag>
       </h2>
       <div class="share-author">
-        <el-avatar
-          :size="78"
-          src="https://www.hemingsheng.cn/imageDownload.hms?imageUrl=20190623/80059000.jpeg"
-          alt="这是头像"
-        ></el-avatar>
-        <p class="desc">何明胜 贡献</p>
+        <el-avatar :size="78" :src="file.userHeadUrl" alt="这是头像"></el-avatar>
+        <p class="desc">{{file.fileAuthor}} 贡献</p>
       </div>
     </header>
     <div class="share-main">
       <div class="share-apraise">
         <span>
           <i class="el-icon-star-on"></i>
-          <em>6921</em>次收藏
+          <em>{{file.fileCollectCount}}</em>次收藏
         </span>
         <span class="share-space">|</span>
         <span>
-          <em>2019-06-30</em>上传
+          <em>{{file.fileUploadTime}}</em>上传
         </span>
       </div>
       <div class="share-resource">
         <span class="label">资源名称 ：</span>
-        <span>Java编程思想.pdf</span>
+        <span>{{file.fileCompleteName}}</span>
       </div>
       <!-- 左边操作区 -->
       <div class="share-act">
@@ -37,13 +33,13 @@
         <div class="share-property">
           <span>
             <i class="el-icon-view"></i>
-            <em class="share-highlight">68018</em>
+            <em class="share-highlight">{{file.fileVisitCount}}</em>
             <span>次浏览</span>
           </span>
           <span class="share-space">|</span>
           <span>
             <i class="el-icon-download"></i>
-            <em class="share-highlight" show="downloadnum">2725</em>
+            <em class="share-highlight" show="downloadnum">{{file.fileDownlaodCount}}</em>
             <span>次下载</span>
           </span>
         </div>
@@ -51,13 +47,18 @@
     </div>
     <!-- 文件概述 -->
     <div>
-      <p>本书赢得了全球程序员的广泛赞誉，即使是最晦涩的概念，在Bruce Eckel的文字亲和力和小而直接的编程示例面前也会化解于无形。从Java的基础语法到最高级特性（深入的面向对象概念、多线程、自动项目构建、单元测试和调试等），本书都能逐步指导你轻松掌握。</p>
+      <p>{{file.fileDesc}}</p>
     </div>
   </section>
 </template>
 
 <script>
 export default {
+  props: {
+    file: {
+      type: Object
+    }
+  }
 }
 </script>
 
