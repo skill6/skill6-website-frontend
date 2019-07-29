@@ -189,7 +189,7 @@ export default {
 .info-carousel >>> .article-read-more {
   font-size: 14px;
   width: 100%;
-  margin-top: 5px;
+  margin-top: 20px;
   border: 0;
   background-color: #f3eeee;
 }

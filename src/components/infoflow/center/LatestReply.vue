@@ -1,7 +1,7 @@
 <template>
   <div id="latestReply">
     <div v-for="(latestReply, index) in latestReplys" :key="index">
-      <single-reply v-bind:latestReply="latestReply"></single-reply>
+      <single-reply v-bind:latestReply="latestReply" v-on:updateHeight="updateHeight"></single-reply>
     </div>
     <div class="load-more">
       <Button long v-if="currentPage < totalPage" @click="loadMore" class="load-btn">点击加载更多</Button>

@@ -1,7 +1,7 @@
 <template>
   <div id="mostBrowse">
     <div v-for="(mostBrowse, index) in mostBrowses" :key="index">
-      <single-browse v-bind:mostBrowse="mostBrowse"></single-browse>
+      <single-browse v-bind:mostBrowse="mostBrowse" v-on:updateHeight="updateHeight"></single-browse>
     </div>
     <div class="load-more">
       <Button long v-if="currentPage < totalPage" @click="loadMore" class="load-btn">点击加载更多</Button>

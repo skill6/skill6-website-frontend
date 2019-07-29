@@ -12,10 +12,10 @@
           >发表于:{{latestUpdate.publishTime}} &nbsp;|&nbsp; 访问量:{{latestUpdate.visitCount}}</div>
         </div>
       </header>
-      <div class="article-content">
-        <div v-for="index in 10" v-bind:key="index">{{latestUpdate.content}}</div>
+      <div :class="showAll ? 'article-content ' : 'article-content hide-all' ">
+        <div>{{latestUpdate.content}}</div>
       </div>
-      <button class="article-read-more">阅读更多</button>
+      <button class="article-read-more" @click="showAllContent">阅读更多</button>
     </div>
   </article>
 </template>
@@ -26,9 +26,28 @@ export default {
     latestUpdate: {
       type: Object
     }
+  },
+  data () {
+    return {
+      showAll: false
+    }
+  },
+  updated () {
+    this.$emit('updateHeight')
+  },
+  methods: {
+    showAllContent () {
+      this.showAll = !this.showAll
+    }
   }
 }
 </script>
 
 <style scoped>
+.hide-all {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
 </style>
