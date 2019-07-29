@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="latestUpdate">
     <div v-for="(latestUpdate, index) in latestUpdates" :key="index">
       <single-update v-bind:latestUpdate="latestUpdate"></single-update>
     </div>
@@ -31,6 +31,9 @@ export default {
   created () {
     this.queryByPage()
   },
+  updated () {
+    this.updateHeight()
+  },
   methods: {
     loadMore () {
       this.$Loading.start()
@@ -38,7 +41,6 @@ export default {
       this.currentPage += 1
 
       this.queryByPage()
-      this.$emit('changeHeight', this.currentCount)
       this.$Loading.finish()
     },
     queryByPage () {
@@ -46,6 +48,10 @@ export default {
         const latestUpdates = data.body.latestUpdates
         this.latestUpdates = latestUpdates.slice(0, this.currentCount)
       })
+    },
+    updateHeight () {
+      const currentHeight = document.getElementById('latestUpdate').offsetHeight
+      this.$emit('changeHeight', currentHeight)
     }
   }
 }

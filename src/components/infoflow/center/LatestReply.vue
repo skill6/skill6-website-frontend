@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="latestReply">
     <div v-for="(latestReply, index) in latestReplys" :key="index">
       <single-reply v-bind:latestReply="latestReply"></single-reply>
     </div>
@@ -31,6 +31,9 @@ export default {
   created () {
     this.queryByPage()
   },
+  updated () {
+    this.updateHeight()
+  },
   methods: {
     loadMore () {
       this.$Loading.start()
@@ -38,7 +41,6 @@ export default {
       this.currentPage += 1
 
       this.queryByPage()
-      this.$emit('changeHeight', this.currentCount)
       this.$Loading.finish()
     },
     queryByPage () {
@@ -46,6 +48,10 @@ export default {
         const latestReplys = data.body.latestReplys
         this.latestReplys = latestReplys.slice(0, this.currentCount)
       })
+    },
+    updateHeight () {
+      const currentHeight = document.getElementById('latestReply').offsetHeight
+      this.$emit('changeHeight', currentHeight)
     }
   }
 }

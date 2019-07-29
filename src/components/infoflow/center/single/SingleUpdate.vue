@@ -13,7 +13,7 @@
         </div>
       </header>
       <div class="article-content">
-        <div>{{latestUpdate.content}}</div>
+        <div v-for="index in 10" v-bind:key="index">{{latestUpdate.content}}</div>
       </div>
       <button class="article-read-more">阅读更多</button>
     </div>

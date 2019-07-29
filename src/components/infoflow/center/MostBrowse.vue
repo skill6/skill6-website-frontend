@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="mostBrowse">
     <div v-for="(mostBrowse, index) in mostBrowses" :key="index">
       <single-browse v-bind:mostBrowse="mostBrowse"></single-browse>
     </div>
@@ -31,6 +31,9 @@ export default {
   created () {
     this.queryByPage()
   },
+  updated () {
+    this.updateHeight()
+  },
   methods: {
     loadMore () {
       this.$Loading.start()
@@ -38,7 +41,6 @@ export default {
       this.currentPage += 1
 
       this.queryByPage()
-      this.$emit('changeHeight', this.currentCount)
       this.$Loading.finish()
     },
     queryByPage () {
@@ -46,6 +48,10 @@ export default {
         const mostBrowses = data.body.mostBrowses
         this.mostBrowses = mostBrowses.slice(0, this.currentCount)
       })
+    },
+    updateHeight () {
+      const currentHeight = document.getElementById('mostBrowse').offsetHeight
+      this.$emit('changeHeight', currentHeight)
     }
   }
 }
