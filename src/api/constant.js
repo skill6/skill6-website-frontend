@@ -9,6 +9,8 @@ const questionUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/questio
 const videosUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/videos'
 const videoUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/video/12345'
 
+const filesUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/files'
+
 const articleRecommendUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/recommend/articles'
 const questionRecommendUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/recommend/question'
 const downloadRecommendUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/recommend/download'
@@ -35,6 +37,7 @@ export default {
   commentUrl,
   videosUrl,
   videoUrl,
+  filesUrl,
   articleRecommendUrl,
   questionRecommendUrl,
   downloadRecommendUrl,

@@ -22,7 +22,9 @@
         <!-- 主体 -->
         <section>
           <!-- 单个下载 -->
-          <single-share-preview v-for="question in 10" :key="question"></single-share-preview>
+          <div v-for="file in files" :key="file.fileId">
+            <single-share-preview v-bind:file="file"></single-share-preview>
+          </div>
           <!-- 分页 -->
           <pagination
             v-bind:pageParam="pageParam"
@@ -36,6 +38,8 @@
 </template>
 
 <script>
+import UrlConstant from '../../../api/constant'
+
 import SideMenu from './SideMenu'
 import Pagination from '../../common/Pagination'
 import SingleSharePreview from './SingleSharePreview'
@@ -48,11 +52,15 @@ export default {
   },
   data () {
     return {
+      files: [],
       pageParam: {},
       shareBtnLoading: false
     }
   },
   created () {
+    this.$http.get(UrlConstant.filesUrl).then((data) => {
+      this.files = data.body.files
+    })
     this.pageParam = {
       pageSize: 10,
       currentPage: 1,
