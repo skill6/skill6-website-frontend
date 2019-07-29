@@ -3,15 +3,17 @@
     <div class="article-actual">
       <header class="article-header">
         <a href class="author-picture-show">
-          <el-avatar :size="50" src="/static/logo/logo.jpg" alt="这是头像"></el-avatar>
+          <el-avatar :size="50" :src="mostBrowse.userHeadUrl" alt="这是头像"></el-avatar>
         </a>
         <div>
-          <a class="author-title">这是标题 - 最多访问</a>
-          <div class="article-description">发表时间、浏览量</div>
+          <a class="author-title">{{mostBrowse.title}}</a>
+          <div
+            class="article-description"
+          >发表于:{{mostBrowse.publishTime}} &nbsp;|&nbsp; 访问量:{{mostBrowse.visitCount}}</div>
         </div>
       </header>
       <div class="article-content">
-        <div>这是文章内容</div>
+        <div>{{mostBrowse.content}}</div>
       </div>
       <button class="article-read-more">阅读更多</button>
     </div>
@@ -20,6 +22,11 @@
 
 <script>
 export default {
+  props: {
+    mostBrowse: {
+      type: Object
+    }
+  }
 }
 </script>
 

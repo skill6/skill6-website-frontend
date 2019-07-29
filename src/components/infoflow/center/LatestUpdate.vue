@@ -1,16 +1,18 @@
 <template>
   <div>
-    <div v-for="index in count" :key="index">
-      <single-update></single-update>
+    <div v-for="(latestUpdate, index) in latestUpdates" :key="index">
+      <single-update v-bind:latestUpdate="latestUpdate"></single-update>
     </div>
     <div class="load-more">
-      <Button long v-if="page <= pageCount" @click="loadMore" class="load-btn">点击加载更多</Button>
+      <Button long v-if="currentPage < totalPage" @click="loadMore" class="load-btn">点击加载更多</Button>
       <Button long v-else class="load-btn">没有更多了</Button>
     </div>
   </div>
 </template>
 
 <script>
+import UrlConstant from '../../../api/constant'
+
 import SingleUpdate from './single/SingleUpdate'
 
 export default {
@@ -19,18 +21,31 @@ export default {
   },
   data () {
     return {
-      count: 2,
-      page: 1,
-      pageCount: 3
+      latestUpdates: [],
+      currentCount: 2,
+      currentPage: 1,
+      totalPage: 5,
+      pageSize: 2
     }
+  },
+  created () {
+    this.queryByPage()
   },
   methods: {
     loadMore () {
       this.$Loading.start()
-      this.count += 2
-      this.page += 1
-      this.$emit('changeHeight', this.count)
+      this.currentCount += this.pageSize
+      this.currentPage += 1
+
+      this.queryByPage()
+      this.$emit('changeHeight', this.currentCount)
       this.$Loading.finish()
+    },
+    queryByPage () {
+      this.$http.get(UrlConstant.latestUpdateUrl).then((data) => {
+        const latestUpdates = data.body.latestUpdates
+        this.latestUpdates = latestUpdates.slice(0, this.currentCount)
+      })
     }
   }
 }
