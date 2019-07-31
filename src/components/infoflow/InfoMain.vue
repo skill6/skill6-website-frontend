@@ -181,9 +181,10 @@ export default {
 }
 
 .info-carousel >>> .article-content {
-  margin-top: 17px;
+  margin-top: 10px;
   min-height: 100px;
   color: #2f2f2f;
+  padding: 10px 0;
 }
 
 .info-carousel >>> .article-read-more {

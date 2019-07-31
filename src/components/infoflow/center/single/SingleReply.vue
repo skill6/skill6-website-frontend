@@ -46,7 +46,9 @@ export default {
 <style scoped>
 .hide-all {
   display: -webkit-box;
+  /*! autoprefixer: off */
   -webkit-box-orient: vertical;
+  /* autoprefixer: on */
   -webkit-line-clamp: 3;
   overflow: hidden;
 }

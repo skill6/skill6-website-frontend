@@ -47,7 +47,7 @@ export default {
 
 <style>
 .lunar-calendar {
-  width: 90%;
+  width: 92%;
   margin: 5px auto !important;
 }
 
