@@ -44,18 +44,18 @@
         <span>第三方登录</span>
       </p>
       <div class="third-party-sign">
-        <a>
+        <el-link href="/connect/github" :underline="false">
           <Icon type="logo-github" size="30" />
-        </a>
-        <a>
+        </el-link>
+        <el-link href="/connect/google" :underline="false">
           <Icon type="logo-google" size="30" />
-        </a>
-        <a>
+        </el-link>
+        <el-link href="/connect/baidu" :underline="false">
           <Icon type="md-paw" size="30" />
-        </a>
-        <a>
+        </el-link>
+        <el-link href="/connect/qq" :underline="false">
           <el-image src="/static/images/thirdauth/qq_login.png" :lazy="true" class="qq-login"></el-image>
-        </a>
+        </el-link>
       </div>
     </div>
   </div>
