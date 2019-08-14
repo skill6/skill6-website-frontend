@@ -107,7 +107,7 @@ export default {
     },
     login () {
       this.$http.post(UrlConstant.signInUrl).then((data) => {
-        this.$store.commit('setToken', 'true')
+        this.$store.commit('setToken', true)
         setTimeout(() => {
           this.fullscreenLoading = false
           window.location.href = '/'

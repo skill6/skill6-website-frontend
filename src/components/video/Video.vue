@@ -40,7 +40,7 @@ export default {
       video: {},
       // videojs options
       playerOptions: {
-        playbackRates: [0.7, 1.0, 1.5, 2.0], // 播放速度
+        playbackRates: [0.5, 1.0, 1.5, 2.0, 3.0], // 播放速度
         autoplay: false, // 如果true,浏览器准备好时开始回放
         controls: true, // 控制条
         preload: 'auto', // 视频预加载
@@ -111,7 +111,7 @@ export default {
     playerReadied (player) {
       // seek to 10s
       console.log('example player 1 readied', player)
-      player.currentTime(10)
+      player.currentTime(0)
       console.log('example 01: the player is readied', player)
     }
   }
