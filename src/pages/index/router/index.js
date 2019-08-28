@@ -4,6 +4,9 @@ import { LoadingBar } from 'iview'
 
 import HomePage from '@/components/HomePage'
 
+import store from '../../../store'
+import UrlConstant from '../../../api/constant'
+
 Vue.use(Router)
 
 const routes =
@@ -46,7 +49,15 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   LoadingBar.start()
-  next()
+
+  Vue.http.get(UrlConstant.loginStateUrl).then(response => {
+    if (response.body.success) {
+      store.commit('setToken', true)
+    } else {
+      store.commit('logout')
+    }
+    next()
+  })
 })
 
 router.afterEach(route => {

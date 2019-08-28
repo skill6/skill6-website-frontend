@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import store from '../../../store'
+import UrlConstant from '../../../api/constant'
 
 const PersonalCenter = () => import('@/components/profile/PersonalCenter')
 const EditArticle = () => import('@/components/profile/publish/EditArticle')
@@ -87,12 +89,16 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {
-    if (store.getters.getToken) {
-      next()
-    } else {
-      next(false)
-      window.location.href = '/account/signin'
-    }
+    Vue.http.get(UrlConstant.loginStateUrl).then(response => {
+      if (response.body.success) {
+        store.commit('setToken', true)
+        next()
+      } else {
+        store.commit('logout')
+        next(false)
+        window.location.href = '/account/signin'
+      }
+    })
   } else {
     next()
   }

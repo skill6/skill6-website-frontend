@@ -32,7 +32,8 @@ const mostBrowseUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/infof
 
 // POST 接口
 const signInUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/signin'
-const logoutUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/logout'
+const loginStateUrl = '/auth/authenticated'
+const logoutUrl = '/auth/logout'
 
 export default {
   articlesUrl,
@@ -58,5 +59,6 @@ export default {
   latestReplyUrl,
   mostBrowseUrl,
   signInUrl,
+  loginStateUrl,
   logoutUrl
 }
