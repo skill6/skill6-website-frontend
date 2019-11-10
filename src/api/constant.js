@@ -1,7 +1,7 @@
 // GET 接口
-const commentUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/comment/123'
 const articlesUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/articles'
 const articleUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/article/123'
+const commentUrl = '/api/article/1193463048577355776/comments?pageSize=10&pageNum=1'
 
 const questionsUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/questions'
 const questionUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/question/123'
@@ -38,9 +38,9 @@ const logoutUrl = '/auth/logout'
 export default {
   articlesUrl,
   articleUrl,
+  commentUrl,
   questionsUrl,
   questionUrl,
-  commentUrl,
   videosUrl,
   videoUrl,
   filesUrl,

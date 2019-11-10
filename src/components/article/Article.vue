@@ -74,14 +74,16 @@ export default {
     this.$http.get(UrlConstant.articleUrl).then((data) => {
       this.article = data.body
     })
+    // TODO 评论关联文章
     this.$http.get(UrlConstant.commentUrl).then((data) => {
-      this.commentData = data.body
+      this.commentData = data.body.data
     })
   },
   methods: {
     updateComment (inputComment) {
+      // TODO 评论关联文章
       this.$http.get(UrlConstant.commentUrl).then((data) => {
-        this.commentData = data.body
+        this.commentData = data.body.data
       })
     }
   }
