@@ -71,18 +71,22 @@ export default {
     }
   },
   created () {
-    this.$http.get(UrlConstant.articleUrl).then((data) => {
+    const articleId = this.$route.params.articleId
+
+    const articleUrl = UrlConstant.getArticlesById(articleId)
+    this.$http.get(articleUrl).then((data) => {
       this.article = data.body
     })
-    // TODO 评论关联文章
-    this.$http.get(UrlConstant.commentUrl).then((data) => {
+
+    const commentUrl = UrlConstant.getCommentUrlByArticleId(articleId, 10, 1)
+    this.$http.get(commentUrl).then((data) => {
       this.commentData = data.body.data
     })
   },
   methods: {
     updateComment (inputComment) {
-      // TODO 评论关联文章
-      this.$http.get(UrlConstant.commentUrl).then((data) => {
+      const commentUrl = UrlConstant.getCommentUrlByArticleId(this.article.articleId, 10, 1)
+      this.$http.get(commentUrl).then((data) => {
         this.commentData = data.body.data
       })
     }

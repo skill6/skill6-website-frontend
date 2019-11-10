@@ -1,7 +1,5 @@
 // GET 接口
-const articlesUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/articles'
-const articleUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/article/123'
-const commentUrl = '/api/article/1193463048577355776/comments?pageSize=10&pageNum=1'
+const articleBaseUri = '/api/article'
 
 const questionsUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/questions'
 const questionUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/question/123'
@@ -35,10 +33,26 @@ const signInUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/signin'
 const loginStateUrl = '/auth/authenticated'
 const logoutUrl = '/auth/logout'
 
+function getArticlesById (articleId) {
+  // const articleUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/article/123'
+  return articleBaseUri + '/' + articleId
+}
+
+function getArticlesByPage (pageSize, pageNum) {
+  // const articlesUrl = 'https://easy-mock.com/mock/5d0a6c87edcd9a764d21fe78/articles'
+  return articleBaseUri + '?pageSize=' + pageSize + '&pageNum=' + pageNum
+}
+
+function getCommentUrlByArticleId (articleId, pageSize, pageNum) {
+  console.log(articleId)
+  // const commentUrl = '/api/article/1193463048577355776/comments?pageSize=10&pageNum=1'
+  return articleBaseUri + '/' + articleId + '/comments?pageSize=' + pageSize + '&pageNum=' + pageNum
+}
+
 export default {
-  articlesUrl,
-  articleUrl,
-  commentUrl,
+  getArticlesById,
+  getArticlesByPage,
+  getCommentUrlByArticleId,
   questionsUrl,
   questionUrl,
   videosUrl,

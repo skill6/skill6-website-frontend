@@ -50,8 +50,10 @@ export default {
     }
   },
   created () {
-    this.$http.get(UrlConstant.articlesUrl).then((data) => {
-      this.articles = data.body.articles
+    const articlesUrl = UrlConstant.getArticlesByPage(10, 1)
+    this.$http.get(articlesUrl).then((data) => {
+      console.log(data.body)
+      this.articles = data.body.data
     })
     this.pageParam = {
       pageSize: 10,
