@@ -71,17 +71,23 @@ export default {
     }
   },
   created () {
-    this.$http.get(UrlConstant.articleUrl).then((data) => {
+    const articleId = this.$route.params.articleId
+
+    const articleUrl = UrlConstant.getArticlesById(articleId)
+    this.$http.get(articleUrl).then((data) => {
       this.article = data.body
     })
-    this.$http.get(UrlConstant.commentUrl).then((data) => {
-      this.commentData = data.body
+
+    const commentUrl = UrlConstant.getCommentUrlByArticleId(articleId, 10, 1)
+    this.$http.get(commentUrl).then((data) => {
+      this.commentData = data.body.data
     })
   },
   methods: {
     updateComment (inputComment) {
-      this.$http.get(UrlConstant.commentUrl).then((data) => {
-        this.commentData = data.body
+      const commentUrl = UrlConstant.getCommentUrlByArticleId(this.article.articleId, 10, 1)
+      this.$http.get(commentUrl).then((data) => {
+        this.commentData = data.body.data
       })
     }
   }

@@ -8,7 +8,7 @@
           </a>
         </div>
         <div>
-          <router-link to="/article/123456789" class="article-title">{{article.articleTitle}}</router-link>
+          <router-link :to="'/article/' + article.articleId" class="article-title">{{article.articleTitle}}</router-link>
           <div class="article-description">
             <div class="article-detail">作者: {{article.articleAuthor}}</div>
             <div class="article-detail">发表时间: {{article.articleCreateTime}}</div>

@@ -1,19 +1,19 @@
 <!--评论模块-->
 <template>
   <div class="comment-container">
-    <div class="comment" v-for="item in comments" :key="item.id">
+    <div class="comment" v-for="item in comments" :key="item.commentId">
       <div class="info">
-        <img class="avatar" :src="item.fromAvatar" width="36" height="36">
+        <img class="avatar" :src="item.commentUserHeadUrl" width="36" height="36">
         <div class="right">
-          <div class="name">{{item.fromName}}</div>
-          <div class="date">{{item.date}}</div>
+          <div class="name">{{item.commentUserNickName}}</div>
+          <div class="date">{{item.commentTime}}</div>
         </div>
       </div>
-      <div class="content">{{item.content}}</div>
+      <div class="content">{{item.commentContent}}</div>
       <div class="control">
         <span class="like" :class="{active: item.isLike}" @click="likeClick(item)">
           <i class="iconfont icon-like"></i>
-          <span class="like-num">{{item.likeNum > 0 ? item.likeNum + '人赞' : '赞'}}</span>
+          <span class="like-num">{{item.commentThumbsUpCount > 0 ? item.commentThumbsUpCount + '人赞' : '赞'}}</span>
         </span>
         <span class="comment-reply" @click="showCommentInput(item)">
           <i class="iconfont icon-comment"></i>
@@ -21,27 +21,27 @@
         </span>
       </div>
       <div class="reply">
-        <div class="item" v-for="reply in item.reply" :key="reply.id">
+        <div class="item" v-for="reply in item.articleCommentReplyVos" :key="reply.replyId">
           <div class="reply-content">
-            <span class="from-name">{{reply.fromName}}</span>
+            <span class="from-name">{{reply.replyUserNickName}}</span>
             <span>:</span>
-            <span class="to-name">@{{reply.toName}}</span>
-            <span>{{reply.content}}</span>
+            <span class="to-name">@{{reply.replyToUserNickName}}</span>
+            <span>{{reply.replyContent}}</span>
           </div>
           <div class="reply-bottom">
-            <span>{{reply.date}}</span>
+            <span>{{reply.replyTime}}</span>
             <span class="reply-text" @click="showCommentInput(item, reply)">
               <i class="el-icon-chat-square"></i>
               <span>回复</span>
             </span>
           </div>
         </div>
-        <div class="write-reply" v-if="item.reply.length > 0" v-on:click="showCommentInput(item)">
+        <div class="write-reply" v-if="item.articleCommentReplyVos.length > 0" v-on:click="showCommentInput(item)">
           <i class="el-icon-edit"></i>
           <span class="add-comment">添加新评论</span>
         </div>
         <transition name="fade">
-          <div class="input-wrapper" v-if="showItemId === item.id">
+          <div class="input-wrapper" v-if="showItemId === item.commentId">
             <el-input
               class="gray-bg-input"
               v-model="inputComment"
@@ -87,12 +87,12 @@ export default {
     likeClick (item) {
       if (item.isLike === null) {
         Vue.$set(item, 'isLike', true)
-        item.likeNum++
+        item.commentThumbsUpCount++
       } else {
         if (item.isLike) {
-          item.likeNum--
+          item.commentThumbsUpCount--
         } else {
-          item.likeNum++
+          item.commentThumbsUpCount++
         }
         item.isLike = !item.isLike
       }
@@ -117,15 +117,14 @@ export default {
      */
     showCommentInput (item, reply) {
       if (reply) {
-        this.inputComment = '@' + reply.fromName + ' '
+        this.inputComment = '@' + reply.commentUserNickName + ' '
       } else {
         this.inputComment = ''
       }
-      this.showItemId = item.id
+      this.showItemId = item.commentId
     }
   },
   created () {
-    console.log(this.comments)
   }
 }
 </script>
